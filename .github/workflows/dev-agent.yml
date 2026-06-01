@@ -26,7 +26,7 @@ jobs:
           clean: true
 
       - name: Configure git
-        shell: pwsh
+        shell: powershell
         run: |
           git config user.email "dev-agent@rslbuddy"
           git config user.name "RSL Dev Agent"
@@ -35,7 +35,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: pwsh
+        shell: powershell
         run: |
           $prompt = @'
           You are a development agent for RSL Buddy — a Twitch Extension and OBS Browser Source overlay for Raid: Shadow Legends streamers.
