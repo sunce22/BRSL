@@ -34,8 +34,10 @@ jobs:
           git config user.name "RSL Dev Agent"
           git remote set-url origin "https://x-access-token:$env:GITHUB_TOKEN@github.com/sunce22/BRSL.git"
           $env:PATH += ";C:\Program Files\GitHub CLI"
+          # Delete all local branches except main — prevents Claude from seeing stale agent branches
+          git branch | Where-Object { $_ -notmatch '\*' -and $_ -notmatch 'main' } | ForEach-Object { git branch -D $_.Trim() 2>&1 | Out-Null }
           Write-Host "gh: $(gh --version 2>&1 | Select-Object -First 1)"
-          Write-Host "branches before: $(git branch -a)"
+          Write-Host "Local branches: $(git branch)"
 
       - name: Claude implements task
         id: claude_run
@@ -62,19 +64,21 @@ Current directory is the repo root. Run all git/gh commands from here.
 ## Tech stack
 Vanilla JS ES modules, no bundler, no external libraries, CSS custom properties.
 
-## Steps — execute each one:
+## Steps — execute each one IN ORDER:
 1. Run: Get-Content TODO.md | Out-String
-2. Find ONE task: not done ([x]), tagged with globe emoji, UI/source code only, NOT data/translations/external
-3. Implement the change
-4. Run: node --test tests/*.test.js — must pass
-5. Run: git checkout -b agent/2026-06-02-SHORT-DESCRIPTION
-6. Run: git add -A
-7. Run: git commit -m "feat: short description"
-8. Run: git push origin HEAD
-9. Run: gh pr create --title "short title" --body "What changed. Closes: TASK_NAME"
+2. Run: gh pr list --state open --limit 20 (to see what's already in progress — skip tasks that already have a PR)
+3. Find ONE task: not done ([x]), tagged with globe emoji (UI/source code), NOT data/translations/external
+4. Implement the code change in the relevant files
+5. Run: node --test tests/*.test.js — ALL must pass
+6. Run: git checkout -b agent/TODAYS-DATE-SHORT-DESCRIPTION (use format agent/2026-06-02-description)
+7. Run: git add -A
+8. Run: git commit -m "feat: description"
+9. Run: git push origin HEAD
+10. Run: gh pr create --title "short title" --body "What changed. Closes: TASK_NAME"
 
 ## Rules
-- If no suitable task: Run gh issue create --title "No tasks 2026-06-02" --body "All globe-tagged tasks are done or complex."
+- A task is "done" only if there is an OPEN or MERGED PR for it on GitHub — local branches do NOT count
+- If no suitable task: Run gh issue create --title "No tasks $(Get-Date -Format yyyy-MM-dd)" --body "All globe-tagged tasks are done or have open PRs."
 - NEVER commit to main
 - Do NOT touch: data/heroes.json, i18n/heroes-uk.json, tools/*.py, tools/*.mjs
 '@
