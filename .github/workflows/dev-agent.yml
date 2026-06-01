@@ -52,13 +52,29 @@ jobs:
           git status
           git branch -r
 
-      - name: Check result
+      - name: Create PR if branch was pushed
         shell: powershell
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $env:PATH += ";C:\Program Files\GitHub CLI"
-          Write-Host "=== Open PRs ==="
-          gh pr list --repo sunce22/BRSL 2>&1
-          Write-Host "=== Open Issues (last 5) ==="
-          gh issue list --repo sunce22/BRSL --limit 5 2>&1
+          # Find any agent/ branch that is not main
+          $branch = git branch -r | Where-Object { $_ -match 'origin/agent/' } | Select-Object -First 1
+          if ($branch) {
+            $branch = $branch.Trim().Replace('origin/', '')
+            Write-Host "Found agent branch: $branch"
+            # Check if PR already exists
+            $existing = gh pr list --repo sunce22/BRSL --head $branch --json number --jq '.[0].number' 2>&1
+            if (-not $existing -or $existing -eq 'null') {
+              Write-Host "Creating PR for $branch"
+              gh pr create --repo sunce22/BRSL --base main --head $branch `
+                --title "Agent: $($branch -replace 'agent/\d{4}-\d{2}-\d{2}-','')" `
+                --body "Automated implementation by dev agent. Branch: $branch"
+            } else {
+              Write-Host "PR already exists: #$existing"
+            }
+          } else {
+            Write-Host "No agent branch found — Claude may have created an issue instead"
+            gh issue list --repo sunce22/BRSL --limit 3 2>&1
+          }
