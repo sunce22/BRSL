@@ -68,5 +68,16 @@
   "effect_remove_buffs":     "Видаляє Посилення",
   "effect_remove_debuffs":   "Видаляє Послаблення",
   "effect_steal_buffs":      "Викрадає Посилення",
-  "effect_nuke":             "Підрив"
+  "effect_nuke":             "Підрив",
+  "effect_taunt":                    "Провокація атак",
+  "effect_revive_on_death":          "Відродження при смерті",
+  "effect_block_active_skills":      "Блок Активних Навичок",
+  "effect_block_passive_skills":     "Блок Пасивних Навичок",
+  "effect_heal_reduction":           "Зменшення Лікування",
+  "effect_poison_sensitivity":       "Чутливість до Отрути",
+  "effect_decrease_cd":              "Знижує Ефект. Крит.",
+  "effect_decrease_buff_duration":   "Скорочує Тривалість Посилень",
+  "effect_increase_debuff_duration": "Подовжує Тривалість Послаблень",
+  "effect_spread_debuff":            "Поширення Послаблень",
+  "effect_transfer_debuff":          "Передача Послаблень"
 }
