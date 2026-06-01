@@ -1,0 +1,204 @@
+{
+  "hero_id_to_name": {
+    "17": "Hordin",
+    "42": "Renegade",
+    "45": "Fang Cleric",
+    "84": "Barbarian",
+    "111": "Nightcrawler",
+    "131": "Terrorbeast",
+    "150": "Athel",
+    "212": "Grimskinn",
+    "233": "Outlaw Monk",
+    "242": "Lugan the Steadfast",
+    "260": "Ignatius",
+    "273": "Lonatharil",
+    "290": "Wanderer",
+    "305": "Interceptor",
+    "306": "Rotting Mage",
+    "314": "Pain Keeper",
+    "315": "Harvester",
+    "323": "Towering Titan",
+    "331": "Aristocrat",
+    "332": "Tormentoo",
+    "342": "Executionerc",
+    "358": "Stitched Beast",
+    "365": "Defiled Sinner",
+    "366": "Rakka Viletide",
+    "377": "Captain Temila",
+    "378": "Word Bearer",
+    "395": "Warcaster",
+    "403": "HERO_403",
+    "405": "Mausoleum Mage",
+    "413": "Necrohunter",
+    "438": "Lady Etessa",
+    "446": "Dracomorph",
+    "470": "Skullsquire",
+    "496": "Cillian the Lucky",
+    "513": "Dunestride",
+    "514": "Dolor Lorekeepe",
+    "523": "Renouncer",
+    "531": "Baroth the Bloodsoaked",
+    "539": "Melga Steelgirdle",
+    "547": "Boltsmith",
+    "554": "Achak the Wendarin",
+    "562": "Fodbor the Bard",
+    "572": "HERO_572",
+    "573": "Tarshon",
+    "581": "Spirithost",
+    "622": "Versulf the Grim",
+    "633": "Torturehelm",
+    "634": "Torturehelmr",
+    "643": "Furystoker",
+    "644": "Danag Skullreap",
+    "2510": "Grandmaster"
+  },
+  "skill_formulas": {
+    "13302": {
+      "skill_id": 13302,
+      "hero_numeric_id": 133,
+      "hero_name": "HERO_133",
+      "formula": "3.8*ATK",
+      "blob_idx": 390
+    },
+    "15902": {
+      "skill_id": 15902,
+      "hero_numeric_id": 159,
+      "hero_name": "HERO_159",
+      "formula": "4.5*DEF",
+      "blob_idx": 396
+    },
+    "18404": {
+      "skill_id": 18404,
+      "hero_numeric_id": 184,
+      "hero_name": "HERO_184",
+      "formula": "5.3*DEF",
+      "blob_idx": 405
+    },
+    "19201": {
+      "skill_id": 19201,
+      "hero_numeric_id": 192,
+      "hero_name": "HERO_192",
+      "formula": "2*ATK",
+      "blob_idx": 406
+    },
+    "32502": {
+      "skill_id": 32502,
+      "hero_numeric_id": 325,
+      "hero_name": "HERO_325",
+      "formula": "4.2*ATK",
+      "blob_idx": 501
+    },
+    "35103": {
+      "skill_id": 35103,
+      "hero_numeric_id": 351,
+      "hero_name": "HERO_351",
+      "formula": "4*ATK",
+      "blob_idx": 509
+    },
+    "44501": {
+      "skill_id": 44501,
+      "hero_numeric_id": 445,
+      "hero_name": "HERO_445",
+      "formula": "6*ATK",
+      "blob_idx": 532
+    },
+    "47901": {
+      "skill_id": 47901,
+      "hero_numeric_id": 479,
+      "hero_name": "HERO_479",
+      "formula": "0.2*HP",
+      "blob_idx": 544
+    },
+    "52602": {
+      "skill_id": 52602,
+      "hero_numeric_id": 526,
+      "hero_name": "HERO_526",
+      "formula": "3.26*DEF",
+      "blob_idx": 555
+    },
+    "53203": {
+      "skill_id": 53203,
+      "hero_numeric_id": 532,
+      "hero_name": "HERO_532",
+      "formula": "4.85*ATK",
+      "blob_idx": 557
+    },
+    "58404": {
+      "skill_id": 58404,
+      "hero_numeric_id": 584,
+      "hero_name": "HERO_584",
+      "formula": "4.9*ATK",
+      "blob_idx": 571
+    },
+    "65601": {
+      "skill_id": 65601,
+      "hero_numeric_id": 656,
+      "hero_name": "HERO_656",
+      "formula": "7*ATK",
+      "blob_idx": 593
+    },
+    "70802": {
+      "skill_id": 70802,
+      "hero_numeric_id": 708,
+      "hero_name": "HERO_708",
+      "formula": "0.05*HP",
+      "blob_idx": 608
+    },
+    "89502": {
+      "skill_id": 89502,
+      "hero_numeric_id": 895,
+      "hero_name": "HERO_895",
+      "formula": "2.65*ATK",
+      "blob_idx": 699
+    },
+    "92602": {
+      "skill_id": 92602,
+      "hero_numeric_id": 926,
+      "hero_name": "HERO_926",
+      "formula": "1.85*ATK",
+      "blob_idx": 714
+    },
+    "96203": {
+      "skill_id": 96203,
+      "hero_numeric_id": 962,
+      "hero_name": "HERO_962",
+      "formula": "5.5*ATK",
+      "blob_idx": 731
+    },
+    "100602": {
+      "skill_id": 100602,
+      "hero_numeric_id": 1006,
+      "hero_name": "HERO_1006",
+      "formula": "0.26*HP",
+      "blob_idx": 356
+    },
+    "102303": {
+      "skill_id": 102303,
+      "hero_numeric_id": 1023,
+      "hero_name": "HERO_1023",
+      "formula": "3.9*ATK",
+      "blob_idx": 364
+    },
+    "102703": {
+      "skill_id": 102703,
+      "hero_numeric_id": 1027,
+      "hero_name": "HERO_1027",
+      "formula": "6*ATK",
+      "blob_idx": 366
+    },
+    "232102": {
+      "skill_id": 232102,
+      "hero_numeric_id": 2321,
+      "hero_name": "HERO_2321",
+      "formula": "4*ATK",
+      "blob_idx": 449
+    },
+    "256002": {
+      "skill_id": 256002,
+      "hero_numeric_id": 2560,
+      "hero_name": "HERO_2560",
+      "formula": "3.1*ATK",
+      "blob_idx": 461
+    }
+  }
+}

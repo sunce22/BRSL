@@ -1,0 +1,200 @@
+[
+  {
+    "blob": 351,
+    "skill_id": 10002,
+    "skill_name": "Stomp",
+    "formulas": [
+      "3.2*ATK"
+    ]
+  },
+  {
+    "blob": 385,
+    "skill_id": 11301,
+    "skill_name": "Throw",
+    "formulas": [
+      "2*ATK"
+    ]
+  },
+  {
+    "blob": 424,
+    "skill_id": 225903,
+    "skill_name": null,
+    "formulas": [
+      "3*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob": 443,
+    "skill_id": 230101,
+    "skill_name": null,
+    "formulas": [
+      "4*ATK",
+      "0.15*HP"
+    ]
+  },
+  {
+    "blob": 478,
+    "skill_id": 27103,
+    "skill_name": null,
+    "formulas": [
+      "1.7*DEF",
+      "0.2*HP",
+      "5*ATK",
+      "0.15*HP",
+      "3*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob": 499,
+    "skill_id": 32001,
+    "skill_name": null,
+    "formulas": [
+      "1.7*ATK"
+    ]
+  },
+  {
+    "blob": 529,
+    "skill_id": 43801,
+    "skill_name": null,
+    "formulas": [
+      "3.5*ATK"
+    ]
+  },
+  {
+    "blob": 533,
+    "skill_id": 45202,
+    "skill_name": null,
+    "formulas": [
+      "2.2*ATK"
+    ]
+  },
+  {
+    "blob": 548,
+    "skill_id": 500131,
+    "skill_name": "Single Out",
+    "formulas": [
+      "3*ATK",
+      "0*HP",
+      "0.15*HP"
+    ]
+  },
+  {
+    "blob": 550,
+    "skill_id": 50204,
+    "skill_name": null,
+    "formulas": [
+      "4.8*ATK",
+      "4*DEF"
+    ]
+  },
+  {
+    "blob": 584,
+    "skill_id": 62204,
+    "skill_name": null,
+    "formulas": [
+      "3.5*ATK",
+      "4.1*DEF",
+      "0.24*HP"
+    ]
+  },
+  {
+    "blob": 588,
+    "skill_id": 63506,
+    "skill_name": null,
+    "formulas": [
+      "1.5*ATK"
+    ]
+  },
+  {
+    "blob": 603,
+    "skill_id": 69701,
+    "skill_name": null,
+    "formulas": [
+      "1.7*ATK"
+    ]
+  },
+  {
+    "blob": 606,
+    "skill_id": 70101,
+    "skill_name": null,
+    "formulas": [
+      "2.1*DEF"
+    ]
+  },
+  {
+    "blob": 618,
+    "skill_id": 73702,
+    "skill_name": null,
+    "formulas": [
+      "2.5*DEF",
+      "3.75*ATK"
+    ]
+  },
+  {
+    "blob": 624,
+    "skill_id": 75003,
+    "skill_name": null,
+    "formulas": [
+      "3*ATK",
+      "1.85*DEF"
+    ]
+  },
+  {
+    "blob": 657,
+    "skill_id": 8102,
+    "skill_name": "Battle Trance",
+    "formulas": [
+      "0.5*SPD",
+      "1.4*ATK",
+      "0.12*HP",
+      "0.01*HP"
+    ]
+  },
+  {
+    "blob": 678,
+    "skill_id": 86801,
+    "skill_name": null,
+    "formulas": [
+      "0.3*HP",
+      "2.1*ATK",
+      "10*DEF",
+      "3.5*DEF",
+      "2*ATK"
+    ]
+  },
+  {
+    "blob": 693,
+    "skill_id": 887703,
+    "skill_name": null,
+    "formulas": [
+      "0.7*ATK",
+      "3.4*DEF",
+      "0.13*HP",
+      "0.27*HP",
+      "63.7*DEF"
+    ]
+  },
+  {
+    "blob": 719,
+    "skill_id": 94304,
+    "skill_name": null,
+    "formulas": [
+      "2*ATK",
+      "0.12*HP",
+      "0.25*HP",
+      "1.9*DEF"
+    ]
+  },
+  {
+    "blob": 721,
+    "skill_id": 94904,
+    "skill_name": null,
+    "formulas": [
+      "3.2*ATK",
+      "0.2*HP",
+      "0.1*HP"
+    ]
+  }
+]

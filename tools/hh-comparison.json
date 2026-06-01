@@ -1,0 +1,430 @@
+[
+  {
+    "hero": "Bloodgorged",
+    "skills": [
+      {
+        "skill": "Break Defense",
+        "hh_multiplier": "2.2*ATK",
+        "hh_cd": 0,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Raging Beast",
+        "hh_multiplier": "4*ATK",
+        "hh_cd": 4,
+        "our_cd": 4,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Decapitate",
+        "hh_multiplier": "3.6*ATK",
+        "hh_cd": 6,
+        "our_cd": 6,
+        "sd_formulas": null
+      }
+    ]
+  },
+  {
+    "hero": "Strategos Islin",
+    "skills": [
+      {
+        "skill": "Doubleslash",
+        "hh_multiplier": "1.8*DEF",
+        "hh_cd": 0,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Hindrance",
+        "hh_multiplier": "3.8*DEF",
+        "hh_cd": 4,
+        "our_cd": 4,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Flawless Strategem",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 6,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Protect The Troops (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Aura",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      }
+    ]
+  },
+  {
+    "hero": "Bystophus",
+    "skills": [
+      {
+        "skill": "Horror",
+        "hh_multiplier": "3.3*ATK",
+        "hh_cd": 0,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Shadow Strike",
+        "hh_multiplier": "3.2*ATK",
+        "hh_cd": 4,
+        "our_cd": 4,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Crumble",
+        "hh_multiplier": "3.2*ATK",
+        "hh_cd": 4,
+        "our_cd": 4,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Aura",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      }
+    ]
+  },
+  {
+    "hero": "Anaxia The Reborn",
+    "skills": [
+      {
+        "skill": "Thirsting Sword",
+        "hh_multiplier": "4*DEF",
+        "hh_cd": 0,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Deathplunge",
+        "hh_multiplier": "3.7*DEF",
+        "hh_cd": 3,
+        "our_cd": 3,
+        "sd_formulas": null
+      },
+      {
+        "skill": "All-Consuming Roar",
+        "hh_multiplier": "4*DEF",
+        "hh_cd": 3,
+        "our_cd": 3,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Battle Revelry (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Blade Axel",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Frenzied Execution",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 4,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Soul Separator",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 3,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Rage Nexus (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Aura",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Metamorph",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 4,
+        "sd_formulas": null
+      }
+    ]
+  },
+  {
+    "hero": "Vergumkaar",
+    "skills": [
+      {
+        "skill": "Bejeweled Bulk",
+        "hh_multiplier": "5*ATK",
+        "hh_cd": 0,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Honored Ancient",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 4,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Crushing Trample",
+        "hh_multiplier": "4.85*ATK",
+        "hh_cd": 5,
+        "our_cd": 5,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Saurian Stoic (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Aura",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      }
+    ]
+  },
+  {
+    "hero": "Gurptuk Moss Beard",
+    "skills": [
+      {
+        "skill": "Biotic Staff",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Druidic Boon",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 3,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Cloud of Spores",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 4,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Symbiotes (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Aura",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      }
+    ]
+  },
+  {
+    "hero": "Gnishak Verminlord",
+    "skills": [
+      {
+        "skill": "Pestilent Censer",
+        "hh_multiplier": "1.2*ATK",
+        "hh_cd": 0,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Verminlord’s Command",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 4,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Unclean Banquet",
+        "hh_multiplier": "4.5*ATK",
+        "hh_cd": 5,
+        "our_cd": 5,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Rat Plague (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Aura",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Verminlord's Command [HH only]",
+        "hh_multiplier": "4.6*ATK",
+        "hh_cd": 4,
+        "our_cd": null,
+        "sd_formulas": null
+      }
+    ]
+  },
+  {
+    "hero": "Gaspard The Accused",
+    "skills": [
+      {
+        "skill": "Links Of Death",
+        "hh_multiplier": "2.3*DEF",
+        "hh_cd": 0,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Wretched Guillotine",
+        "hh_multiplier": "4.1*DEF",
+        "hh_cd": 5,
+        "our_cd": 5,
+        "sd_formulas": null
+      },
+      {
+        "skill": "You Stand Accused",
+        "hh_multiplier": "5.2*DEF",
+        "hh_cd": 5,
+        "our_cd": 5,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Fallen Legend (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Master Wills It (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Aura",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      }
+    ]
+  },
+  {
+    "hero": "Countess Lix",
+    "skills": [
+      {
+        "skill": "Festering Caress",
+        "hh_multiplier": "1.6*ATK",
+        "hh_cd": 0,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Mire of Misery",
+        "hh_multiplier": "1.15*ATK",
+        "hh_cd": 5,
+        "our_cd": 5,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Time Dilation",
+        "hh_multiplier": "4*ATK",
+        "hh_cd": 7,
+        "our_cd": 7,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Unredeemed (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Channel Woe (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      }
+    ]
+  },
+  {
+    "hero": "Venalicia Thrallmother",
+    "skills": [
+      {
+        "skill": "Torturous Bolts",
+        "hh_multiplier": "2.1*ATK",
+        "hh_cd": 0,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Purge The Impure",
+        "hh_multiplier": "6*ATK",
+        "hh_cd": 5,
+        "our_cd": 5,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Mother Knows Best",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 6,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Warped Benevolence (Passive)",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      },
+      {
+        "skill": "Aura",
+        "hh_multiplier": null,
+        "hh_cd": null,
+        "our_cd": 0,
+        "sd_formulas": null
+      }
+    ]
+  }
+]

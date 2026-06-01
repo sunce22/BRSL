@@ -1,0 +1,6484 @@
+[
+  {
+    "blob_idx": 63,
+    "ext_key": 32705,
+    "skill_name_ids": [
+      "11601"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": []
+  },
+  {
+    "blob_idx": 64,
+    "ext_key": 32718,
+    "skill_name_ids": [
+      "28302"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": []
+  },
+  {
+    "blob_idx": 65,
+    "ext_key": 32669,
+    "skill_name_ids": [
+      "43101"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": []
+  },
+  {
+    "blob_idx": 66,
+    "ext_key": 32678,
+    "skill_name_ids": [
+      "57401"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": []
+  },
+  {
+    "blob_idx": 67,
+    "ext_key": 32693,
+    "skill_name_ids": [
+      "71801"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": []
+  },
+  {
+    "blob_idx": 68,
+    "ext_key": 32720,
+    "skill_name_ids": [
+      "86703"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": []
+  },
+  {
+    "blob_idx": 69,
+    "ext_key": 32676,
+    "skill_name_ids": [
+      "99602"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": []
+  },
+  {
+    "blob_idx": 70,
+    "ext_key": 32684,
+    "skill_name_ids": [
+      "226902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": []
+  },
+  {
+    "blob_idx": 71,
+    "ext_key": 32572,
+    "skill_name_ids": [
+      "600130"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": []
+  },
+  {
+    "blob_idx": 350,
+    "ext_key": 32759,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 351,
+    "ext_key": 32525,
+    "skill_name_ids": [
+      "10002"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "10002",
+        "name": "Stomp"
+      }
+    ],
+    "formulas": [
+      "3.2*ATK",
+      "0.1*HP",
+      "HP*0.03"
+    ]
+  },
+  {
+    "blob_idx": 353,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "1001"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "1001",
+        "name": "Feint"
+      }
+    ],
+    "formulas": [
+      "2.9*ATK",
+      "3.3*DEF",
+      "DEF*1.05",
+      "HP*0.1"
+    ]
+  },
+  {
+    "blob_idx": 354,
+    "ext_key": 4096,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.35*HP"
+    ]
+  },
+  {
+    "blob_idx": 355,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "100602"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "100602",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "0.26*HP"
+    ]
+  },
+  {
+    "blob_idx": 356,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "100603"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "100603",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "0.38*HP"
+    ]
+  },
+  {
+    "blob_idx": 358,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "5.4*ATK",
+      "2.3*DEF"
+    ]
+  },
+  {
+    "blob_idx": 359,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "101003"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "101003",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "6*ATK",
+      "7*DEF",
+      "ATK*1.5"
+    ]
+  },
+  {
+    "blob_idx": 360,
+    "ext_key": 3878,
+    "skill_name_ids": [
+      "101403"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "101403",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "0.28*HP"
+    ]
+  },
+  {
+    "blob_idx": 361,
+    "ext_key": 32621,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.25*HP",
+      "1.75*ATK",
+      "ATK*1.5",
+      "HP*0.1"
+    ]
+  },
+  {
+    "blob_idx": 362,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "101903"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "101903",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "4.4*DEF",
+      "2.6*ATK"
+    ]
+  },
+  {
+    "blob_idx": 363,
+    "ext_key": 4093,
+    "skill_name_ids": [
+      "102303"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "102303",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3.9*ATK",
+      "3.3*DEF"
+    ]
+  },
+  {
+    "blob_idx": 364,
+    "ext_key": 32661,
+    "skill_name_ids": [
+      "102403"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "102403",
+        "name": "pdescr"
+      }
+    ],
+    "formulas": [
+      "3.8*DEF",
+      "5*HP",
+      "1.35*ATK"
+    ]
+  },
+  {
+    "blob_idx": 365,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "102703"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "102703",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "6*ATK",
+      "0.5*HP",
+      "3.5*DEF",
+      "ATK*1.35"
+    ]
+  },
+  {
+    "blob_idx": 366,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "10301"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "10301",
+        "name": "Psyhic Whip"
+      }
+    ],
+    "formulas": [
+      "1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 367,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "10304"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "10304",
+        "name": "Hellish Blaze"
+      }
+    ],
+    "formulas": [
+      "4.6*ATK",
+      "ATK*6"
+    ]
+  },
+  {
+    "blob_idx": 368,
+    "ext_key": 3988,
+    "skill_name_ids": [
+      "103103"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "103103",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "HP*0.3"
+    ]
+  },
+  {
+    "blob_idx": 369,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "2.5*ATK",
+      "1*HP"
+    ]
+  },
+  {
+    "blob_idx": 370,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "103501"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "103501",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 371,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "103504"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "103504",
+        "name": "pdescr"
+      }
+    ],
+    "formulas": [
+      "0.21*HP"
+    ]
+  },
+  {
+    "blob_idx": 372,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "103602"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "103602",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "0.15*HP",
+      "2.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 373,
+    "ext_key": 4096,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "4.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 374,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "103704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "103704",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "4.5*ATK",
+      "ATK*6"
+    ]
+  },
+  {
+    "blob_idx": 375,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "104004"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "104004",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3.5*DEF",
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 376,
+    "ext_key": 3991,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3*DEF"
+    ]
+  },
+  {
+    "blob_idx": 377,
+    "ext_key": 32689,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "104404"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "0.23*HP",
+      "1.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 378,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "1.9*ATK",
+      "0.5*HP",
+      "4*DEF"
+    ]
+  },
+  {
+    "blob_idx": 379,
+    "ext_key": 3996,
+    "skill_name_ids": [
+      "105204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "105204",
+        "name": "pdescr"
+      }
+    ],
+    "formulas": [
+      "0.25*HP"
+    ]
+  },
+  {
+    "blob_idx": 380,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3.2*ATK",
+      "0.3*HP"
+    ]
+  },
+  {
+    "blob_idx": 381,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "11002"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "11002",
+        "name": "War Drum"
+      }
+    ],
+    "formulas": [
+      "3.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 382,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "1102"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "1102",
+        "name": "Revengeance"
+      }
+    ],
+    "formulas": [
+      "5.7*ATK",
+      "0.05*HP"
+    ]
+  },
+  {
+    "blob_idx": 383,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "11102"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "11102",
+        "name": "Worship"
+      }
+    ],
+    "formulas": [
+      "0.1*HP",
+      "1.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 384,
+    "ext_key": 4073,
+    "skill_name_ids": [
+      "11201"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "11201",
+        "name": "Devour"
+      }
+    ],
+    "formulas": [
+      "2.2*ATK",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 385,
+    "ext_key": 32619,
+    "skill_name_ids": [
+      "11301"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "11301",
+        "name": "Throw"
+      }
+    ],
+    "formulas": [
+      "2*ATK",
+      "ATK*3",
+      "DEF*1"
+    ]
+  },
+  {
+    "blob_idx": 386,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "1203"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "1203",
+        "name": "Mother's Embrace"
+      }
+    ],
+    "formulas": [
+      "2.8*ATK",
+      "3.5*DEF"
+    ]
+  },
+  {
+    "blob_idx": 387,
+    "ext_key": 3834,
+    "skill_name_ids": [
+      "1266907"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "1266907",
+        "name": "Skill "
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 388,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "12701"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "12701",
+        "name": "Throwing Spear"
+      }
+    ],
+    "formulas": [
+      "1.9*ATK",
+      "2*HP",
+      "6*DEF",
+      "0.23*HP",
+      "2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 389,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "13302"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "13302",
+        "name": "Clan Banner"
+      }
+    ],
+    "formulas": [
+      "3.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 390,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "13401"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "13401",
+        "name": "Armor-piercer"
+      }
+    ],
+    "formulas": [
+      "2.8*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 391,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "14202"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "14202",
+        "name": "Smite"
+      }
+    ],
+    "formulas": [
+      "6.7*ATK"
+    ]
+  },
+  {
+    "blob_idx": 392,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "15001"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "15001",
+        "name": "Strike Down"
+      }
+    ],
+    "formulas": [
+      "1.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 393,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "15004"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "15004",
+        "name": "Divine Blades "
+      }
+    ],
+    "formulas": [
+      "4.1*ATK",
+      "0.2*HP",
+      "0.3*HP"
+    ]
+  },
+  {
+    "blob_idx": 394,
+    "ext_key": 3888,
+    "skill_name_ids": [
+      "15801"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "15801",
+        "name": "Cleaving Axe"
+      }
+    ],
+    "formulas": [
+      "2.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 395,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "15902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "15902",
+        "name": "Insult"
+      }
+    ],
+    "formulas": [
+      "4.5*DEF",
+      "4.1*ATK",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 396,
+    "ext_key": 4009,
+    "skill_name_ids": [
+      "16502"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "16502",
+        "name": "Cry for Blood"
+      }
+    ],
+    "formulas": [
+      "1.4*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 397,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "16603"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "16603",
+        "name": "Cannibalism"
+      }
+    ],
+    "formulas": [
+      "0.15*HP",
+      "1.7*ATK"
+    ]
+  },
+  {
+    "blob_idx": 398,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "17501"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "17501",
+        "name": "Vile Chant"
+      }
+    ],
+    "formulas": [
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 399,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "17504"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "17504",
+        "name": "Flight of Feet "
+      }
+    ],
+    "formulas": [
+      "1.7*ATK",
+      "3.4*DEF"
+    ]
+  },
+  {
+    "blob_idx": 400,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "18102"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "18102",
+        "name": "Enraged"
+      }
+    ],
+    "formulas": [
+      "6.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 401,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "18201"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "18201",
+        "name": "Break Defence"
+      }
+    ],
+    "formulas": [
+      "2.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 402,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "18301"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "18301",
+        "name": "Claws"
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 403,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "18304"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "18304",
+        "name": "Claws "
+      }
+    ],
+    "formulas": [
+      "3.6*DEF",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 404,
+    "ext_key": 32738,
+    "skill_name_ids": [
+      "18404"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "18404",
+        "name": "Prevent "
+      }
+    ],
+    "formulas": [
+      "5.3*DEF",
+      "3.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 405,
+    "ext_key": 32093,
+    "skill_name_ids": [
+      "19201"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "19201",
+        "name": "Surge"
+      }
+    ],
+    "formulas": [
+      "2*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 406,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.1*HP",
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 407,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "201"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "201",
+        "name": "Grave Chill"
+      }
+    ],
+    "formulas": [
+      "2.3*ATK",
+      "0.15*HP"
+    ]
+  },
+  {
+    "blob_idx": 408,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "20803"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "20803",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "5.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 409,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "20902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "20902",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "2.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 410,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "210001"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "210001",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "1.7*ATK",
+      "0.1*HP",
+      "7.5*DEF"
+    ]
+  },
+  {
+    "blob_idx": 411,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "210603"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "210603",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 412,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "210702"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "210702",
+        "name": "Slashing Wind"
+      }
+    ],
+    "formulas": [
+      "2.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 413,
+    "ext_key": 32530,
+    "skill_name_ids": [
+      "210803"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "210803",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "2.8*ATK",
+      "0.1*HP",
+      "3.4*DEF"
+    ]
+  },
+  {
+    "blob_idx": 414,
+    "ext_key": 32767,
+    "skill_name_ids": [
+      "21402"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "21402",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.5*DEF",
+      "2.7*ATK",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 415,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "220202"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "220202",
+        "name": "Quake"
+      }
+    ],
+    "formulas": [
+      "5.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 416,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "221401"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "221401",
+        "name": "Fire Golem S"
+      }
+    ],
+    "formulas": [
+      "4*ATK",
+      "HP*0.05"
+    ]
+  },
+  {
+    "blob_idx": 417,
+    "ext_key": 4020,
+    "skill_name_ids": [
+      "2214013"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "2214013",
+        "name": "Fire Golem Shield TurnStar"
+      }
+    ],
+    "formulas": [
+      "5*ATK",
+      "HP*0.05"
+    ]
+  },
+  {
+    "blob_idx": 418,
+    "ext_key": 32427,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "4*ATK",
+      "0.03*HP",
+      "5.5*DEF",
+      "HP*0.0"
+    ]
+  },
+  {
+    "blob_idx": 419,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "222204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "222204",
+        "name": "Ascended"
+      }
+    ],
+    "formulas": [
+      "1.8*ATK",
+      "1.2*DEF"
+    ]
+  },
+  {
+    "blob_idx": 420,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "223402"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "223402",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "6*ATK"
+    ]
+  },
+  {
+    "blob_idx": 421,
+    "ext_key": 32630,
+    "skill_name_ids": [
+      "223502"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "223502",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 422,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "223901"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "223901",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "0.5*HP",
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 423,
+    "ext_key": 4073,
+    "skill_name_ids": [
+      "225901"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "225901",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 424,
+    "ext_key": 32638,
+    "skill_name_ids": [
+      "225903"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "225903",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 425,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "226301"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "226301",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 426,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "2266804"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "2266804",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 427,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "2266902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "2266902",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "7*ATK",
+      "5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 428,
+    "ext_key": 3972,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 429,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "2266906"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "2266906",
+        "name": "descri"
+      }
+    ],
+    "formulas": [
+      "0.005*HP",
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 430,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "227002"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "227002",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "0.12*HP"
+    ]
+  },
+  {
+    "blob_idx": 431,
+    "ext_key": 32732,
+    "skill_name_ids": [
+      "22703"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "22703",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.12*HP",
+      "3*ATK",
+      "HP*0.15"
+    ]
+  },
+  {
+    "blob_idx": 432,
+    "ext_key": 31384,
+    "skill_name_ids": [
+      "227504"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "227504",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3*ATK",
+      "4*ATK",
+      "0.15*HP",
+      "0.4*HP"
+    ]
+  },
+  {
+    "blob_idx": 433,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3*ATK",
+      "10*ATK",
+      "HP*0.05"
+    ]
+  },
+  {
+    "blob_idx": 434,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "228108"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "228108",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "2.7*ATK"
+    ]
+  },
+  {
+    "blob_idx": 435,
+    "ext_key": 4012,
+    "skill_name_ids": [
+      "228203"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "228203",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "2.7*ATK"
+    ]
+  },
+  {
+    "blob_idx": 436,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "4*ATK",
+      "0.25*HP"
+    ]
+  },
+  {
+    "blob_idx": 437,
+    "ext_key": 3960,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.03*HP",
+      "HP*2"
+    ]
+  },
+  {
+    "blob_idx": 438,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "229001"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "229001",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3.1*ATK",
+      "2.1*DEF",
+      "0.5*HP",
+      "HP*0.15"
+    ]
+  },
+  {
+    "blob_idx": 439,
+    "ext_key": 4071,
+    "skill_name_ids": [
+      "229505"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "229505",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "2.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 440,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.03*HP",
+      "3.1*ATK",
+      "HP*2"
+    ]
+  },
+  {
+    "blob_idx": 441,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "230006"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "230006",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "4*DEF"
+    ]
+  },
+  {
+    "blob_idx": 442,
+    "ext_key": 4049,
+    "skill_name_ids": [
+      "23003"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "23003",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.2*HP",
+      "3.6*ATK"
+    ]
+  },
+  {
+    "blob_idx": 443,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "230101"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "230101",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "4*ATK",
+      "0.15*HP"
+    ]
+  },
+  {
+    "blob_idx": 444,
+    "ext_key": 4021,
+    "skill_name_ids": [
+      "230702"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "230702",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 445,
+    "ext_key": 32767,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "230803"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3*ATK",
+      "HP*0.05"
+    ]
+  },
+  {
+    "blob_idx": 446,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "231101"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "231101",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3.1*ATK",
+      "HP*0.15"
+    ]
+  },
+  {
+    "blob_idx": 447,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "23202"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "23202",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 448,
+    "ext_key": 32280,
+    "skill_name_ids": [
+      "232102"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "232102",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "4*ATK",
+      "0.15*HP"
+    ]
+  },
+  {
+    "blob_idx": 449,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "232705"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "232705",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3*ATK",
+      "HP*0.05"
+    ]
+  },
+  {
+    "blob_idx": 450,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "23401"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "23401",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.9*ATK",
+      "3.6*DEF"
+    ]
+  },
+  {
+    "blob_idx": 451,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "23903"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "23903",
+        "name": "desc"
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 452,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "24001"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "24001",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 453,
+    "ext_key": 3843,
+    "skill_name_ids": [
+      "2401"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "2401",
+        "name": "Crushing Blow"
+      }
+    ],
+    "formulas": [
+      "0.26*HP"
+    ]
+  },
+  {
+    "blob_idx": 454,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "2404"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "2404",
+        "name": "Crushing Blow "
+      }
+    ],
+    "formulas": [
+      "0.3*HP",
+      "3.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 455,
+    "ext_key": 4078,
+    "skill_name_ids": [
+      "24704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "24704",
+        "name": "Ascended"
+      }
+    ],
+    "formulas": [
+      "4.6*ATK",
+      "1*DEF"
+    ]
+  },
+  {
+    "blob_idx": 456,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "24902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "24902",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "5*DEF",
+      "4.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 457,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "25203"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "25203",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 458,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "25301"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "25301",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 459,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "25304"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "25304",
+        "name": "ascended"
+      }
+    ],
+    "formulas": [
+      "4.25*ATK",
+      "3.5*DEF",
+      "2*HP"
+    ]
+  },
+  {
+    "blob_idx": 460,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "256002"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "256002",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 461,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "25603"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "25603",
+        "name": "desc"
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 462,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "256501"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "256501",
+        "name": "pdescr"
+      }
+    ],
+    "formulas": [
+      "7*ATK"
+    ]
+  },
+  {
+    "blob_idx": 463,
+    "ext_key": 4091,
+    "skill_name_ids": [
+      "256901"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "256901",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 464,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "25701"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "25701",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.4*ATK",
+      "3.8*DEF",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 465,
+    "ext_key": 4025,
+    "skill_name_ids": [
+      "260011"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "260011",
+        "name": "pdescr"
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 466,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "4.9*DEF",
+      "3.55*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 467,
+    "ext_key": 3985,
+    "skill_name_ids": [
+      "26101"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "26101",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.6*ATK",
+      "0.25*HP"
+    ]
+  },
+  {
+    "blob_idx": 468,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "261201"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "261201",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "4.9*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 469,
+    "ext_key": 32572,
+    "skill_name_ids": [
+      "262403"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "262403",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "0.1*HP",
+      "5*ATK",
+      "0.4*HP",
+      "0.8*HP",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 470,
+    "ext_key": 32474,
+    "skill_name_ids": [
+      "26404"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "26404",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.3*HP",
+      "3*ATK",
+      "10*ATK",
+      "1.78*DEF"
+    ]
+  },
+  {
+    "blob_idx": 471,
+    "ext_key": 32703,
+    "skill_name_ids": [
+      "265204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "265204",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "0.45*HP",
+      "6*ATK",
+      "HP*0.0"
+    ]
+  },
+  {
+    "blob_idx": 472,
+    "ext_key": 32663,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "26601"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3.2*ATK",
+      "0.05*HP",
+      "0.3*HP"
+    ]
+  },
+  {
+    "blob_idx": 473,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "26704"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 474,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "269602"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "269602",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 475,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "270206"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "270206",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "0.05*HP",
+      "6.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 476,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "2704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "2704",
+        "name": "Roar "
+      }
+    ],
+    "formulas": [
+      "4.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 477,
+    "ext_key": 32741,
+    "skill_name_ids": [
+      "270603"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "270603",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "2*ATK",
+      "5*DEF"
+    ]
+  },
+  {
+    "blob_idx": 478,
+    "ext_key": 32752,
+    "skill_name_ids": [
+      "27103"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "27103",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.2*HP",
+      "0.15*HP",
+      "0.1*HP",
+      "3*ATK",
+      "5*ATK",
+      "1.7*DEF"
+    ]
+  },
+  {
+    "blob_idx": 479,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "27901"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "27901",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.4*ATK",
+      "0.3*HP"
+    ]
+  },
+  {
+    "blob_idx": 480,
+    "ext_key": 8190,
+    "skill_name_ids": [
+      "280105"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "280105",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "ATK*4"
+    ]
+  },
+  {
+    "blob_idx": 481,
+    "ext_key": 32705,
+    "skill_name_ids": [
+      "2803"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "2803",
+        "name": "Ice Bolt"
+      }
+    ],
+    "formulas": [
+      "5.5*ATK",
+      "3.8*DEF"
+    ]
+  },
+  {
+    "blob_idx": 482,
+    "ext_key": 32583,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "28804"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "6.2*ATK",
+      "3*DEF",
+      "ATK*1.5"
+    ]
+  },
+  {
+    "blob_idx": 483,
+    "ext_key": 32317,
+    "skill_name_ids": [
+      "29503"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "29503",
+        "name": "passive"
+      }
+    ],
+    "formulas": [
+      "6.9*ATK",
+      "0.3*HP",
+      "1.6*DEF",
+      "ATK*3",
+      "HP*0.",
+      "DEF*1.9"
+    ]
+  },
+  {
+    "blob_idx": 484,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 486,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 487,
+    "ext_key": 7108,
+    "skill_name_ids": [
+      "3000046"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "3000046",
+        "name": "descr"
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 488,
+    "ext_key": 32756,
+    "skill_name_ids": [
+      "3000047"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "3000047",
+        "name": "Skill "
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 490,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "3000068"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "3000068",
+        "name": "Skill "
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 492,
+    "ext_key": 32530,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "2*HP"
+    ]
+  },
+  {
+    "blob_idx": 493,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.03*HP",
+      "0.28*HP",
+      "5.2*ATK",
+      "3.7*DEF"
+    ]
+  },
+  {
+    "blob_idx": 494,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "30201"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "30201",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.7*ATK"
+    ]
+  },
+  {
+    "blob_idx": 495,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "30303"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "30303",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 496,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "30501"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "30501",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.3*HP",
+      "4.4*DEF",
+      "4*ATK",
+      "3*DEF"
+    ]
+  },
+  {
+    "blob_idx": 497,
+    "ext_key": 8104,
+    "skill_name_ids": [
+      "31201"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "31201",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "1.6*ATK"
+    ]
+  },
+  {
+    "blob_idx": 498,
+    "ext_key": 32723,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "31303"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3*ATK",
+      "0.12*HP",
+      "0.15*HP",
+      "1*DEF"
+    ]
+  },
+  {
+    "blob_idx": 499,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "32001"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "32001",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.7*ATK",
+      "4*ATK",
+      "1.9*DEF"
+    ]
+  },
+  {
+    "blob_idx": 500,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "32502"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "32502",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "4.2*ATK",
+      "0.75*HP"
+    ]
+  },
+  {
+    "blob_idx": 501,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "32604"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "32604",
+        "name": "passive"
+      }
+    ],
+    "formulas": [
+      "0.75*HP",
+      "4.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 502,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3*ATK",
+      "3.4*DEF",
+      "0.4*HP"
+    ]
+  },
+  {
+    "blob_idx": 503,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "33004"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "33004",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "2.55*ATK"
+    ]
+  },
+  {
+    "blob_idx": 504,
+    "ext_key": 7938,
+    "skill_name_ids": [
+      "33202"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "33202",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "0.1*HP",
+      "1.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 505,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "33504"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "33504",
+        "name": "ascended"
+      }
+    ],
+    "formulas": [
+      "3.5*ATK",
+      "2.4*DEF"
+    ]
+  },
+  {
+    "blob_idx": 506,
+    "ext_key": 32667,
+    "skill_name_ids": [
+      "34202"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "34202",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "1.2*ATK",
+      "3.7*DEF"
+    ]
+  },
+  {
+    "blob_idx": 507,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "34704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.15*HP",
+      "1.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 508,
+    "ext_key": 32182,
+    "skill_name_ids": [
+      "35103"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "35103",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4*ATK",
+      "0.08*HP"
+    ]
+  },
+  {
+    "blob_idx": 509,
+    "ext_key": 32764,
+    "skill_name_ids": [
+      "35703"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "35703",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.9*ATK",
+      "0.25*HP",
+      "3.1*DEF"
+    ]
+  },
+  {
+    "blob_idx": 510,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "36201"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "36201",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3*ATK",
+      "3.4*DEF"
+    ]
+  },
+  {
+    "blob_idx": 511,
+    "ext_key": 8166,
+    "skill_name_ids": [
+      "36801"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "36801",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 512,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "36903"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "36903",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "7.15*ATK",
+      "0.28*HP",
+      "2.3*DEF",
+      "HP*0.15"
+    ]
+  },
+  {
+    "blob_idx": 513,
+    "ext_key": 7952,
+    "skill_name_ids": [
+      "37904"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "37904",
+        "name": "ascended"
+      }
+    ],
+    "formulas": [
+      "2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 514,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3.6*ATK",
+      "3*DEF",
+      "ATK*3"
+    ]
+  },
+  {
+    "blob_idx": 515,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "38704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "38704",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.3*DEF",
+      "1.9*ATK",
+      "ATK*4"
+    ]
+  },
+  {
+    "blob_idx": 516,
+    "ext_key": 8052,
+    "skill_name_ids": [
+      "39204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "39204",
+        "name": "Ascended"
+      }
+    ],
+    "formulas": [
+      "3.1*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 517,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "39403"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "39403",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.2*HP",
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 518,
+    "ext_key": 7929,
+    "skill_name_ids": [
+      "4000002"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "4000002",
+        "name": "Skill "
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 519,
+    "ext_key": 32597,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.5*HP"
+    ]
+  },
+  {
+    "blob_idx": 520,
+    "ext_key": 32760,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.5*HP",
+      "HP*0.30"
+    ]
+  },
+  {
+    "blob_idx": 521,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3.5*ATK",
+      "HP*0.1",
+      "ATK*1.7"
+    ]
+  },
+  {
+    "blob_idx": 522,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "40501"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "40501",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.5*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 523,
+    "ext_key": 8025,
+    "skill_name_ids": [
+      "40604"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "40604",
+        "name": "ascended"
+      }
+    ],
+    "formulas": [
+      "0.1*HP",
+      "2.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 524,
+    "ext_key": 32575,
+    "skill_name_ids": [
+      "40802"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "40802",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "1.9*ATK",
+      "6*DEF"
+    ]
+  },
+  {
+    "blob_idx": 525,
+    "ext_key": 32645,
+    "skill_name_ids": [
+      "41302"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "41302",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "2*ATK",
+      "2.6*DEF",
+      "0.1*HP",
+      "2*HP"
+    ]
+  },
+  {
+    "blob_idx": 526,
+    "ext_key": 32662,
+    "skill_name_ids": [
+      "4202"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "4202",
+        "name": "Cruel Fate"
+      }
+    ],
+    "formulas": [
+      "1.2*ATK",
+      "1.8*ATK",
+      "0.3*HP",
+      "4*DEF"
+    ]
+  },
+  {
+    "blob_idx": 527,
+    "ext_key": 32674,
+    "skill_name_ids": [
+      "4266901"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "4266901",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "3*ATK",
+      "0.27*HP"
+    ]
+  },
+  {
+    "blob_idx": 528,
+    "ext_key": 32751,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "43001"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "1.6*ATK",
+      "3.12*DEF"
+    ]
+  },
+  {
+    "blob_idx": 529,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "43801"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "43801",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 530,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "44302"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "44302",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 531,
+    "ext_key": 8134,
+    "skill_name_ids": [
+      "44501"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "44501",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "6*ATK",
+      "1.9*DEF"
+    ]
+  },
+  {
+    "blob_idx": 532,
+    "ext_key": 32767,
+    "skill_name_ids": [
+      "44604"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "44604",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.06*HP",
+      "3*DEF",
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 533,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "45202"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "45202",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "2.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 534,
+    "ext_key": 8007,
+    "skill_name_ids": [
+      "45701"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "45701",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.2*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 535,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.1*HP",
+      "3.75*ATK",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 536,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "46103"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "46103",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.2*HP",
+      "3.8*DEF",
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 537,
+    "ext_key": 7996,
+    "skill_name_ids": [
+      "46602"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "46602",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.8*DEF",
+      "2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 538,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "46801"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "46801",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "2*ATK",
+      "0.5*HP",
+      "2*HP"
+    ]
+  },
+  {
+    "blob_idx": 539,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "47202"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "47202",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "2*HP",
+      "2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 540,
+    "ext_key": 8192,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "2*HP",
+      "3.9*ATK",
+      "4.2*DEF"
+    ]
+  },
+  {
+    "blob_idx": 541,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "47403"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "47403",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.9*DEF",
+      "5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 542,
+    "ext_key": 32713,
+    "skill_name_ids": [
+      "47504"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "47504",
+        "name": "passive"
+      }
+    ],
+    "formulas": [
+      "5*ATK",
+      "0.5*HP",
+      "0.16*HP"
+    ]
+  },
+  {
+    "blob_idx": 543,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "47901"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "47901",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.2*HP",
+      "1.3*DEF",
+      "0.3*HP",
+      "3.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 544,
+    "ext_key": 32754,
+    "skill_name_ids": [
+      "48502"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "48502",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3*ATK",
+      "0.15*HP",
+      "3*DEF"
+    ]
+  },
+  {
+    "blob_idx": 545,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "48902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "48902",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "3.8*ATK",
+      "3*DEF",
+      "0.12*HP"
+    ]
+  },
+  {
+    "blob_idx": 546,
+    "ext_key": 8178,
+    "skill_name_ids": [
+      "49503"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "49503",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.3*ATK",
+      "0.3*HP"
+    ]
+  },
+  {
+    "blob_idx": 547,
+    "ext_key": 32721,
+    "skill_name_ids": [
+      "49604"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "49604",
+        "name": "passive"
+      }
+    ],
+    "formulas": [
+      "1.6*ATK"
+    ]
+  },
+  {
+    "blob_idx": 548,
+    "ext_key": 32467,
+    "skill_name_ids": [
+      "500131"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "500131",
+        "name": "Single Out"
+      }
+    ],
+    "formulas": [
+      "0.15*HP",
+      "3*ATK",
+      "0*HP"
+    ]
+  },
+  {
+    "blob_idx": 549,
+    "ext_key": 32745,
+    "skill_name_ids": [
+      "500264"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "500264",
+        "name": "Unshakeable"
+      }
+    ],
+    "formulas": [
+      "0.1*HP",
+      "3.5*DEF",
+      "2.7*ATK",
+      "ATK*2.5",
+      "SPD*0.3"
+    ]
+  },
+  {
+    "blob_idx": 550,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "50204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "50204",
+        "name": "name passive"
+      }
+    ],
+    "formulas": [
+      "4.8*ATK",
+      "4*DEF"
+    ]
+  },
+  {
+    "blob_idx": 551,
+    "ext_key": 32759,
+    "skill_name_ids": [
+      "50903"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "50903",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.5*DEF",
+      "0.2*HP",
+      "4.35*ATK"
+    ]
+  },
+  {
+    "blob_idx": 552,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "51603"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "51603",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "0.5*HP",
+      "4.2*ATK",
+      "1.5*ATK",
+      "HP*0.25"
+    ]
+  },
+  {
+    "blob_idx": 553,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "52401"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "52401",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.6*ATK"
+    ]
+  },
+  {
+    "blob_idx": 554,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "52602"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "52602",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.26*DEF",
+      "0.22*HP",
+      "1.9*ATK",
+      "0.04*HP",
+      "HP*1"
+    ]
+  },
+  {
+    "blob_idx": 555,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "53103"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "53103",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.18*HP",
+      "5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 556,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "53203"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "53203",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.85*ATK",
+      "0.23*HP"
+    ]
+  },
+  {
+    "blob_idx": 557,
+    "ext_key": 8095,
+    "skill_name_ids": [
+      "53603"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "53603",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "6*ATK",
+      "0.18*HP"
+    ]
+  },
+  {
+    "blob_idx": 558,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "53703"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "0.2*HP",
+      "2.77*ATK"
+    ]
+  },
+  {
+    "blob_idx": 559,
+    "ext_key": 32409,
+    "skill_name_ids": [
+      "54402"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "54402",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.3*ATK",
+      "4.3*DEF",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 560,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "55101"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "55101",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 561,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "55601"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "55601",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "3.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 562,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "55604"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "55604",
+        "name": "passive"
+      }
+    ],
+    "formulas": [
+      "2.65*DEF"
+    ]
+  },
+  {
+    "blob_idx": 563,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "55704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "55704",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 564,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "56303"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "56303",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.4*ATK",
+      "0.24*HP",
+      "3.6*DEF"
+    ]
+  },
+  {
+    "blob_idx": 565,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "57002"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "57002",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 566,
+    "ext_key": 8127,
+    "skill_name_ids": [
+      "57101"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "57101",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "3.2*ATK",
+      "0.05*HP"
+    ]
+  },
+  {
+    "blob_idx": 567,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "57203"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3.6*DEF",
+      "2.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 568,
+    "ext_key": 8187,
+    "skill_name_ids": [
+      "57803"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "57803",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4*ATK",
+      "3.6*DEF"
+    ]
+  },
+  {
+    "blob_idx": 569,
+    "ext_key": 32765,
+    "skill_name_ids": [
+      "57904"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "57904",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.6*ATK"
+    ]
+  },
+  {
+    "blob_idx": 570,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "58404"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "58404",
+        "name": "passive"
+      }
+    ],
+    "formulas": [
+      "4.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 571,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "5903"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "5903",
+        "name": "Glowing Mark"
+      }
+    ],
+    "formulas": [
+      "1.8*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 572,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "59302"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "59302",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "6.6*ATK",
+      "3.65*DEF"
+    ]
+  },
+  {
+    "blob_idx": 573,
+    "ext_key": 8100,
+    "skill_name_ids": [
+      "59804"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "59804",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.2*DEF"
+    ]
+  },
+  {
+    "blob_idx": 574,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "60001"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 575,
+    "ext_key": 8102,
+    "skill_name_ids": [
+      "6001"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "6001",
+        "name": "Sucker Punch"
+      }
+    ],
+    "formulas": [
+      "2.7*ATK",
+      "2*DEF"
+    ]
+  },
+  {
+    "blob_idx": 576,
+    "ext_key": 32636,
+    "skill_name_ids": [
+      "600130"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "600130",
+        "name": "Soul Reap"
+      }
+    ],
+    "formulas": [
+      "1.4*DEF"
+    ]
+  },
+  {
+    "blob_idx": 577,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.03*HP",
+      "2.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 578,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "602"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "602",
+        "name": "Turning Tides"
+      }
+    ],
+    "formulas": [
+      "3.9*ATK",
+      "3.2*DEF",
+      "HP*0.15"
+    ]
+  },
+  {
+    "blob_idx": 579,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "60302"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "60302",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "5.5*ATK",
+      "HP*0.25"
+    ]
+  },
+  {
+    "blob_idx": 580,
+    "ext_key": 32695,
+    "skill_name_ids": [
+      "60403"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "60403",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.1*DEF",
+      "3.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 581,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "61002"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "61002",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "4.82*ATK",
+      "0.2*HP",
+      "0.3*HP",
+      "HP*0.2"
+    ]
+  },
+  {
+    "blob_idx": 582,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "61504"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "61504",
+        "name": "ascended"
+      }
+    ],
+    "formulas": [
+      "4.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 583,
+    "ext_key": 32693,
+    "skill_name_ids": [
+      "61704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "61704",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "4*DEF",
+      "0.2*HP",
+      "3.3*ATK",
+      "ATK*0.1"
+    ]
+  },
+  {
+    "blob_idx": 584,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "62204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "62204",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.5*ATK",
+      "4.1*DEF",
+      "0.24*HP"
+    ]
+  },
+  {
+    "blob_idx": 585,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "62801"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "62801",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "2.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 586,
+    "ext_key": 8053,
+    "skill_name_ids": [
+      "62902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "62902",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2*ATK",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 587,
+    "ext_key": 32696,
+    "skill_name_ids": [
+      "63004"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "63004",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "1.9*ATK",
+      "3*DEF",
+      "1.35*ATK"
+    ]
+  },
+  {
+    "blob_idx": 588,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "63506"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "63506",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.5*ATK",
+      "HP*0.2"
+    ]
+  },
+  {
+    "blob_idx": 589,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "64203"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "64203",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.85*ATK",
+      "1.6*DEF"
+    ]
+  },
+  {
+    "blob_idx": 590,
+    "ext_key": 8148,
+    "skill_name_ids": [
+      "64704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "64704",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 591,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "65001"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "65001",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.9*ATK",
+      "3.7*DEF",
+      "0.1*HP",
+      "0.5*HP"
+    ]
+  },
+  {
+    "blob_idx": 592,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "65601"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "65601",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "7*ATK",
+      "3.9*DEF"
+    ]
+  },
+  {
+    "blob_idx": 593,
+    "ext_key": 8099,
+    "skill_name_ids": [
+      "65704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "65704",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 594,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "65902"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 595,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "66504"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "66504",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1*HP",
+      "3.6*ATK"
+    ]
+  },
+  {
+    "blob_idx": 596,
+    "ext_key": 32688,
+    "skill_name_ids": [
+      "67102"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "67102",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4*ATK",
+      "2*DEF",
+      "0.3*HP"
+    ]
+  },
+  {
+    "blob_idx": 597,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "67701"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3.5*ATK",
+      "5*DEF",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 598,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "68204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "68204",
+        "name": "passive"
+      }
+    ],
+    "formulas": [
+      "0.14*HP",
+      "1.7*ATK"
+    ]
+  },
+  {
+    "blob_idx": 599,
+    "ext_key": 32748,
+    "skill_name_ids": [
+      "68402"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "68402",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "1.95*ATK",
+      "3.1*DEF",
+      "0.3*HP"
+    ]
+  },
+  {
+    "blob_idx": 600,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "6.5*ATK",
+      "0.5*HP",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 601,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "69302"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "69302",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "1.8*ATK",
+      "3*DEF"
+    ]
+  },
+  {
+    "blob_idx": 602,
+    "ext_key": 8144,
+    "skill_name_ids": [
+      "69501"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "69501",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.4*ATK",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 603,
+    "ext_key": 32664,
+    "skill_name_ids": [
+      "69701"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "69701",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.7*ATK",
+      "HP*0.1"
+    ]
+  },
+  {
+    "blob_idx": 604,
+    "ext_key": 32460,
+    "skill_name_ids": [
+      "700018"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "700018",
+        "name": "Layer Bonus Tier "
+      }
+    ],
+    "formulas": [
+      "0.15*HP",
+      "1.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 605,
+    "ext_key": 32727,
+    "skill_name_ids": [
+      "700213"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "700213",
+        "name": "DT Bonus Buff Tier "
+      }
+    ],
+    "formulas": [
+      "0.25*HP",
+      "1.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 606,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "70101"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "70101",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.1*DEF",
+      "0.2*HP",
+      "7*ATK",
+      "HP*0.35"
+    ]
+  },
+  {
+    "blob_idx": 607,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "70802"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "70802",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "0.5*HP",
+      "0.05*HP",
+      "3.5*DEF"
+    ]
+  },
+  {
+    "blob_idx": 608,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "70903"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "70903",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.5*DEF",
+      "0.22*HP"
+    ]
+  },
+  {
+    "blob_idx": 609,
+    "ext_key": 8141,
+    "skill_name_ids": [
+      "71004"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "71004",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "0.5*HP",
+      "4.2*DEF",
+      "1.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 610,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "71104"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "0.25*HP",
+      "1.8*DEF",
+      "2.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 611,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "71802"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "71802",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.6*ATK",
+      "3.6*DEF"
+    ]
+  },
+  {
+    "blob_idx": 612,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "72001"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "72001",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "1.8*DEF",
+      "5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 613,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "72103"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "72103",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.8*ATK",
+      "0.11*HP"
+    ]
+  },
+  {
+    "blob_idx": 614,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "72204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "72204",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.35*HP",
+      "1.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 615,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "72402"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "72402",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "2*ATK",
+      "0.1*HP",
+      "1.8*DEF"
+    ]
+  },
+  {
+    "blob_idx": 616,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "72502"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "72502",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.7*DEF",
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 617,
+    "ext_key": 32707,
+    "skill_name_ids": [
+      "73103"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "73103",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.15*HP",
+      "2.2*ATK",
+      "3.5*DEF"
+    ]
+  },
+  {
+    "blob_idx": 618,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "73702"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "73702",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "2.5*DEF",
+      "3.75*ATK"
+    ]
+  },
+  {
+    "blob_idx": 619,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "74203"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "74203",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 620,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "74403"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "74403",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.5*DEF",
+      "3.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 621,
+    "ext_key": 8192,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3.7*ATK"
+    ]
+  },
+  {
+    "blob_idx": 622,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "74803"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "74803",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 623,
+    "ext_key": 8096,
+    "skill_name_ids": [
+      "74904"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "74904",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.4*HP"
+    ]
+  },
+  {
+    "blob_idx": 624,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "75003"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "75003",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3*ATK",
+      "1.85*DEF"
+    ]
+  },
+  {
+    "blob_idx": 625,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "75602"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "75602",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.9*DEF",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 626,
+    "ext_key": 8176,
+    "skill_name_ids": [
+      "75803"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "75803",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 627,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "75904"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "75904",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 628,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "76602"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "76602",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 629,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "76901"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "76901",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "1.6*ATK",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 630,
+    "ext_key": 8016,
+    "skill_name_ids": [
+      "76904"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "76904",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "2.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 631,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "7701"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "7701",
+        "name": "Deep Cut"
+      }
+    ],
+    "formulas": [
+      "3.6*ATK",
+      "1.9*DEF"
+    ]
+  },
+  {
+    "blob_idx": 632,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "77902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "77902",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "1.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 633,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "78003"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "78003",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.9*ATK",
+      "1*DEF",
+      "0.28*HP"
+    ]
+  },
+  {
+    "blob_idx": 634,
+    "ext_key": 8033,
+    "skill_name_ids": [
+      "78303"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "78303",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.2*HP",
+      "0.45*SPD"
+    ]
+  },
+  {
+    "blob_idx": 635,
+    "ext_key": 32767,
+    "skill_name_ids": [
+      "78601"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "78601",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.1*HP",
+      "2.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 636,
+    "ext_key": 32761,
+    "skill_name_ids": [
+      "79402"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "79402",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "0.27*HP",
+      "1.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 639,
+    "ext_key": 32676,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 643,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "2.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 647,
+    "ext_key": 32721,
+    "skill_name_ids": [
+      "8000401"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "8000401",
+        "name": "descr"
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 653,
+    "ext_key": 8192,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "1.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 654,
+    "ext_key": 8127,
+    "skill_name_ids": [
+      "8003"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "8003",
+        "name": "Purge"
+      }
+    ],
+    "formulas": [
+      "5.6*ATK",
+      "1.1*DEF",
+      "ATK*3.8"
+    ]
+  },
+  {
+    "blob_idx": 655,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "80104"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3.6*ATK",
+      "7.5*ATK",
+      "ATK*6"
+    ]
+  },
+  {
+    "blob_idx": 656,
+    "ext_key": 8144,
+    "skill_name_ids": [
+      "80603"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "80603",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.9*ATK"
+    ]
+  },
+  {
+    "blob_idx": 657,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "8102"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "8102",
+        "name": "Battle Trance"
+      }
+    ],
+    "formulas": [
+      "0.12*HP",
+      "1.4*ATK",
+      "0.5*SPD",
+      "0.01*HP"
+    ]
+  },
+  {
+    "blob_idx": 658,
+    "ext_key": 7832,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 659,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "81301"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "81301",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3*ATK",
+      "0.24*HP",
+      "1.8*DEF"
+    ]
+  },
+  {
+    "blob_idx": 660,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "81704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "81704",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3*ATK",
+      "0.28*HP"
+    ]
+  },
+  {
+    "blob_idx": 661,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "82301"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "82301",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.75*ATK"
+    ]
+  },
+  {
+    "blob_idx": 662,
+    "ext_key": 8135,
+    "skill_name_ids": [
+      "82403"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "82403",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.9*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 663,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "82503"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3.8*ATK",
+      "0.3*HP"
+    ]
+  },
+  {
+    "blob_idx": 664,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "82902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "82902",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 665,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "8301"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "8301",
+        "name": "All-Out Attack"
+      }
+    ],
+    "formulas": [
+      "0.3*HP",
+      "3.9*ATK",
+      "3*DEF",
+      "1*SPD",
+      "HP*0.20"
+    ]
+  },
+  {
+    "blob_idx": 666,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "83603"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "83603",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.31*HP",
+      "2*ATK",
+      "0.18*HP"
+    ]
+  },
+  {
+    "blob_idx": 667,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "84102"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "84102",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "0.22*HP",
+      "1.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 668,
+    "ext_key": 8076,
+    "skill_name_ids": [
+      "84203"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "84203",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.35*ATK"
+    ]
+  },
+  {
+    "blob_idx": 669,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "84401"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "84401",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.7*ATK"
+    ]
+  },
+  {
+    "blob_idx": 670,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "84903"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "84903",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 671,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "85003"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "85003",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.4*ATK",
+      "2.9*DEF"
+    ]
+  },
+  {
+    "blob_idx": 672,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "85503"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "85503",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "1.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 673,
+    "ext_key": 8192,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3.3*DEF"
+    ]
+  },
+  {
+    "blob_idx": 674,
+    "ext_key": 8034,
+    "skill_name_ids": [
+      "85801"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "85801",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "3.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 675,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "85805"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "85805",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.2*ATK",
+      "3*DEF"
+    ]
+  },
+  {
+    "blob_idx": 676,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "86205"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "86205",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "0.25*HP",
+      "2*DEF",
+      "3.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 677,
+    "ext_key": 8146,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.1*HP",
+      "0.25*HP"
+    ]
+  },
+  {
+    "blob_idx": 678,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "86801"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "86801",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.5*DEF",
+      "10*DEF",
+      "0.3*HP",
+      "2*ATK",
+      "2.1*ATK"
+    ]
+  },
+  {
+    "blob_idx": 679,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "87201"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "87201",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "5.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 680,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "87204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "87204",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.5*DEF"
+    ]
+  },
+  {
+    "blob_idx": 681,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "87304"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "87304",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 682,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "87705"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "87705",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "5.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 683,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "87804"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "87804",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.5*ATK",
+      "2.5*ATK",
+      "HP*0.2"
+    ]
+  },
+  {
+    "blob_idx": 684,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "88204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "88204",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 685,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "882203"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "882203",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "2.7*ATK",
+      "0.12*HP"
+    ]
+  },
+  {
+    "blob_idx": 686,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "882302"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "882302",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "0.25*HP",
+      "2.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 687,
+    "ext_key": 32410,
+    "skill_name_ids": [
+      "882403"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "882403",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3.6*DEF",
+      "0.5*HP",
+      "6*HP"
+    ]
+  },
+  {
+    "blob_idx": 688,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "2*ATK",
+      "3.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 689,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "885204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "885204",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3.6*DEF"
+    ]
+  },
+  {
+    "blob_idx": 690,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "885704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "885704",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "3.6*DEF",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 691,
+    "ext_key": 8133,
+    "skill_name_ids": [
+      "88605"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "88605",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "0.18*HP"
+    ]
+  },
+  {
+    "blob_idx": 692,
+    "ext_key": 32713,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "886304"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3.5*ATK",
+      "4*HP",
+      "0.7*DEF",
+      "DEF*6"
+    ]
+  },
+  {
+    "blob_idx": 693,
+    "ext_key": 32625,
+    "skill_name_ids": [
+      "887703"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "887703",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.27*HP",
+      "0.7*ATK",
+      "3.4*DEF",
+      "63.7*DEF",
+      "0.13*HP"
+    ]
+  },
+  {
+    "blob_idx": 694,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3.5*DEF",
+      "1.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 695,
+    "ext_key": 7648,
+    "skill_name_ids": [
+      "89102"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "89102",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "0.26*HP",
+      "0.05*HP"
+    ]
+  },
+  {
+    "blob_idx": 696,
+    "ext_key": 32714,
+    "skill_name_ids": [
+      "89105"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "89105",
+        "name": "pdescr"
+      }
+    ],
+    "formulas": [
+      "1.9*DEF",
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 697,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "892704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "892704",
+        "name": "descr"
+      }
+    ],
+    "formulas": [
+      "1.8*DEF",
+      "0.28*HP",
+      "1.85*ATK"
+    ]
+  },
+  {
+    "blob_idx": 698,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "89502"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "89502",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "2.65*ATK",
+      "0.29*HP",
+      "3*DEF",
+      "1*DEF"
+    ]
+  },
+  {
+    "blob_idx": 699,
+    "ext_key": 8134,
+    "skill_name_ids": [
+      "89704"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "89704",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.3*HP"
+    ]
+  },
+  {
+    "blob_idx": 700,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "897504"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "1.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 701,
+    "ext_key": 7936,
+    "skill_name_ids": [
+      "89902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "89902",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "0.05*HP",
+      "0.02*HP",
+      "4*ATK",
+      "0.23*HP"
+    ]
+  },
+  {
+    "blob_idx": 702,
+    "ext_key": 32766,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.28*HP"
+    ]
+  },
+  {
+    "blob_idx": 703,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "90001"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "90001",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.7*DEF",
+      "4.8*ATK",
+      "ATK*3.6",
+      "HP*0.2",
+      "ATK*5"
+    ]
+  },
+  {
+    "blob_idx": 704,
+    "ext_key": 8192,
+    "skill_name_ids": [
+      "91102"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "91102",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "3.8*ATK",
+      "0.2*HP"
+    ]
+  },
+  {
+    "blob_idx": 705,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "91203"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "91203",
+        "name": "desc"
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 706,
+    "ext_key": 4025,
+    "skill_name_ids": [
+      "91303"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "91303",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.13*HP",
+      "0.09*HP"
+    ]
+  },
+  {
+    "blob_idx": 707,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "91402"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "0.26*HP",
+      "3.6*ATK"
+    ]
+  },
+  {
+    "blob_idx": 708,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "91703"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "91703",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 709,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "91705"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "91705",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.8*ATK",
+      "2.7*DEF"
+    ]
+  },
+  {
+    "blob_idx": 710,
+    "ext_key": 32746,
+    "skill_name_ids": [
+      "91803"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "91803",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.5*DEF",
+      "5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 711,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.3*HP",
+      "1.8*ATK",
+      "1.6*DEF",
+      "0.02*HP"
+    ]
+  },
+  {
+    "blob_idx": 712,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "92503"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "92503",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.15*HP"
+    ]
+  },
+  {
+    "blob_idx": 713,
+    "ext_key": 32723,
+    "skill_name_ids": [
+      "92602"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "92602",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "1.85*ATK",
+      "3.5*DEF"
+    ]
+  },
+  {
+    "blob_idx": 714,
+    "ext_key": 32685,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "92903"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3.4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 715,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "93204"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "93204",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "0.12*HP",
+      "3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 716,
+    "ext_key": 4054,
+    "skill_name_ids": [
+      "93505"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "93505",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": [
+      "3.5*DEF"
+    ]
+  },
+  {
+    "blob_idx": 717,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "93601"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "93601",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 718,
+    "ext_key": 32716,
+    "skill_name_ids": [
+      "9401"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "9401",
+        "name": "Freezing Cold"
+      }
+    ],
+    "formulas": [
+      "1*DEF",
+      "0.03*HP",
+      "5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 719,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "94304"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "94304",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "2*ATK",
+      "1.9*DEF",
+      "0.12*HP",
+      "0.25*HP"
+    ]
+  },
+  {
+    "blob_idx": 720,
+    "ext_key": 4030,
+    "skill_name_ids": [
+      "94902"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "94902",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "4.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 721,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "94904"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "94904",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.2*HP",
+      "3.2*ATK",
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 722,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "95301"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "95301",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 723,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "95303"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "95303",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.6*ATK"
+    ]
+  },
+  {
+    "blob_idx": 724,
+    "ext_key": 4018,
+    "skill_name_ids": [
+      "95402"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "95402",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "0.1*HP"
+    ]
+  },
+  {
+    "blob_idx": 725,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [
+      "95501"
+    ],
+    "skill_names": [],
+    "formulas": [
+      "3*DEF",
+      "0.2*HP",
+      "4.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 726,
+    "ext_key": 4096,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 727,
+    "ext_key": 4096,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.14*HP"
+    ]
+  },
+  {
+    "blob_idx": 728,
+    "ext_key": 4065,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.34*HP",
+      "0.32*HP"
+    ]
+  },
+  {
+    "blob_idx": 729,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "0.27*HP",
+      "2.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 730,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "96203"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "96203",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "5.5*ATK"
+    ]
+  },
+  {
+    "blob_idx": 731,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "96205"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "96205",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.5*DEF",
+      "4.7*ATK",
+      "0.25*HP"
+    ]
+  },
+  {
+    "blob_idx": 732,
+    "ext_key": 4078,
+    "skill_name_ids": [
+      "96702"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "96702",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "4*DEF",
+      "1.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 733,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "96802"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "96802",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "1.8*DEF",
+      "1.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 734,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "9703"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "9703",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "1.9*ATK",
+      "1.55*DEF"
+    ]
+  },
+  {
+    "blob_idx": 735,
+    "ext_key": 4095,
+    "skill_name_ids": [
+      "97102"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "97102",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "1.55*DEF"
+    ]
+  },
+  {
+    "blob_idx": 736,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "97104"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "97104",
+        "name": "Skill "
+      }
+    ],
+    "formulas": [
+      "4.1*ATK",
+      "0.4*HP"
+    ]
+  },
+  {
+    "blob_idx": 737,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "97603"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "97603",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.7*ATK",
+      "4.1*DEF"
+    ]
+  },
+  {
+    "blob_idx": 738,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "98004"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "98004",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "3.3*ATK"
+    ]
+  },
+  {
+    "blob_idx": 739,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "3.2*ATK",
+      "0.23*HP"
+    ]
+  },
+  {
+    "blob_idx": 740,
+    "ext_key": 4036,
+    "skill_name_ids": [
+      "98403"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "98403",
+        "name": "desc"
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 741,
+    "ext_key": 32768,
+    "skill_name_ids": [
+      "98405"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "98405",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "1.7*DEF",
+      "4*ATK"
+    ]
+  },
+  {
+    "blob_idx": 742,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "98904"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "98904",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "0.15*HP",
+      "0.03*HP",
+      "3.5*DEF"
+    ]
+  },
+  {
+    "blob_idx": 743,
+    "ext_key": 4096,
+    "skill_name_ids": [
+      "99002"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "99002",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "5.5*DEF"
+    ]
+  },
+  {
+    "blob_idx": 744,
+    "ext_key": 32742,
+    "skill_name_ids": [
+      "99003"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "99003",
+        "name": "desc"
+      }
+    ],
+    "formulas": [
+      "4.8*ATK"
+    ]
+  },
+  {
+    "blob_idx": 745,
+    "ext_key": 32074,
+    "skill_name_ids": [
+      "99402"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "99402",
+        "name": "name"
+      }
+    ],
+    "formulas": [
+      "6*ATK",
+      "1.7*DEF"
+    ]
+  },
+  {
+    "blob_idx": 746,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": [
+      "2.2*ATK"
+    ]
+  },
+  {
+    "blob_idx": 747,
+    "ext_key": 32649,
+    "skill_name_ids": [
+      "99906"
+    ],
+    "skill_desc_ids": [],
+    "skill_names": [
+      {
+        "id": "99906",
+        "name": "pdesc"
+      }
+    ],
+    "formulas": []
+  },
+  {
+    "blob_idx": 748,
+    "ext_key": 32768,
+    "skill_name_ids": [],
+    "skill_desc_ids": [],
+    "skill_names": [],
+    "formulas": []
+  }
+]

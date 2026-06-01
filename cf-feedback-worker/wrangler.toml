@@ -1,0 +1,15 @@
+name = "rsl-feedback"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Secrets (never in source):
+#   wrangler secret put DISCORD_WEBHOOK_URL
+
+# KV namespace for rate limiting.
+# Setup (one-time):
+#   wrangler kv:namespace create "RATE_LIMITS"
+# Paste the returned id below, then redeploy:
+#   wrangler deploy
+[[kv_namespaces]]
+binding = "RATE_LIMITS"
+id = "4ddd9475ae2747f28f7c159fa8c91900"

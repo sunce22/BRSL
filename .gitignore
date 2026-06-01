@@ -1,0 +1,13 @@
+# Large generated IL2Cpp files (100MB+)
+tools/il2cpp-dump/
+tools/Il2CppDumper/
+tools/apktool.jar
+*.zip
+
+# Wrangler cache
+tools/cf-feedback-worker/.wrangler/
+cf-feedback-worker/.wrangler/
+
+# Python cache
+__pycache__/
+*.pyc

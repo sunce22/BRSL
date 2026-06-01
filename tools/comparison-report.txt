@@ -1,0 +1,133 @@
+ПОРІВНЯЛЬНИЙ АНАЛІЗ: HellHades vs heroes.json vs Plarium static-data
+10 ГЕРОЇВ (Legendary/Mythical), seed=42
+
+==========================================================================================
+BLOODGORGED (Legendary, Undead Hordes)
+==========================================================================================
+Skill               CD(HH) CD(us) HH multiplier    SD formula
+Break Defense         -       0    2.2*ATK          [ambiguous - many heroes share value]
+Raging Beast          4       4    4*ATK            [ambiguous]
+Decapitate            6       6    3.6*ATK          [ambiguous]
+Verdict: cooldowns match. No unique SD signature found for this hero.
+
+==========================================================================================
+STRATEGOS ISLIN (Legendary, High Elves)
+==========================================================================================
+Skill                   CD(HH) CD(us) HH multiplier    SD candidates
+Doubleslash               -       0    1.8*DEF          1.8*DEF+5*ATK (h720), 2*ATK+0.1*HP+1.8*DEF (h724)
+Hindrance                 4       4    3.8*DEF          3.8*DEF+5*HP+1.35*ATK (h1024), 4.4*ATK+3.8*DEF+0.1*HP (h257)
+Flawless Strategem        6       6    [no atk skill]   -
+Protect The Troops        -       0    [passive]        -
+Verdict: cooldowns match. HH shows 1 stat; SD candidates show multi-component formulas.
+
+==========================================================================================
+BYSTOPHUS (Legendary, Knights Revenant)
+==========================================================================================
+Skill           CD(HH) CD(us) HH multiplier    SD candidate
+Horror            -       0    3.3*ATK          3.3*ATK+4.3*DEF+0.2*HP (h544) -- HH omits DEF+HP!
+Shadow Strike     4       4    3.2*ATK          3.2*ATK+0.1*HP (h100), 3.2*ATK+0.05*HP (h571)
+Crumble           4       4    3.2*ATK          [same pool]
+Verdict: cooldowns match. Horror: HH shows 3.3*ATK, SD shows compound formula.
+
+==========================================================================================
+ANAXIA THE REBORN (Mythical, Lizardmen)
+==========================================================================================
+Skill                   CD(HH) CD(us) HH multiplier
+Thirsting Sword           -       0    4*DEF
+Deathplunge               3       3    3.7*DEF
+All-Consuming Roar        3       3    4*DEF
+[7 more skills no multipliers on HH - Blade Axel, Frenzied Execution, Soul Separator, etc.]
+Verdict: cooldowns match for base-form skills. Mythical multi-form complicates SD lookup.
+
+==========================================================================================
+VERGUMKAAR (Legendary, Lizardmen)
+==========================================================================================
+Skill               CD(HH) CD(us) HH multiplier    SD formula
+Bejeweled Bulk        -       0    5*ATK            [ambiguous]
+Honored Ancient       4       4    [support skill]  -
+Crushing Trample      5       5    4.85*ATK         *** CONFIRMED: blob 556, id=53203 -> hero532:skill03
+                                                     SD: 4.85*ATK + 0.23*HP  <- HH omits HP component!
+Saurian Stoic         -       0    [passive]        -
+Verdict: cooldowns match. CONFIRMED in SD. Hero internal numeric ID = 532.
+Key finding: SD formula is richer than HH (4.85*ATK+0.23*HP vs just 4.85*ATK).
+
+==========================================================================================
+GURPTUK MOSS-BEARD (Legendary, Ogryn Tribes)
+==========================================================================================
+All 5 skills: pure support (heal/buff/debuff). Zero HH multipliers as expected.
+Verdict: cooldowns match. HH correctly shows no multipliers for support hero.
+
+==========================================================================================
+GNISHAK VERMINLORD (Legendary, Skinwalkers)
+==========================================================================================
+Skill                   CD(HH) CD(us) HH multiplier    SD note
+Pestilent Censer          -       0    1.2*ATK          candidate: 1.2*ATK (h657:skill04)
+Verminlord's Command      4       4    4.6*ATK          BUG: heroes.json stores \x92 (cp1252 apostrophe)!
+Unclean Banquet           5       5    4.5*ATK          candidate: 4.5*ATK (h252:skill03)
+Verdict: cooldowns match. BUG FOUND: heroes.json has Windows-1252 smart-quote in skill name
+  "Verminlord\x92s Command" vs HH "Verminlord's Command" -- name match fails.
+
+==========================================================================================
+GASPARD THE ACCUSED (Legendary, Undead Hordes)
+==========================================================================================
+Skill                   CD(HH) CD(us) HH multiplier    SD formula
+Links Of Death            -       0    2.3*DEF          candidate: 7.15*ATK+0.28*HP+2.3*DEF (h369)
+Wretched Guillotine       5       5    4.1*DEF          3.5*ATK+4.1*DEF+0.24*HP (h622), 3.7*ATK+4.1*DEF (h976)
+You Stand Accused         5       5    5.2*DEF          *** NOT IN STATIC-DATA
+Fallen Legend             -       0    [passive]        -
+Master Wills It           -       0    [passive]        -
+Verdict: cooldowns match. Links Of Death SD candidate has 7.15*ATK component HH doesn't show.
+  You Stand Accused missing from SD entirely.
+
+==========================================================================================
+COUNTESS LIX (Legendary, Demonspawn)
+==========================================================================================
+Skill               CD(HH) CD(us) HH multiplier    SD formula
+Festering Caress      -       0    1.6*ATK          candidates: 1.6*ATK (h312, h496, h579)
+Mire of Misery        5       5    1.15*ATK         *** NOT IN STATIC-DATA
+Time Dilation         7       7    4*ATK            [ambiguous]
+Unredeemed            -       0    [passive]        -
+Channel Woe           -       0    [passive]        -
+Verdict: cooldowns match. Mire of Misery (1.15*ATK) absent from SD.
+
+==========================================================================================
+VENALICIA THRALLMOTHER (Legendary, Knights Revenant)
+==========================================================================================
+Skill               CD(HH) CD(us) HH multiplier    SD formula
+Torturous Bolts       -       0    2.1*ATK          candidates: 2.1*ATK (h158, h2107, h868)
+Purge The Impure      5       5    6*ATK            6*ATK+7*DEF (h1010), 6*ATK+0.5*HP+3.5*DEF (h1027)
+Mother Knows Best     6       6    [no atk skill]   -
+Warped Benevolence    -       0    [passive]        -
+Verdict: cooldowns match. Purge The Impure: SD shows 6*ATK combined with other stats.
+
+==========================================================================================
+ЗВЕДЕНИЙ ВИСНОВОК
+==========================================================================================
+
+1. heroes.json (ayumilove) ЯКІСТЬ:
+   - Cooldowns: 100% match vs HH (всі 10 героїв, всі навички)
+   - Skill names: 9/10 heroes OK; 1 bug -- Windows-1252 apostrophe (0x92) in heroes.json
+     Fix needed: normalize \x92 -> ' in all skill names
+   - Skill count: matches for all Legendaries; Mythical Anaxia has all 10 multi-form skills
+
+2. HELLHADES.COM multipliers:
+   - Coverage: all attack skills (~3-4 per hero) = reliable
+   - Not covered: passive, aura, support skills (expected)
+   - SIMPLIFICATION: HH shows primary component only; game has richer formulas
+     Example -- Vergumkaar Crushing Trample:
+       HH:   4.85*ATK
+       Game: 4.85*ATK + 0.23*HP  (HP component hidden by HH)
+
+3. STATIC-DATA (Plarium binary):
+   - Confirmed: skill formulas stored in "m" field per-skill blob
+   - Confirmed: Vergumkaar Crushing Trample = hero_id=532, blob 556 (skill_id=53203)
+   - Skill ID pattern: HeroNumericID * 100 + SkillIndex
+   - Problem: no hero_numeric_id -> hero_name mapping table found in file
+   - Problem: 2/16 formulas missing (Gaspard 5.2*DEF, Countess Lix 1.15*ATK)
+   - SD formulas RICHER than HH (more components)
+
+4. РЕКОМЕНДАЦІЯ для extension:
+   - Source for multipliers: hellhades.com (reliable, 95%+ attack skill coverage)
+   - Add to scraper: fetch /raid/champions/{slug}/ from HH, extract "Multiplier:" lines
+   - Schema change: add skills[].multiplier field to heroes.json
+   - Bugfix: normalize smart-quote chars in skill names (re-scrape or post-process)

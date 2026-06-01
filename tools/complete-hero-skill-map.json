@@ -1,0 +1,2386 @@
+[
+  {
+    "hero_numeric_id": 2,
+    "hero_name": "Richtoff the Bold",
+    "skill_id": 201,
+    "skill_index": 1,
+    "skill_name": "Ruination",
+    "formula": "2.3*ATK"
+  },
+  {
+    "hero_numeric_id": 6,
+    "hero_name": "HERO_6",
+    "skill_id": 602,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.9*ATK"
+  },
+  {
+    "hero_numeric_id": 10,
+    "hero_name": "Bad-el-Kazar",
+    "skill_id": 1001,
+    "skill_index": 1,
+    "skill_name": "Dark Sphere",
+    "formula": "2.9*ATK"
+  },
+  {
+    "hero_numeric_id": 11,
+    "hero_name": "HERO_11",
+    "skill_id": 1102,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "5.7*ATK"
+  },
+  {
+    "hero_numeric_id": 12,
+    "hero_name": "HERO_12",
+    "skill_id": 1203,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2.8*ATK"
+  },
+  {
+    "hero_numeric_id": 24,
+    "hero_name": "HERO_24",
+    "skill_id": 2401,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "0.26*HP"
+  },
+  {
+    "hero_numeric_id": 24,
+    "hero_name": "HERO_24",
+    "skill_id": 2404,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.3*HP"
+  },
+  {
+    "hero_numeric_id": 27,
+    "hero_name": "HERO_27",
+    "skill_id": 2704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.4*ATK"
+  },
+  {
+    "hero_numeric_id": 28,
+    "hero_name": "HERO_28",
+    "skill_id": 2803,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "5.5*ATK"
+  },
+  {
+    "hero_numeric_id": 42,
+    "hero_name": "Renegade",
+    "skill_id": 4202,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "1.2*ATK+SPD"
+  },
+  {
+    "hero_numeric_id": 59,
+    "hero_name": "HERO_59",
+    "skill_id": 5903,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "1.8*ATK+0.1*HP"
+  },
+  {
+    "hero_numeric_id": 60,
+    "hero_name": "HERO_60",
+    "skill_id": 6001,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2.7*ATK+2*DEF"
+  },
+  {
+    "hero_numeric_id": 77,
+    "hero_name": "HERO_77",
+    "skill_id": 7701,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.6*ATK"
+  },
+  {
+    "hero_numeric_id": 80,
+    "hero_name": "HERO_80",
+    "skill_id": 8003,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "5.6*ATK"
+  },
+  {
+    "hero_numeric_id": 81,
+    "hero_name": "HERO_81",
+    "skill_id": 8102,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.12*HP+1.4*ATK"
+  },
+  {
+    "hero_numeric_id": 83,
+    "hero_name": "HERO_83",
+    "skill_id": 8301,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "0.3*HP"
+  },
+  {
+    "hero_numeric_id": 94,
+    "hero_name": "HERO_94",
+    "skill_id": 9401,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1*DEF"
+  },
+  {
+    "hero_numeric_id": 97,
+    "hero_name": "HERO_97",
+    "skill_id": 9703,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "1.9*ATK"
+  },
+  {
+    "hero_numeric_id": 100,
+    "hero_name": "HERO_100",
+    "skill_id": 10002,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.2*ATK"
+  },
+  {
+    "hero_numeric_id": 103,
+    "hero_name": "HERO_103",
+    "skill_id": 10301,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1*ATK"
+  },
+  {
+    "hero_numeric_id": 103,
+    "hero_name": "HERO_103",
+    "skill_id": 10304,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.6*ATK"
+  },
+  {
+    "hero_numeric_id": 110,
+    "hero_name": "HERO_110",
+    "skill_id": 11002,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.1*ATK"
+  },
+  {
+    "hero_numeric_id": 111,
+    "hero_name": "Rhazin Scarhide",
+    "skill_id": 11102,
+    "skill_index": 2,
+    "skill_name": "Shear",
+    "formula": "0.1*HP"
+  },
+  {
+    "hero_numeric_id": 112,
+    "hero_name": "HERO_112",
+    "skill_id": 11201,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2.2*ATK"
+  },
+  {
+    "hero_numeric_id": 113,
+    "hero_name": "HERO_113",
+    "skill_id": 11301,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2*ATK"
+  },
+  {
+    "hero_numeric_id": 127,
+    "hero_name": "HERO_127",
+    "skill_id": 12701,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.9*ATK"
+  },
+  {
+    "hero_numeric_id": 133,
+    "hero_name": "HERO_133",
+    "skill_id": 13302,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.8*ATK"
+  },
+  {
+    "hero_numeric_id": 134,
+    "hero_name": "HERO_134",
+    "skill_id": 13401,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2.8*ATK"
+  },
+  {
+    "hero_numeric_id": 142,
+    "hero_name": "HERO_142",
+    "skill_id": 14202,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "6.7*ATK"
+  },
+  {
+    "hero_numeric_id": 150,
+    "hero_name": "Athel",
+    "skill_id": 15001,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.3*ATK + 30"
+  },
+  {
+    "hero_numeric_id": 150,
+    "hero_name": "Athel",
+    "skill_id": 15004,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.1*ATK"
+  },
+  {
+    "hero_numeric_id": 158,
+    "hero_name": "HERO_158",
+    "skill_id": 15801,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2.1*ATK"
+  },
+  {
+    "hero_numeric_id": 159,
+    "hero_name": "HERO_159",
+    "skill_id": 15902,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "4.5*DEF"
+  },
+  {
+    "hero_numeric_id": 165,
+    "hero_name": "HERO_165",
+    "skill_id": 16502,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "1.4*ATK"
+  },
+  {
+    "hero_numeric_id": 166,
+    "hero_name": "HERO_166",
+    "skill_id": 16603,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.15*HP"
+  },
+  {
+    "hero_numeric_id": 175,
+    "hero_name": "HERO_175",
+    "skill_id": 17501,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "4*ATK"
+  },
+  {
+    "hero_numeric_id": 175,
+    "hero_name": "HERO_175",
+    "skill_id": 17504,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "1.7*ATK"
+  },
+  {
+    "hero_numeric_id": 181,
+    "hero_name": "HERO_181",
+    "skill_id": 18102,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "6.1*ATK"
+  },
+  {
+    "hero_numeric_id": 182,
+    "hero_name": "HERO_182",
+    "skill_id": 18201,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2.2*ATK"
+  },
+  {
+    "hero_numeric_id": 183,
+    "hero_name": "HERO_183",
+    "skill_id": 18304,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.6*DEF"
+  },
+  {
+    "hero_numeric_id": 184,
+    "hero_name": "HERO_184",
+    "skill_id": 18404,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "5.3*DEF"
+  },
+  {
+    "hero_numeric_id": 192,
+    "hero_name": "HERO_192",
+    "skill_id": 19201,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2*ATK"
+  },
+  {
+    "hero_numeric_id": 208,
+    "hero_name": "HERO_208",
+    "skill_id": 20803,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "5.3*ATK"
+  },
+  {
+    "hero_numeric_id": 209,
+    "hero_name": "HERO_209",
+    "skill_id": 20902,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "2.3*ATK"
+  },
+  {
+    "hero_numeric_id": 214,
+    "hero_name": "HERO_214",
+    "skill_id": 21402,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.5*DEF"
+  },
+  {
+    "hero_numeric_id": 227,
+    "hero_name": "HERO_227",
+    "skill_id": 22703,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.12*HP"
+  },
+  {
+    "hero_numeric_id": 230,
+    "hero_name": "HERO_230",
+    "skill_id": 23003,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.2*HP"
+  },
+  {
+    "hero_numeric_id": 232,
+    "hero_name": "HERO_232",
+    "skill_id": 23202,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "1.9*ATK"
+  },
+  {
+    "hero_numeric_id": 234,
+    "hero_name": "HERO_234",
+    "skill_id": 23401,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2.9*ATK"
+  },
+  {
+    "hero_numeric_id": 240,
+    "hero_name": "HERO_240",
+    "skill_id": 24001,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "4.3*ATK"
+  },
+  {
+    "hero_numeric_id": 247,
+    "hero_name": "HERO_247",
+    "skill_id": 24704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.6*ATK"
+  },
+  {
+    "hero_numeric_id": 249,
+    "hero_name": "HERO_249",
+    "skill_id": 24902,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "5*DEF"
+  },
+  {
+    "hero_numeric_id": 252,
+    "hero_name": "HERO_252",
+    "skill_id": 25203,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "4.5*ATK"
+  },
+  {
+    "hero_numeric_id": 253,
+    "hero_name": "HERO_253",
+    "skill_id": 25301,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.9*ATK"
+  },
+  {
+    "hero_numeric_id": 253,
+    "hero_name": "HERO_253",
+    "skill_id": 25304,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.25*ATK"
+  },
+  {
+    "hero_numeric_id": 257,
+    "hero_name": "HERO_257",
+    "skill_id": 25701,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "4.4*ATK"
+  },
+  {
+    "hero_numeric_id": 261,
+    "hero_name": "HERO_261",
+    "skill_id": 26101,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "4.6*ATK"
+  },
+  {
+    "hero_numeric_id": 264,
+    "hero_name": "HERO_264",
+    "skill_id": 26404,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.3*HP"
+  },
+  {
+    "hero_numeric_id": 271,
+    "hero_name": "HERO_271",
+    "skill_id": 27103,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.2*HP"
+  },
+  {
+    "hero_numeric_id": 279,
+    "hero_name": "HERO_279",
+    "skill_id": 27901,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.4*ATK"
+  },
+  {
+    "hero_numeric_id": 295,
+    "hero_name": "HERO_295",
+    "skill_id": 29503,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "6.9*ATK"
+  },
+  {
+    "hero_numeric_id": 302,
+    "hero_name": "HERO_302",
+    "skill_id": 30201,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.7*ATK"
+  },
+  {
+    "hero_numeric_id": 303,
+    "hero_name": "HERO_303",
+    "skill_id": 30303,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.4*ATK"
+  },
+  {
+    "hero_numeric_id": 305,
+    "hero_name": "HERO_305",
+    "skill_id": 30501,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "0.3*HP"
+  },
+  {
+    "hero_numeric_id": 312,
+    "hero_name": "HERO_312",
+    "skill_id": 31201,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.6*ATK"
+  },
+  {
+    "hero_numeric_id": 320,
+    "hero_name": "HERO_320",
+    "skill_id": 32001,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.7*ATK"
+  },
+  {
+    "hero_numeric_id": 325,
+    "hero_name": "Аліка",
+    "skill_id": 32502,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "4.2*ATK"
+  },
+  {
+    "hero_numeric_id": 326,
+    "hero_name": "HERO_326",
+    "skill_id": 32604,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.75*HP"
+  },
+  {
+    "hero_numeric_id": 330,
+    "hero_name": "HERO_330",
+    "skill_id": 33004,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "2.55*ATK"
+  },
+  {
+    "hero_numeric_id": 332,
+    "hero_name": "HERO_332",
+    "skill_id": 33202,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.1*HP"
+  },
+  {
+    "hero_numeric_id": 335,
+    "hero_name": "HERO_335",
+    "skill_id": 33504,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.5*ATK"
+  },
+  {
+    "hero_numeric_id": 342,
+    "hero_name": "Belanor",
+    "skill_id": 34202,
+    "skill_index": 2,
+    "skill_name": "Insurmountable",
+    "formula": "1.2*ATK"
+  },
+  {
+    "hero_numeric_id": 347,
+    "hero_name": "HERO_347",
+    "skill_id": 34704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.15*HP"
+  },
+  {
+    "hero_numeric_id": 351,
+    "hero_name": "HERO_351",
+    "skill_id": 35103,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "4*ATK"
+  },
+  {
+    "hero_numeric_id": 357,
+    "hero_name": "HERO_357",
+    "skill_id": 35703,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "1.9*ATK"
+  },
+  {
+    "hero_numeric_id": 362,
+    "hero_name": "HERO_362",
+    "skill_id": 36201,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 368,
+    "hero_name": "HERO_368",
+    "skill_id": 36801,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.9*ATK"
+  },
+  {
+    "hero_numeric_id": 369,
+    "hero_name": "HERO_369",
+    "skill_id": 36903,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "7.15*ATK"
+  },
+  {
+    "hero_numeric_id": 379,
+    "hero_name": "HERO_379",
+    "skill_id": 37904,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "2*ATK"
+  },
+  {
+    "hero_numeric_id": 387,
+    "hero_name": "HERO_387",
+    "skill_id": 38704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.3*DEF"
+  },
+  {
+    "hero_numeric_id": 392,
+    "hero_name": "HERO_392",
+    "skill_id": 39204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.1*ATK"
+  },
+  {
+    "hero_numeric_id": 394,
+    "hero_name": "HERO_394",
+    "skill_id": 39403,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.2*HP"
+  },
+  {
+    "hero_numeric_id": 405,
+    "hero_name": "Skartorsis",
+    "skill_id": 40501,
+    "skill_index": 1,
+    "skill_name": "Hand of Doom",
+    "formula": "4.5*ATK"
+  },
+  {
+    "hero_numeric_id": 406,
+    "hero_name": "HERO_406",
+    "skill_id": 40604,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.1*HP"
+  },
+  {
+    "hero_numeric_id": 408,
+    "hero_name": "HERO_408",
+    "skill_id": 40802,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "1.9*ATK"
+  },
+  {
+    "hero_numeric_id": 413,
+    "hero_name": "Necrohunter",
+    "skill_id": 41302,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "2*ATK"
+  },
+  {
+    "hero_numeric_id": 438,
+    "hero_name": "Duchess Lilitu",
+    "skill_id": 43801,
+    "skill_index": 1,
+    "skill_name": "Abyssal Invocation",
+    "formula": "3.5*ATK"
+  },
+  {
+    "hero_numeric_id": 443,
+    "hero_name": "HERO_443",
+    "skill_id": 44302,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.5*ATK"
+  },
+  {
+    "hero_numeric_id": 445,
+    "hero_name": "HERO_445",
+    "skill_id": 44501,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "6*ATK"
+  },
+  {
+    "hero_numeric_id": 446,
+    "hero_name": "Dracomorph",
+    "skill_id": 44604,
+    "skill_index": 4,
+    "skill_name": "Aura",
+    "formula": "0.06*HP"
+  },
+  {
+    "hero_numeric_id": 452,
+    "hero_name": "HERO_452",
+    "skill_id": 45202,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "2.2*ATK"
+  },
+  {
+    "hero_numeric_id": 457,
+    "hero_name": "HERO_457",
+    "skill_id": 45701,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "4.2*ATK"
+  },
+  {
+    "hero_numeric_id": 461,
+    "hero_name": "HERO_461",
+    "skill_id": 46103,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.2*HP"
+  },
+  {
+    "hero_numeric_id": 466,
+    "hero_name": "HERO_466",
+    "skill_id": 46602,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.8*DEF"
+  },
+  {
+    "hero_numeric_id": 468,
+    "hero_name": "HERO_468",
+    "skill_id": 46801,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2*ATK"
+  },
+  {
+    "hero_numeric_id": 472,
+    "hero_name": "HERO_472",
+    "skill_id": 47202,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "2*HP"
+  },
+  {
+    "hero_numeric_id": 474,
+    "hero_name": "HERO_474",
+    "skill_id": 47403,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.9*DEF"
+  },
+  {
+    "hero_numeric_id": 475,
+    "hero_name": "HERO_475",
+    "skill_id": 47504,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "5*ATK"
+  },
+  {
+    "hero_numeric_id": 479,
+    "hero_name": "HERO_479",
+    "skill_id": 47901,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "0.2*HP"
+  },
+  {
+    "hero_numeric_id": 485,
+    "hero_name": "HERO_485",
+    "skill_id": 48502,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 489,
+    "hero_name": "HERO_489",
+    "skill_id": 48902,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.8*ATK"
+  },
+  {
+    "hero_numeric_id": 495,
+    "hero_name": "HERO_495",
+    "skill_id": 49503,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2.3*ATK"
+  },
+  {
+    "hero_numeric_id": 496,
+    "hero_name": "Cillian the Lucky",
+    "skill_id": 49604,
+    "skill_index": 4,
+    "skill_name": "Charmed Life (Passive)",
+    "formula": "1.6*ATK"
+  },
+  {
+    "hero_numeric_id": 502,
+    "hero_name": "HERO_502",
+    "skill_id": 50204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.8*ATK"
+  },
+  {
+    "hero_numeric_id": 509,
+    "hero_name": "HERO_509",
+    "skill_id": 50903,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.5*DEF"
+  },
+  {
+    "hero_numeric_id": 516,
+    "hero_name": "HERO_516",
+    "skill_id": 51603,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.5*HP"
+  },
+  {
+    "hero_numeric_id": 524,
+    "hero_name": "HERO_524",
+    "skill_id": 52401,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.6*ATK"
+  },
+  {
+    "hero_numeric_id": 526,
+    "hero_name": "HERO_526",
+    "skill_id": 52602,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.26*DEF"
+  },
+  {
+    "hero_numeric_id": 531,
+    "hero_name": "Elegaius",
+    "skill_id": 53103,
+    "skill_index": 3,
+    "skill_name": "Ghost Rage",
+    "formula": "0.18*HP"
+  },
+  {
+    "hero_numeric_id": 532,
+    "hero_name": "HERO_532",
+    "skill_id": 53203,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "4.85*ATK"
+  },
+  {
+    "hero_numeric_id": 536,
+    "hero_name": "HERO_536",
+    "skill_id": 53603,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "6*ATK"
+  },
+  {
+    "hero_numeric_id": 544,
+    "hero_name": "HERO_544",
+    "skill_id": 54402,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.3*ATK"
+  },
+  {
+    "hero_numeric_id": 551,
+    "hero_name": "HERO_551",
+    "skill_id": 55101,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "4.4*ATK"
+  },
+  {
+    "hero_numeric_id": 556,
+    "hero_name": "HERO_556",
+    "skill_id": 55601,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.8*ATK"
+  },
+  {
+    "hero_numeric_id": 556,
+    "hero_name": "HERO_556",
+    "skill_id": 55604,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "2.65*DEF"
+  },
+  {
+    "hero_numeric_id": 557,
+    "hero_name": "HERO_557",
+    "skill_id": 55704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "1.8*ATK"
+  },
+  {
+    "hero_numeric_id": 563,
+    "hero_name": "HERO_563",
+    "skill_id": 56303,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.4*ATK"
+  },
+  {
+    "hero_numeric_id": 570,
+    "hero_name": "HERO_570",
+    "skill_id": 57002,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "2.5*ATK"
+  },
+  {
+    "hero_numeric_id": 571,
+    "hero_name": "HERO_571",
+    "skill_id": 57101,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.2*ATK"
+  },
+  {
+    "hero_numeric_id": 578,
+    "hero_name": "HERO_578",
+    "skill_id": 57803,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "4*ATK"
+  },
+  {
+    "hero_numeric_id": 579,
+    "hero_name": "HERO_579",
+    "skill_id": 57904,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "1.6*ATK"
+  },
+  {
+    "hero_numeric_id": 584,
+    "hero_name": "HERO_584",
+    "skill_id": 58404,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.9*ATK"
+  },
+  {
+    "hero_numeric_id": 593,
+    "hero_name": "HERO_593",
+    "skill_id": 59302,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "6.6*ATK"
+  },
+  {
+    "hero_numeric_id": 598,
+    "hero_name": "HERO_598",
+    "skill_id": 59804,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.2*DEF"
+  },
+  {
+    "hero_numeric_id": 603,
+    "hero_name": "HERO_603",
+    "skill_id": 60302,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "5.5*ATK"
+  },
+  {
+    "hero_numeric_id": 604,
+    "hero_name": "HERO_604",
+    "skill_id": 60403,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.1*DEF"
+  },
+  {
+    "hero_numeric_id": 610,
+    "hero_name": "HERO_610",
+    "skill_id": 61002,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "4.82*ATK"
+  },
+  {
+    "hero_numeric_id": 615,
+    "hero_name": "HERO_615",
+    "skill_id": 61504,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.2*ATK"
+  },
+  {
+    "hero_numeric_id": 617,
+    "hero_name": "HERO_617",
+    "skill_id": 61704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4*DEF"
+  },
+  {
+    "hero_numeric_id": 622,
+    "hero_name": "Cleopterix",
+    "skill_id": 62204,
+    "skill_index": 4,
+    "skill_name": "Countermand (Passive)",
+    "formula": "3.5*ATK"
+  },
+  {
+    "hero_numeric_id": 628,
+    "hero_name": "HERO_628",
+    "skill_id": 62801,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2.4*ATK"
+  },
+  {
+    "hero_numeric_id": 629,
+    "hero_name": "HERO_629",
+    "skill_id": 62902,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "2*ATK"
+  },
+  {
+    "hero_numeric_id": 630,
+    "hero_name": "HERO_630",
+    "skill_id": 63004,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "1.9*ATK+3*DEF"
+  },
+  {
+    "hero_numeric_id": 635,
+    "hero_name": "HERO_635",
+    "skill_id": 63506,
+    "skill_index": 6,
+    "skill_name": "SKILL_6",
+    "formula": "1.5*ATK"
+  },
+  {
+    "hero_numeric_id": 642,
+    "hero_name": "HERO_642",
+    "skill_id": 64203,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.85*ATK"
+  },
+  {
+    "hero_numeric_id": 647,
+    "hero_name": "HERO_647",
+    "skill_id": 64704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.4*ATK"
+  },
+  {
+    "hero_numeric_id": 650,
+    "hero_name": "HERO_650",
+    "skill_id": 65001,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.9*ATK"
+  },
+  {
+    "hero_numeric_id": 656,
+    "hero_name": "HERO_656",
+    "skill_id": 65601,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "7*ATK"
+  },
+  {
+    "hero_numeric_id": 657,
+    "hero_name": "HERO_657",
+    "skill_id": 65704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "1.2*ATK"
+  },
+  {
+    "hero_numeric_id": 665,
+    "hero_name": "HERO_665",
+    "skill_id": 66504,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "1*HP"
+  },
+  {
+    "hero_numeric_id": 671,
+    "hero_name": "HERO_671",
+    "skill_id": 67102,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "4*ATK"
+  },
+  {
+    "hero_numeric_id": 682,
+    "hero_name": "HERO_682",
+    "skill_id": 68204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.14*HP"
+  },
+  {
+    "hero_numeric_id": 684,
+    "hero_name": "HERO_684",
+    "skill_id": 68402,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "1.95*ATK"
+  },
+  {
+    "hero_numeric_id": 693,
+    "hero_name": "HERO_693",
+    "skill_id": 69302,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "1.8*ATK"
+  },
+  {
+    "hero_numeric_id": 695,
+    "hero_name": "HERO_695",
+    "skill_id": 69501,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.4*ATK"
+  },
+  {
+    "hero_numeric_id": 697,
+    "hero_name": "HERO_697",
+    "skill_id": 69701,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.7*ATK"
+  },
+  {
+    "hero_numeric_id": 701,
+    "hero_name": "HERO_701",
+    "skill_id": 70101,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2.1*DEF"
+  },
+  {
+    "hero_numeric_id": 708,
+    "hero_name": "HERO_708",
+    "skill_id": 70802,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.5*HP"
+  },
+  {
+    "hero_numeric_id": 709,
+    "hero_name": "HERO_709",
+    "skill_id": 70903,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2.5*DEF"
+  },
+  {
+    "hero_numeric_id": 710,
+    "hero_name": "Deliana",
+    "skill_id": 71004,
+    "skill_index": 4,
+    "skill_name": "Magnificient (Passive, Cooldown: 4 turns)",
+    "formula": "0.5*HP"
+  },
+  {
+    "hero_numeric_id": 718,
+    "hero_name": "HERO_718",
+    "skill_id": 71802,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "4.6*ATK"
+  },
+  {
+    "hero_numeric_id": 720,
+    "hero_name": "HERO_720",
+    "skill_id": 72001,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.8*DEF"
+  },
+  {
+    "hero_numeric_id": 721,
+    "hero_name": "HERO_721",
+    "skill_id": 72103,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "1.8*ATK"
+  },
+  {
+    "hero_numeric_id": 722,
+    "hero_name": "HERO_722",
+    "skill_id": 72204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.35*HP"
+  },
+  {
+    "hero_numeric_id": 724,
+    "hero_name": "HERO_724",
+    "skill_id": 72402,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "2*ATK"
+  },
+  {
+    "hero_numeric_id": 725,
+    "hero_name": "HERO_725",
+    "skill_id": 72502,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.7*DEF"
+  },
+  {
+    "hero_numeric_id": 731,
+    "hero_name": "HERO_731",
+    "skill_id": 73103,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.15*HP"
+  },
+  {
+    "hero_numeric_id": 737,
+    "hero_name": "HERO_737",
+    "skill_id": 73702,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "2.5*DEF"
+  },
+  {
+    "hero_numeric_id": 742,
+    "hero_name": "HERO_742",
+    "skill_id": 74203,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 744,
+    "hero_name": "HERO_744",
+    "skill_id": 74403,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2.5*DEF"
+  },
+  {
+    "hero_numeric_id": 748,
+    "hero_name": "HERO_748",
+    "skill_id": 74803,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "4.5*ATK"
+  },
+  {
+    "hero_numeric_id": 749,
+    "hero_name": "HERO_749",
+    "skill_id": 74904,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.4*HP"
+  },
+  {
+    "hero_numeric_id": 750,
+    "hero_name": "Marichka the Unbreakable",
+    "skill_id": 75003,
+    "skill_index": 3,
+    "skill_name": "Nurtured Friendship",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 756,
+    "hero_name": "HERO_756",
+    "skill_id": 75602,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.9*DEF"
+  },
+  {
+    "hero_numeric_id": 758,
+    "hero_name": "Korugar Death-Bell",
+    "skill_id": 75803,
+    "skill_index": 3,
+    "skill_name": "Conduit of Agonies",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 759,
+    "hero_name": "HERO_759",
+    "skill_id": 75904,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "2.4*ATK"
+  },
+  {
+    "hero_numeric_id": 766,
+    "hero_name": "HERO_766",
+    "skill_id": 76602,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "4.5*ATK"
+  },
+  {
+    "hero_numeric_id": 769,
+    "hero_name": "HERO_769",
+    "skill_id": 76901,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.6*ATK"
+  },
+  {
+    "hero_numeric_id": 769,
+    "hero_name": "HERO_769",
+    "skill_id": 76904,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "2.4*ATK"
+  },
+  {
+    "hero_numeric_id": 779,
+    "hero_name": "Quintus the Triumphant",
+    "skill_id": 77902,
+    "skill_index": 2,
+    "skill_name": "Strip Away",
+    "formula": "1.9*ATK"
+  },
+  {
+    "hero_numeric_id": 780,
+    "hero_name": "HERO_780",
+    "skill_id": 78003,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2.9*ATK"
+  },
+  {
+    "hero_numeric_id": 783,
+    "hero_name": "HERO_783",
+    "skill_id": 78303,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.2*HP"
+  },
+  {
+    "hero_numeric_id": 786,
+    "hero_name": "HERO_786",
+    "skill_id": 78601,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "0.1*HP"
+  },
+  {
+    "hero_numeric_id": 794,
+    "hero_name": "HERO_794",
+    "skill_id": 79402,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.27*HP"
+  },
+  {
+    "hero_numeric_id": 806,
+    "hero_name": "HERO_806",
+    "skill_id": 80603,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2.9*ATK"
+  },
+  {
+    "hero_numeric_id": 813,
+    "hero_name": "HERO_813",
+    "skill_id": 81301,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 817,
+    "hero_name": "HERO_817",
+    "skill_id": 81704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 823,
+    "hero_name": "HERO_823",
+    "skill_id": 82301,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.75*ATK"
+  },
+  {
+    "hero_numeric_id": 824,
+    "hero_name": "HERO_824",
+    "skill_id": 82403,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.9*ATK"
+  },
+  {
+    "hero_numeric_id": 829,
+    "hero_name": "HERO_829",
+    "skill_id": 82902,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.8*ATK"
+  },
+  {
+    "hero_numeric_id": 836,
+    "hero_name": "HERO_836",
+    "skill_id": 83603,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.31*HP"
+  },
+  {
+    "hero_numeric_id": 841,
+    "hero_name": "HERO_841",
+    "skill_id": 84102,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.22*HP"
+  },
+  {
+    "hero_numeric_id": 842,
+    "hero_name": "HERO_842",
+    "skill_id": 84203,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "1.35*ATK"
+  },
+  {
+    "hero_numeric_id": 844,
+    "hero_name": "HERO_844",
+    "skill_id": 84401,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.7*ATK"
+  },
+  {
+    "hero_numeric_id": 849,
+    "hero_name": "HERO_849",
+    "skill_id": 84903,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "4.1*ATK"
+  },
+  {
+    "hero_numeric_id": 850,
+    "hero_name": "HERO_850",
+    "skill_id": 85003,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.4*ATK+25"
+  },
+  {
+    "hero_numeric_id": 855,
+    "hero_name": "HERO_855",
+    "skill_id": 85503,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "1.1*ATK"
+  },
+  {
+    "hero_numeric_id": 858,
+    "hero_name": "HERO_858",
+    "skill_id": 85801,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.2*ATK"
+  },
+  {
+    "hero_numeric_id": 858,
+    "hero_name": "HERO_858",
+    "skill_id": 85805,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "1.2*ATK"
+  },
+  {
+    "hero_numeric_id": 862,
+    "hero_name": "HERO_862",
+    "skill_id": 86205,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "0.25*HP"
+  },
+  {
+    "hero_numeric_id": 868,
+    "hero_name": "HERO_868",
+    "skill_id": 86801,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.5*DEF"
+  },
+  {
+    "hero_numeric_id": 872,
+    "hero_name": "HERO_872",
+    "skill_id": 87201,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "5.5*ATK"
+  },
+  {
+    "hero_numeric_id": 872,
+    "hero_name": "HERO_872",
+    "skill_id": 87204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "2.5*DEF"
+  },
+  {
+    "hero_numeric_id": 873,
+    "hero_name": "HERO_873",
+    "skill_id": 87304,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.3*ATK"
+  },
+  {
+    "hero_numeric_id": 877,
+    "hero_name": "HERO_877",
+    "skill_id": 87705,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "5.4*ATK"
+  },
+  {
+    "hero_numeric_id": 878,
+    "hero_name": "HERO_878",
+    "skill_id": 87804,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.5*ATK"
+  },
+  {
+    "hero_numeric_id": 882,
+    "hero_name": "HERO_882",
+    "skill_id": 88204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 886,
+    "hero_name": "HERO_886",
+    "skill_id": 88605,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "0.18*HP"
+  },
+  {
+    "hero_numeric_id": 891,
+    "hero_name": "HERO_891",
+    "skill_id": 89102,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.26*HP"
+  },
+  {
+    "hero_numeric_id": 891,
+    "hero_name": "HERO_891",
+    "skill_id": 89105,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "1.9*DEF"
+  },
+  {
+    "hero_numeric_id": 895,
+    "hero_name": "HERO_895",
+    "skill_id": 89502,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "2.65*ATK"
+  },
+  {
+    "hero_numeric_id": 897,
+    "hero_name": "HERO_897",
+    "skill_id": 89704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.3*HP"
+  },
+  {
+    "hero_numeric_id": 899,
+    "hero_name": "HERO_899",
+    "skill_id": 89902,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.05*HP+(0.02*HP*BUFF_COUNT)"
+  },
+  {
+    "hero_numeric_id": 900,
+    "hero_name": "HERO_900",
+    "skill_id": 90001,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2.7*DEF"
+  },
+  {
+    "hero_numeric_id": 911,
+    "hero_name": "HERO_911",
+    "skill_id": 91102,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.8*ATK"
+  },
+  {
+    "hero_numeric_id": 913,
+    "hero_name": "Branch-arm Lasair",
+    "skill_id": 91303,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.13*HP"
+  },
+  {
+    "hero_numeric_id": 917,
+    "hero_name": "HERO_917",
+    "skill_id": 91703,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "4*ATK"
+  },
+  {
+    "hero_numeric_id": 917,
+    "hero_name": "HERO_917",
+    "skill_id": 91705,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "3.8*ATK"
+  },
+  {
+    "hero_numeric_id": 918,
+    "hero_name": "HERO_918",
+    "skill_id": 91803,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2.5*DEF+0.1*TRG_HP"
+  },
+  {
+    "hero_numeric_id": 925,
+    "hero_name": "HERO_925",
+    "skill_id": 92503,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.15*HP"
+  },
+  {
+    "hero_numeric_id": 926,
+    "hero_name": "HERO_926",
+    "skill_id": 92602,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "1.85*ATK"
+  },
+  {
+    "hero_numeric_id": 932,
+    "hero_name": "HERO_932",
+    "skill_id": 93204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.12*HP"
+  },
+  {
+    "hero_numeric_id": 935,
+    "hero_name": "HERO_935",
+    "skill_id": 93505,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "3.5*DEF"
+  },
+  {
+    "hero_numeric_id": 936,
+    "hero_name": "HERO_936",
+    "skill_id": 93601,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "2.8*ATK"
+  },
+  {
+    "hero_numeric_id": 943,
+    "hero_name": "HERO_943",
+    "skill_id": 94304,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "2*ATK"
+  },
+  {
+    "hero_numeric_id": 949,
+    "hero_name": "HERO_949",
+    "skill_id": 94902,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "4.2*ATK"
+  },
+  {
+    "hero_numeric_id": 949,
+    "hero_name": "HERO_949",
+    "skill_id": 94904,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.2*HP"
+  },
+  {
+    "hero_numeric_id": 953,
+    "hero_name": "HERO_953",
+    "skill_id": 95301,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "0.1*HP"
+  },
+  {
+    "hero_numeric_id": 953,
+    "hero_name": "HERO_953",
+    "skill_id": 95303,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "4.6*ATK"
+  },
+  {
+    "hero_numeric_id": 954,
+    "hero_name": "HERO_954",
+    "skill_id": 95402,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.1*HP"
+  },
+  {
+    "hero_numeric_id": 962,
+    "hero_name": "HERO_962",
+    "skill_id": 96203,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "5.5*ATK"
+  },
+  {
+    "hero_numeric_id": 962,
+    "hero_name": "HERO_962",
+    "skill_id": 96205,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "3.5*DEF"
+  },
+  {
+    "hero_numeric_id": 967,
+    "hero_name": "HERO_967",
+    "skill_id": 96702,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "4*DEF+1.2*ATK"
+  },
+  {
+    "hero_numeric_id": 968,
+    "hero_name": "HERO_968",
+    "skill_id": 96802,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "1.8*DEF+1.2*ATK"
+  },
+  {
+    "hero_numeric_id": 971,
+    "hero_name": "HERO_971",
+    "skill_id": 97102,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "1.55*DEF"
+  },
+  {
+    "hero_numeric_id": 971,
+    "hero_name": "HERO_971",
+    "skill_id": 97104,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.1*ATK"
+  },
+  {
+    "hero_numeric_id": 976,
+    "hero_name": "HERO_976",
+    "skill_id": 97603,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.7*ATK"
+  },
+  {
+    "hero_numeric_id": 980,
+    "hero_name": "HERO_980",
+    "skill_id": 98004,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.3*ATK"
+  },
+  {
+    "hero_numeric_id": 984,
+    "hero_name": "HERO_984",
+    "skill_id": 98405,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "1.7*DEF"
+  },
+  {
+    "hero_numeric_id": 989,
+    "hero_name": "HERO_989",
+    "skill_id": 98904,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.15*HP"
+  },
+  {
+    "hero_numeric_id": 990,
+    "hero_name": "HERO_990",
+    "skill_id": 99002,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "5.5*DEF"
+  },
+  {
+    "hero_numeric_id": 990,
+    "hero_name": "HERO_990",
+    "skill_id": 99003,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "4.8*ATK"
+  },
+  {
+    "hero_numeric_id": 994,
+    "hero_name": "HERO_994",
+    "skill_id": 99402,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "6*ATK"
+  },
+  {
+    "hero_numeric_id": 1006,
+    "hero_name": "HERO_1006",
+    "skill_id": 100602,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.26*HP"
+  },
+  {
+    "hero_numeric_id": 1006,
+    "hero_name": "HERO_1006",
+    "skill_id": 100603,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.38*HP"
+  },
+  {
+    "hero_numeric_id": 1010,
+    "hero_name": "HERO_1010",
+    "skill_id": 101003,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "6*ATK"
+  },
+  {
+    "hero_numeric_id": 1014,
+    "hero_name": "HERO_1014",
+    "skill_id": 101403,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.28*HP"
+  },
+  {
+    "hero_numeric_id": 1019,
+    "hero_name": "HERO_1019",
+    "skill_id": 101903,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "4.4*DEF"
+  },
+  {
+    "hero_numeric_id": 1023,
+    "hero_name": "HERO_1023",
+    "skill_id": 102303,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.9*ATK"
+  },
+  {
+    "hero_numeric_id": 1024,
+    "hero_name": "HERO_1024",
+    "skill_id": 102403,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.8*DEF"
+  },
+  {
+    "hero_numeric_id": 1027,
+    "hero_name": "HERO_1027",
+    "skill_id": 102703,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "6*ATK"
+  },
+  {
+    "hero_numeric_id": 1035,
+    "hero_name": "HERO_1035",
+    "skill_id": 103501,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "4*ATK"
+  },
+  {
+    "hero_numeric_id": 1035,
+    "hero_name": "HERO_1035",
+    "skill_id": 103504,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.21*HP"
+  },
+  {
+    "hero_numeric_id": 1036,
+    "hero_name": "HERO_1036",
+    "skill_id": 103602,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.15*HP"
+  },
+  {
+    "hero_numeric_id": 1037,
+    "hero_name": "HERO_1037",
+    "skill_id": 103704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "4.5*ATK"
+  },
+  {
+    "hero_numeric_id": 1040,
+    "hero_name": "HERO_1040",
+    "skill_id": 104004,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.5*DEF"
+  },
+  {
+    "hero_numeric_id": 1052,
+    "hero_name": "HERO_1052",
+    "skill_id": 105204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.25*HP"
+  },
+  {
+    "hero_numeric_id": 2100,
+    "hero_name": "HERO_2100",
+    "skill_id": 210001,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "1.7*ATK"
+  },
+  {
+    "hero_numeric_id": 2106,
+    "hero_name": "HERO_2106",
+    "skill_id": 210603,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.4*ATK"
+  },
+  {
+    "hero_numeric_id": 2107,
+    "hero_name": "HERO_2107",
+    "skill_id": 210702,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "2.1*ATK"
+  },
+  {
+    "hero_numeric_id": 2108,
+    "hero_name": "HERO_2108",
+    "skill_id": 210803,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2.8*ATK"
+  },
+  {
+    "hero_numeric_id": 2202,
+    "hero_name": "HERO_2202",
+    "skill_id": 220202,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "5.2*ATK"
+  },
+  {
+    "hero_numeric_id": 2214,
+    "hero_name": "HERO_2214",
+    "skill_id": 221401,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "4*ATK"
+  },
+  {
+    "hero_numeric_id": 2222,
+    "hero_name": "HERO_2222",
+    "skill_id": 222204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "1.8*ATK"
+  },
+  {
+    "hero_numeric_id": 2234,
+    "hero_name": "HERO_2234",
+    "skill_id": 223402,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "6*ATK"
+  },
+  {
+    "hero_numeric_id": 2235,
+    "hero_name": "HERO_2235",
+    "skill_id": 223502,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 2239,
+    "hero_name": "HERO_2239",
+    "skill_id": 223901,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "0.5*HP"
+  },
+  {
+    "hero_numeric_id": 2259,
+    "hero_name": "HERO_2259",
+    "skill_id": 225901,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 2259,
+    "hero_name": "HERO_2259",
+    "skill_id": 225903,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 2263,
+    "hero_name": "HERO_2263",
+    "skill_id": 226301,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 2270,
+    "hero_name": "HERO_2270",
+    "skill_id": 227002,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.12*HP"
+  },
+  {
+    "hero_numeric_id": 2275,
+    "hero_name": "HERO_2275",
+    "skill_id": 227504,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 2281,
+    "hero_name": "HERO_2281",
+    "skill_id": 228108,
+    "skill_index": 8,
+    "skill_name": "SKILL_8",
+    "formula": "2.7*ATK"
+  },
+  {
+    "hero_numeric_id": 2282,
+    "hero_name": "HERO_2282",
+    "skill_id": 228203,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2.7*ATK"
+  },
+  {
+    "hero_numeric_id": 2290,
+    "hero_name": "HERO_2290",
+    "skill_id": 229001,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.1*ATK"
+  },
+  {
+    "hero_numeric_id": 2295,
+    "hero_name": "HERO_2295",
+    "skill_id": 229505,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "2.5*ATK"
+  },
+  {
+    "hero_numeric_id": 2300,
+    "hero_name": "HERO_2300",
+    "skill_id": 230006,
+    "skill_index": 6,
+    "skill_name": "SKILL_6",
+    "formula": "4*DEF"
+  },
+  {
+    "hero_numeric_id": 2301,
+    "hero_name": "HERO_2301",
+    "skill_id": 230101,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "4*ATK"
+  },
+  {
+    "hero_numeric_id": 2307,
+    "hero_name": "HERO_2307",
+    "skill_id": 230702,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "4*ATK"
+  },
+  {
+    "hero_numeric_id": 2311,
+    "hero_name": "HERO_2311",
+    "skill_id": 231101,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3.1*ATK"
+  },
+  {
+    "hero_numeric_id": 2321,
+    "hero_name": "HERO_2321",
+    "skill_id": 232102,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "4*ATK"
+  },
+  {
+    "hero_numeric_id": 2327,
+    "hero_name": "HERO_2327",
+    "skill_id": 232705,
+    "skill_index": 5,
+    "skill_name": "SKILL_5",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 2560,
+    "hero_name": "HERO_2560",
+    "skill_id": 256002,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "3.1*ATK"
+  },
+  {
+    "hero_numeric_id": 2565,
+    "hero_name": "HERO_2565",
+    "skill_id": 256501,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "7*ATK"
+  },
+  {
+    "hero_numeric_id": 2569,
+    "hero_name": "HERO_2569",
+    "skill_id": 256901,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 2612,
+    "hero_name": "HERO_2612",
+    "skill_id": 261201,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "4.9*ATK"
+  },
+  {
+    "hero_numeric_id": 2624,
+    "hero_name": "HERO_2624",
+    "skill_id": 262403,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.1*HP"
+  },
+  {
+    "hero_numeric_id": 2652,
+    "hero_name": "HERO_2652",
+    "skill_id": 265204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "0.45*HP"
+  },
+  {
+    "hero_numeric_id": 2696,
+    "hero_name": "HERO_2696",
+    "skill_id": 269602,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "5*ATK"
+  },
+  {
+    "hero_numeric_id": 2702,
+    "hero_name": "HERO_2702",
+    "skill_id": 270206,
+    "skill_index": 6,
+    "skill_name": "SKILL_6",
+    "formula": "0.05*HP"
+  },
+  {
+    "hero_numeric_id": 2706,
+    "hero_name": "HERO_2706",
+    "skill_id": 270603,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2*ATK"
+  },
+  {
+    "hero_numeric_id": 5001,
+    "hero_name": "HERO_5001",
+    "skill_id": 500131,
+    "skill_index": 31,
+    "skill_name": "SKILL_31",
+    "formula": "0.15*HP"
+  },
+  {
+    "hero_numeric_id": 5002,
+    "hero_name": "HERO_5002",
+    "skill_id": 500264,
+    "skill_index": 64,
+    "skill_name": "SKILL_64",
+    "formula": "0.1*HP"
+  },
+  {
+    "hero_numeric_id": 6001,
+    "hero_name": "HERO_6001",
+    "skill_id": 600130,
+    "skill_index": 30,
+    "skill_name": "SKILL_30",
+    "formula": "1.4*DEF"
+  },
+  {
+    "hero_numeric_id": 7000,
+    "hero_name": "HERO_7000",
+    "skill_id": 700018,
+    "skill_index": 18,
+    "skill_name": "SKILL_18",
+    "formula": "0.15*HP"
+  },
+  {
+    "hero_numeric_id": 7002,
+    "hero_name": "HERO_7002",
+    "skill_id": 700213,
+    "skill_index": 13,
+    "skill_name": "SKILL_13",
+    "formula": "0.25*HP"
+  },
+  {
+    "hero_numeric_id": 8822,
+    "hero_name": "HERO_8822",
+    "skill_id": 882203,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "2.7*ATK+0.12*HP"
+  },
+  {
+    "hero_numeric_id": 8823,
+    "hero_name": "HERO_8823",
+    "skill_id": 882302,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "0.25*HP"
+  },
+  {
+    "hero_numeric_id": 8824,
+    "hero_name": "HERO_8824",
+    "skill_id": 882403,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "3.6*DEF"
+  },
+  {
+    "hero_numeric_id": 8852,
+    "hero_name": "HERO_8852",
+    "skill_id": 885204,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.6*DEF"
+  },
+  {
+    "hero_numeric_id": 8857,
+    "hero_name": "HERO_8857",
+    "skill_id": 885704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3.6*DEF"
+  },
+  {
+    "hero_numeric_id": 8877,
+    "hero_name": "HERO_8877",
+    "skill_id": 887703,
+    "skill_index": 3,
+    "skill_name": "SKILL_3",
+    "formula": "0.27*HP+0.7*ATK"
+  },
+  {
+    "hero_numeric_id": 8927,
+    "hero_name": "HERO_8927",
+    "skill_id": 892704,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "1.8*DEF"
+  },
+  {
+    "hero_numeric_id": 22140,
+    "hero_name": "HERO_22140",
+    "skill_id": 2214013,
+    "skill_index": 13,
+    "skill_name": "SKILL_13",
+    "formula": "5*ATK"
+  },
+  {
+    "hero_numeric_id": 22668,
+    "hero_name": "HERO_22668",
+    "skill_id": 2266804,
+    "skill_index": 4,
+    "skill_name": "SKILL_4",
+    "formula": "3*ATK"
+  },
+  {
+    "hero_numeric_id": 22669,
+    "hero_name": "HERO_22669",
+    "skill_id": 2266902,
+    "skill_index": 2,
+    "skill_name": "SKILL_2",
+    "formula": "7*ATK"
+  },
+  {
+    "hero_numeric_id": 22669,
+    "hero_name": "HERO_22669",
+    "skill_id": 2266906,
+    "skill_index": 6,
+    "skill_name": "SKILL_6",
+    "formula": "0.005*HP"
+  },
+  {
+    "hero_numeric_id": 42669,
+    "hero_name": "HERO_42669",
+    "skill_id": 4266901,
+    "skill_index": 1,
+    "skill_name": "SKILL_1",
+    "formula": "3*ATK"
+  }
+]
