@@ -24,9 +24,6 @@ _Last updated: 2026-05-29_
 
 - [x] **Гостьове OBS посилання** — `obs/obs-guest.html`
 
-- [ ] **OBS watermark / copyright** `🌐` — small, unobtrusive branding visible on stream
-  (streamer name, extension name, or logo). Hidden from crop zone or shown in overlay corner.
-
 - [x] **OBS: hero image** `🔒+🌐` — портрети 140×182px. URL в `heroes.json` (🔒), логіка відображення в `hero-card.js` (🌐).
 
 - [x] **OBS: ∞ pin-режим за замовчуванням** `🌐`
