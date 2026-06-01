@@ -25,6 +25,17 @@ jobs:
           fetch-depth: 0
           clean: true
 
+      - name: Diagnostics
+        shell: powershell
+        run: |
+          Write-Host "=== ENV ==="
+          Write-Host "PWD: $(Get-Location)"
+          Write-Host "TODO exists: $(Test-Path TODO.md)"
+          Write-Host "claude: $(where.exe claude 2>&1)"
+          Write-Host "gh: $(where.exe gh 2>&1)"
+          Write-Host "node: $(node --version)"
+          if (Test-Path TODO.md) { Write-Host "TODO first 10 lines:"; Get-Content TODO.md | Select-Object -First 10 }
+
       - name: Configure git
         shell: powershell
         run: |
