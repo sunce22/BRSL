@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($mainPath = \"C:\\\\Users\\\\Roman\\\\AppData\\\\LocalLow\\\\Plarium\\\\Raid_ Shadow Legends\"; $totalSize = \\(Get-ChildItem $mainPath -Recurse -Force -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum\\).Sum; Write-Host \"Total installation size: $\\([Math]::Round\\($totalSize / 1MB, 2\\)\\) MB\"; Write-Host \"Total files: $\\(\\(Get-ChildItem $mainPath -Recurse -Force -ErrorAction SilentlyContinue -File\\).Count\\)\"; Write-Host \"Total folders: $\\(\\(Get-ChildItem $mainPath -Recurse -Force -ErrorAction SilentlyContinue -Directory\\).Count\\)\")",
+      "PowerShell([byte[]]$bytes = Get-Content 'C:\\\\Users\\\\Roman\\\\AppData\\\\LocalLow\\\\Plarium\\\\Raid_ Shadow Legends\\\\static-data\\\\11.50.1\\\\baa2f13f60149088a550d78f487a13f2' -Encoding Byte -TotalCount 200; \\($bytes | ForEach-Object { '{0:X2}' -f $_ }\\) -join ' ')",
+      "PowerShell(powershell -Command \"Get-ChildItem 'C:\\\\Users\\\\Roman\\\\AppData\\\\LocalLow\\\\Plarium\\\\Raid_ Shadow Legends\\\\LoadedTextures' -ErrorAction SilentlyContinue | Select-Object Name, Length | Sort-Object Name | Select-Object -First 50 | Format-Table\")",
+      "Bash(python -c \"import sqlite3; conn = sqlite3.connect\\(r'C:\\\\Users\\\\Roman\\\\AppData\\\\LocalLow\\\\Plarium\\\\Raid_ Shadow Legends\\\\raidV2.db'\\); cur = conn.cursor\\(\\); [print\\(r\\) for r in cur.execute\\('SELECT name FROM sqlite_master'\\)]\")",
+      "Bash(python)",
+      "Bash(python -c ' *)",
+      "mcp__playwright__browser_navigate",
+      "Bash(python tools/debug-exttype.py)",
+      "Bash(python tools/debug-blob557.py)",
+      "Bash(python tools/debug-hero-search.py)",
+      "Bash(python tools/debug-heroname-blobs.py)",
+      "Bash(python tools/debug-hero-blob276.py)",
+      "Bash(python tools/build-hero-map.py)",
+      "Bash(python tools/debug-hero-range.py)",
+      "Bash(python tools/debug-formula-extract.py)",
+      "Bash(python tools/build-complete-map.py)",
+      "Bash(python tools/debug-multi-hero-blob.py)",
+      "Bash(python tools/build-hero-map2.py)",
+      "Bash(python tools/debug-hero-int.py)",
+      "Bash(python tools/extract-skill-multipliers.py)",
+      "mcp__playwright__browser_network_requests",
+      "mcp__playwright__browser_close",
+      "mcp__playwright__browser_run_code_unsafe",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(curl -s \"https://api.github.com/repos/zerfl/StaticRaidExtraction/contents/appdata\")",
+      "Bash(gh api *)",
+      "PowerShell(cmd /c \"dir /s /b C:\\\\Users\\\\Roman\\\\AppData\\\\Local\\\\Plarium 2>nul\")",
+      "PowerShell(cmd /c \"reg query HKCU\\\\Software\\\\Plarium 2>nul\")",
+      "PowerShell(cmd /c \"reg query \"\"HKCU\\\\Software\\\\Plarium\\\\Raid: Shadow Legends\"\" /s 2>nul\")"
+    ]
+  }
+}

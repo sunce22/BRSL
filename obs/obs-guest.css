@@ -1,0 +1,30 @@
+/* obs/obs-guest.css — guest overlay panel (always visible, no toggle) */
+
+.guest-panel {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 300px;
+  max-height: 500px;
+  background: rgba(17, 19, 24, 0.95);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  z-index: 99;
+  overflow: hidden;
+}
+
+.guest-panel__header {
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.guest-heroes-list {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
