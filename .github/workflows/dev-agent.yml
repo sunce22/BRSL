@@ -1,0 +1,87 @@
+name: RSL Buddy — Dev Agent
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # щодня 9:00 Kyiv (6:00 UTC)
+  workflow_dispatch:        # ручний запуск
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  dev-agent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Configure git
+        run: |
+          git config user.email "dev-agent@rslbuddy"
+          git config user.name "RSL Dev Agent"
+
+      - name: Run Dev Agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          claude -p "$(cat <<'PROMPT'
+          You are a development agent for RSL Buddy — a Twitch Extension and OBS Browser Source overlay for Raid: Shadow Legends streamers.
+
+          ## Working directory
+          You are in the checked-out repository root.
+
+          ## Project structure
+          - panel/     — Twitch Extension Panel (panel.html, panel.js, panel.css)
+          - obs/       — OBS overlay (obs.html, obs.js, obs.css; obs-guest.* for guest/viewer mode)
+          - shared/    — Shared modules: hero-card.js, effects-list.js, effect-descriptions.js, i18n.js, data.js, styles.css, utils.js, feedback.js
+          - extension/ — manifest.json
+          - data/      — heroes.json (407 heroes with skills and portrait URLs), skill-multipliers.json
+          - i18n/      — heroes-uk.json (Ukrainian hero+skill translations), ui-uk.json (Ukrainian UI strings)
+          - tests/     — Unit tests (node --test tests/*.test.js)
+
+          ## Tech stack
+          Vanilla JS ES modules, no bundler, no external JS libraries, CSS custom properties for theming.
+
+          ## Your task
+          1. Read TODO.md
+          2. Find tasks matching ALL criteria:
+             - Not done (no [x] checkbox)
+             - Tagged 🌐 (UI/source code)
+             - NOT about: data extraction, content scraping, translations pipeline, external services, memory reading
+             - Concrete — clear requirements, no architectural decisions needed
+          3. Pick ONE task — prefer simplest and most self-contained
+          4. Implement the change in the relevant files
+          5. Run: node --test tests/*.test.js — ALL must pass before proceeding
+          6. Create a feature branch: git checkout -b agent/$(date +%Y-%m-%d)-short-description
+          7. Commit: git add -A && git commit -m "feat: description"
+          8. Push: git push origin HEAD
+          9. Create PR: gh pr create --title "short title" --body "What changed and why. Closes TODO item: [task name]"
+
+          ## Rules
+          - PRs only — never commit directly to main
+          - ONE task per run — focused and minimal changes
+          - If task is too large or ambiguous — skip it and pick a simpler one
+          - Do NOT modify: data/heroes.json, i18n/heroes-uk.json, tools/, any .py or .mjs extraction scripts
+          - Code style: no code comments, escapeHtml() on all innerHTML values, no new npm dependencies
+          - If no suitable task found: gh issue create --title "Dev Agent: no suitable tasks found $(date +%Y-%m-%d)" --body "Checked TODO.md. All 🌐 tasks are either done, too complex, or content-related."
+
+          ## Success criteria
+          A PR is open with a working implementation. All tests pass.
+          PROMPT
+          )" --dangerously-skip-permissions
