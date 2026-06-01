@@ -25,18 +25,7 @@ jobs:
           fetch-depth: 0
           clean: true
 
-      - name: Diagnostics
-        shell: powershell
-        run: |
-          Write-Host "=== ENV ==="
-          Write-Host "PWD: $(Get-Location)"
-          Write-Host "TODO exists: $(Test-Path TODO.md)"
-          Write-Host "claude: $(where.exe claude 2>&1)"
-          Write-Host "gh: $(where.exe gh 2>&1)"
-          Write-Host "node: $(node --version)"
-          if (Test-Path TODO.md) { Write-Host "TODO first 10 lines:"; Get-Content TODO.md | Select-Object -First 10 }
-
-      - name: Configure git
+      - name: Configure git + PATH
         shell: powershell
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -44,53 +33,67 @@ jobs:
           git config user.email "dev-agent@rslbuddy"
           git config user.name "RSL Dev Agent"
           git remote set-url origin "https://x-access-token:$env:GITHUB_TOKEN@github.com/sunce22/BRSL.git"
+          $env:PATH += ";C:\Program Files\GitHub CLI"
+          Write-Host "gh: $(gh --version 2>&1 | Select-Object -First 1)"
+          Write-Host "branches before: $(git branch -a)"
 
-      - name: Run Dev Agent
+      - name: Claude implements task
+        id: claude_run
+        shell: powershell
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: powershell
         run: |
+          $env:PATH += ";C:\Program Files\GitHub CLI"
+
           $prompt = @'
-          You are a development agent for RSL Buddy — a Twitch Extension and OBS Browser Source overlay for Raid: Shadow Legends streamers.
+You are a development agent for RSL Buddy — a Twitch Extension and OBS Browser Source overlay for Raid: Shadow Legends streamers. Your job is to implement ONE task from TODO.md and commit the changes to a new branch.
 
-          ## Working directory
-          You are in the checked-out repository root.
+## Working directory
+Current directory is the repo root. Run all git/gh commands from here.
 
-          ## Project structure
-          - panel/     — Twitch Extension Panel (panel.html, panel.js, panel.css)
-          - obs/       — OBS overlay (obs.html, obs.js, obs.css; obs-guest.* for guest/viewer mode)
-          - shared/    — Shared modules: hero-card.js, effects-list.js, effect-descriptions.js, i18n.js, data.js, styles.css, utils.js, feedback.js
-          - extension/ — manifest.json
-          - data/      — heroes.json (407 heroes with skills and portrait URLs), skill-multipliers.json
-          - i18n/      — heroes-uk.json (Ukrainian hero+skill translations), ui-uk.json (Ukrainian UI strings)
-          - tests/     — Unit tests (node --test tests/*.test.js)
+## Project structure
+- panel/     — Twitch Extension Panel (panel.html, panel.js, panel.css)
+- obs/       — OBS overlay (obs.html, obs.js, obs.css; obs-guest.* for guest mode)
+- shared/    — Shared modules: hero-card.js, effects-list.js, effect-descriptions.js, i18n.js, data.js, styles.css, utils.js, feedback.js
+- extension/ — manifest.json
+- tests/     — node --test tests/*.test.js
 
-          ## Tech stack
-          Vanilla JS ES modules, no bundler, no external JS libraries, CSS custom properties for theming.
+## Tech stack
+Vanilla JS ES modules, no bundler, no external libraries, CSS custom properties.
 
-          ## Your task
-          1. Read TODO.md
-          2. Find tasks matching ALL criteria:
-             - Not done (no [x] checkbox)
-             - Tagged with the globe emoji (UI/source code)
-             - NOT about: data extraction, content scraping, translations pipeline, external services, memory reading
-             - Concrete — clear requirements, no architectural decisions needed
-          3. Pick ONE task — prefer simplest and most self-contained
-          4. Implement the change in the relevant files
-          5. Run: node --test tests/*.test.js — ALL must pass before proceeding
-          6. Create a feature branch using today's date: git checkout -b agent/YYYY-MM-DD-short-description
-          7. Commit: git add -A then git commit -m "feat: description"
-          8. Push: git push origin HEAD
-          9. Create PR: gh pr create --title "short title" --body "What changed and why. Closes TODO item: [task name]"
+## Steps — execute each one:
+1. Run: Get-Content TODO.md | Out-String
+2. Find ONE task: not done ([x]), tagged with globe emoji, UI/source code only, NOT data/translations/external
+3. Implement the change
+4. Run: node --test tests/*.test.js — must pass
+5. Run: git checkout -b agent/2026-06-02-SHORT-DESCRIPTION
+6. Run: git add -A
+7. Run: git commit -m "feat: short description"
+8. Run: git push origin HEAD
+9. Run: gh pr create --title "short title" --body "What changed. Closes: TASK_NAME"
 
-          ## Rules
-          - PRs only — never commit directly to main
-          - ONE task per run — focused and minimal changes
-          - If task is too large or ambiguous — skip it and pick a simpler one
-          - Do NOT modify: data/heroes.json, i18n/heroes-uk.json, tools/, any .py or .mjs extraction scripts
-          - Code style: no code comments, escapeHtml() on all innerHTML values, no new npm dependencies
-          - If no suitable task found: gh issue create --title "Dev Agent: no suitable tasks YYYY-MM-DD" --body "Checked TODO.md. All tasks are either done, too complex, or content-related."
-          '@
+## Rules
+- If no suitable task: Run gh issue create --title "No tasks 2026-06-02" --body "All globe-tagged tasks are done or complex."
+- NEVER commit to main
+- Do NOT touch: data/heroes.json, i18n/heroes-uk.json, tools/*.py, tools/*.mjs
+'@
 
+          Write-Host "=== Starting Claude ==="
           claude -p $prompt --dangerously-skip-permissions
+          Write-Host "=== Claude done. Exit code: $LASTEXITCODE ==="
+          Write-Host "=== Git status after ==="
+          git status
+          Write-Host "=== Remote branches ==="
+          git branch -r
+
+      - name: Check result
+        shell: powershell
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $env:PATH += ";C:\Program Files\GitHub CLI"
+          Write-Host "=== Open PRs ==="
+          gh pr list --repo sunce22/BRSL 2>&1
+          Write-Host "=== Open Issues ==="
+          gh issue list --repo sunce22/BRSL --limit 5 2>&1
