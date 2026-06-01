@@ -38,9 +38,12 @@ jobs:
 
       - name: Configure git
         shell: powershell
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.email "dev-agent@rslbuddy"
           git config user.name "RSL Dev Agent"
+          git remote set-url origin "https://x-access-token:$env:GITHUB_TOKEN@github.com/sunce22/BRSL.git"
 
       - name: Run Dev Agent
         env:
