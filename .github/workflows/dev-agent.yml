@@ -2,8 +2,11 @@ name: RSL Buddy — Dev Agent
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # щодня 9:00 Kyiv (6:00 UTC)
-  workflow_dispatch:        # ручний запуск
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
   contents: write
@@ -12,7 +15,7 @@ permissions:
 
 jobs:
   dev-agent:
-    runs-on: self-hosted     # виконується на локальній машині
+    runs-on: self-hosted
     timeout-minutes: 30
 
     steps:
@@ -22,6 +25,7 @@ jobs:
           fetch-depth: 0
 
       - name: Configure git
+        shell: pwsh
         run: |
           git config user.email "dev-agent@rslbuddy"
           git config user.name "RSL Dev Agent"
@@ -30,9 +34,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: bash
+        shell: pwsh
         run: |
-          claude -p "You are a development agent for RSL Buddy — a Twitch Extension and OBS Browser Source overlay for Raid: Shadow Legends streamers.
+          $prompt = @'
+          You are a development agent for RSL Buddy — a Twitch Extension and OBS Browser Source overlay for Raid: Shadow Legends streamers.
 
           ## Working directory
           You are in the checked-out repository root.
@@ -53,16 +58,16 @@ jobs:
           1. Read TODO.md
           2. Find tasks matching ALL criteria:
              - Not done (no [x] checkbox)
-             - Tagged 🌐 (UI/source code)
+             - Tagged with the globe emoji (UI/source code)
              - NOT about: data extraction, content scraping, translations pipeline, external services, memory reading
              - Concrete — clear requirements, no architectural decisions needed
           3. Pick ONE task — prefer simplest and most self-contained
           4. Implement the change in the relevant files
           5. Run: node --test tests/*.test.js — ALL must pass before proceeding
-          6. Create a feature branch: git checkout -b agent/YYYY-MM-DD-short-description (use current date)
-          7. Commit: git add -A && git commit -m 'feat: description'
+          6. Create a feature branch using today's date: git checkout -b agent/YYYY-MM-DD-short-description
+          7. Commit: git add -A then git commit -m "feat: description"
           8. Push: git push origin HEAD
-          9. Create PR: gh pr create --title 'short title' --body 'What changed and why. Closes TODO item: [task name]'
+          9. Create PR: gh pr create --title "short title" --body "What changed and why. Closes TODO item: [task name]"
 
           ## Rules
           - PRs only — never commit directly to main
@@ -70,4 +75,7 @@ jobs:
           - If task is too large or ambiguous — skip it and pick a simpler one
           - Do NOT modify: data/heroes.json, i18n/heroes-uk.json, tools/, any .py or .mjs extraction scripts
           - Code style: no code comments, escapeHtml() on all innerHTML values, no new npm dependencies
-          - If no suitable task found: gh issue create --title 'Dev Agent: no suitable tasks YYYY-MM-DD' --body 'Checked TODO.md. All tasks are either done, too complex, or content-related.'" --dangerously-skip-permissions
+          - If no suitable task found: gh issue create --title "Dev Agent: no suitable tasks YYYY-MM-DD" --body "Checked TODO.md. All tasks are either done, too complex, or content-related."
+          '@
+
+          claude -p $prompt --dangerously-skip-permissions
