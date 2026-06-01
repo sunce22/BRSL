@@ -75,6 +75,6 @@ jobs:
               Write-Host "PR already exists: #$existing"
             }
           } else {
-            Write-Host "No agent branch found — Claude may have created an issue instead"
+            Write-Host "No agent branch found - Claude may have created an issue instead"
             gh issue list --repo sunce22/BRSL --limit 3 2>&1
           }
