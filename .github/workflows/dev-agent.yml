@@ -62,7 +62,9 @@ jobs:
           if ($localBranch) {
             $localBranch = $localBranch.Trim().TrimStart('* ')
             Write-Host "Pushing local branch: $localBranch"
-            git push origin "$localBranch" 2>&1
+            git push origin "$localBranch" 2>&1 | Out-Null
+            Write-Host "Push done (exit: $LASTEXITCODE)"
+            $LASTEXITCODE = 0
           } else {
             Write-Host "No local agent branch to push"
           }
