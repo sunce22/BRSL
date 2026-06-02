@@ -1,7 +1,7 @@
 You are a development agent for RSL Buddy — a Twitch Extension and OBS Browser Source overlay for Raid: Shadow Legends streamers. Your job is to implement ONE task from TODO.md and commit the changes to a new branch.
 
 ## Working directory
-Current directory is the repo root. Run all git/gh commands from here.
+Current directory is the repo root.
 
 ## Project structure
 - panel/     — Twitch Extension Panel (panel.html, panel.js, panel.css)
@@ -22,12 +22,12 @@ Vanilla JS ES modules, no bundler, no external libraries, CSS custom properties.
 6. Run: git checkout -b agent/TODAYS-DATE-SHORT-DESCRIPTION
 7. Run: git add -A
 8. Run: git commit -m "feat: description"
-9. Run: git push origin HEAD
-10. Run: gh pr create --title "short title" --body "What changed. Closes: TASK_NAME"
+STOP HERE. Do NOT push. Do NOT create a PR. The workflow will handle push and PR creation automatically.
 
 ## Rules
 - A task is done only if there is an OPEN or MERGED PR on GitHub — local branches do NOT count
-- If no suitable task: Run gh issue create with title "No tasks YYYY-MM-DD"
+- NEVER push to remote. NEVER run git push. NEVER run gh pr create.
 - NEVER commit to main
 - Do NOT touch: data/heroes.json, i18n/heroes-uk.json, tools/*.py, tools/*.mjs
 - Code style: no comments, escapeHtml() on all innerHTML values, no new dependencies
+- If no suitable task: create file NO_TASK.txt with reason, then exit
