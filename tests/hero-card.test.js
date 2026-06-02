@@ -1,7 +1,7 @@
 // tests/hero-card.test.js
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderHeroCard } from '../shared/hero-card.js';
+import { renderHeroCard, heroGuideSlug } from '../shared/hero-card.js';
 
 const HERO = {
   id: 'arbiter',
@@ -70,4 +70,26 @@ test('renderHeroCard: no effect tags for skill with empty effects', () => {
 test('renderHeroCard: escapes HTML in name', () => {
   const hero = { ...HERO, name: '<script>alert(1)</script>' };
   assert.ok(!renderHeroCard(hero).includes('<script>'));
+});
+
+test('renderHeroCard: contains guide links to hellhades and ayumilove', () => {
+  const html = renderHeroCard(HERO);
+  assert.ok(html.includes('hellhades.com/champions/arbiter/'));
+  assert.ok(html.includes('ayumilove.net/raid-shadow-legends-arbiter-skill-mastery-equip-guide/'));
+});
+
+test('heroGuideSlug: simple name', () => {
+  assert.equal(heroGuideSlug('Arbiter'), 'arbiter');
+});
+
+test('heroGuideSlug: multi-word name', () => {
+  assert.equal(heroGuideSlug('Scyl of the Drakes'), 'scyl-of-the-drakes');
+});
+
+test('heroGuideSlug: apostrophe stripped', () => {
+  assert.equal(heroGuideSlug("Ma'Shalled"), 'mashalled');
+});
+
+test('heroGuideSlug: leading/trailing hyphens stripped', () => {
+  assert.equal(heroGuideSlug('  Kael  '), 'kael');
 });

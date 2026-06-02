@@ -3,6 +3,14 @@ import { escapeHtml, slugToLabel } from './utils.js';
 import { highlightDescription } from './effect-descriptions.js';
 import { effectLabel, t } from './i18n.js';
 
+export function heroGuideSlug(name) {
+  return name
+    .toLowerCase()
+    .replace(/'/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 export function heroPortraitUrl(hero) {
   if (hero.portrait) return hero.portrait;
   const small = new Set(['the', 'of', 'a', 'an', 'and', 'in', 'at', 'by', 'for']);
@@ -52,6 +60,10 @@ export function renderHeroCard(hero, activeSkillIdx = null) {
         <span class="badge badge--${hero.rarity.toLowerCase()}">${escapeHtml(hero.rarity)}</span>
         <span class="badge badge--${hero.affinity.toLowerCase()}">${escapeHtml(hero.affinity)}</span>
         <span style="color:var(--text-muted);font-size:11px">${escapeHtml(hero.faction)}</span>
+      </div>
+      <div class="hero-card__guides">
+        <a class="guide-link" href="https://hellhades.com/champions/${heroGuideSlug(hero.name)}/" target="_blank" rel="noopener noreferrer">HH</a>
+        <a class="guide-link" href="https://ayumilove.net/raid-shadow-legends-${heroGuideSlug(hero.name)}-skill-mastery-equip-guide/" target="_blank" rel="noopener noreferrer">Ayumi</a>
       </div>
     </div>
   </div>

@@ -202,6 +202,31 @@ body {
 .badge--spirit    { color: var(--badge-spirit);    border: 1px solid var(--badge-spirit); }
 .badge--void      { color: var(--badge-void);      border: 1px solid var(--badge-void); }
 
+/* Guide links in hero card header */
+.hero-card__guides {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.guide-link {
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--font);
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1px 6px;
+  transition: color 0.15s, border-color 0.15s;
+  line-height: 1.6;
+}
+
+.guide-link:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
 /* Hero detail (accordion) */
 .hero-detail {
   background: var(--bg-card);
