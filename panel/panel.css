@@ -78,21 +78,6 @@ html, body { height: 100%; overflow: hidden; }
 
 .support-link:hover { background: #282c38; color: var(--text); border-color: #444; }
 
-.support-donate {
-  display: block;
-  padding: 8px 0;
-  background: #7b4fcf;
-  border-radius: var(--radius);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  font-family: var(--font);
-  text-decoration: none;
-  text-align: center;
-}
-
-.support-donate:hover { background: #9060e8; }
-
 .hero-back {
   background: none;
   border: none;
