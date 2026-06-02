@@ -50,7 +50,22 @@ jobs:
           claude -p $prompt --dangerously-skip-permissions
           Write-Host "=== Claude done. Exit: $LASTEXITCODE ==="
           git status
-          git branch -r
+          git branch
+
+      - name: Push agent branch if local only
+        shell: powershell
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote set-url origin "https://x-access-token:$env:GITHUB_TOKEN@github.com/sunce22/BRSL.git"
+          $localBranch = git branch | Where-Object { $_ -match 'agent/' } | Select-Object -First 1
+          if ($localBranch) {
+            $localBranch = $localBranch.Trim().TrimStart('* ')
+            Write-Host "Pushing local branch: $localBranch"
+            git push origin "$localBranch" 2>&1
+          } else {
+            Write-Host "No local agent branch to push"
+          }
 
       - name: Create PR if branch was pushed
         shell: powershell
