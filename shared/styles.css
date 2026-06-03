@@ -439,6 +439,29 @@ body {
 
 .hero-card__info { flex: 1; min-width: 0; }
 
+.hero-card__guides {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.guide-link {
+  font-size: 10px;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: var(--font);
+  transition: color 0.1s, border-color 0.1s;
+}
+
+.guide-link:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
 /* Mythical form sections */
 .form-section { margin-bottom: 4px; }
 

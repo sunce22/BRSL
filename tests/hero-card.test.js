@@ -1,7 +1,7 @@
 // tests/hero-card.test.js
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderHeroCard } from '../shared/hero-card.js';
+import { renderHeroCard, heroGuideUrls } from '../shared/hero-card.js';
 
 const HERO = {
   id: 'arbiter',
@@ -70,4 +70,16 @@ test('renderHeroCard: no effect tags for skill with empty effects', () => {
 test('renderHeroCard: escapes HTML in name', () => {
   const hero = { ...HERO, name: '<script>alert(1)</script>' };
   assert.ok(!renderHeroCard(hero).includes('<script>'));
+});
+
+test('renderHeroCard: contains guide links', () => {
+  const html = renderHeroCard(HERO);
+  assert.ok(html.includes('hellhades.com/raid-shadow-legends/arbiter-build-guide/'));
+  assert.ok(html.includes('ayumilove.net/raid-shadow-legends-arbiter-skills-and-masteries/'));
+});
+
+test('heroGuideUrls: generates correct slugs', () => {
+  const urls = heroGuideUrls({ id: 'siphi_the_lost_bride' });
+  assert.ok(urls.hellhades.includes('siphi-the-lost-bride'));
+  assert.ok(urls.ayumilove.includes('siphi-the-lost-bride'));
 });

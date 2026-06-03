@@ -3,6 +3,14 @@ import { escapeHtml, slugToLabel } from './utils.js';
 import { highlightDescription } from './effect-descriptions.js';
 import { effectLabel, t } from './i18n.js';
 
+export function heroGuideUrls(hero) {
+  const slug = hero.id.replace(/_/g, '-');
+  return {
+    hellhades: `https://hellhades.com/raid-shadow-legends/${slug}-build-guide/`,
+    ayumilove: `https://ayumilove.net/raid-shadow-legends-${slug}-skills-and-masteries/`,
+  };
+}
+
 export function heroPortraitUrl(hero) {
   if (hero.portrait) return hero.portrait;
   const small = new Set(['the', 'of', 'a', 'an', 'and', 'in', 'at', 'by', 'for']);
@@ -42,6 +50,7 @@ export function renderHeroCard(hero, activeSkillIdx = null) {
     bodyHtml = skills.map(renderSkill).join('');
   }
 
+  const guides = heroGuideUrls(hero);
   return `
 <div class="hero-card" data-hero-id="${hero.id}">
   <div class="hero-card__header">
@@ -52,6 +61,10 @@ export function renderHeroCard(hero, activeSkillIdx = null) {
         <span class="badge badge--${hero.rarity.toLowerCase()}">${escapeHtml(hero.rarity)}</span>
         <span class="badge badge--${hero.affinity.toLowerCase()}">${escapeHtml(hero.affinity)}</span>
         <span style="color:var(--text-muted);font-size:11px">${escapeHtml(hero.faction)}</span>
+      </div>
+      <div class="hero-card__guides">
+        <a class="guide-link" href="${escapeHtml(guides.hellhades)}" target="_blank" rel="noopener noreferrer">HH</a>
+        <a class="guide-link" href="${escapeHtml(guides.ayumilove)}" target="_blank" rel="noopener noreferrer">Ayumi</a>
       </div>
     </div>
   </div>
