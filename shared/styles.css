@@ -441,20 +441,21 @@ body {
 
 .hero-card__guides {
   display: flex;
-  gap: 4px;
-  margin-top: 6px;
-  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
 }
 
 .guide-link {
   font-size: 10px;
-  padding: 2px 6px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  font-weight: 600;
+  font-family: var(--font);
   color: var(--text-muted);
   text-decoration: none;
-  font-family: var(--font);
-  transition: color 0.1s, border-color 0.1s;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1px 6px;
+  transition: color 0.15s, border-color 0.15s;
+  line-height: 1.6;
 }
 
 .guide-link:hover {

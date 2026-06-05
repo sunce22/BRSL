@@ -1,7 +1,7 @@
 // tests/hero-card.test.js
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderHeroCard, heroGuideUrls } from '../shared/hero-card.js';
+import { renderHeroCard, heroGuideSlug } from '../shared/hero-card.js';
 
 const HERO = {
   id: 'arbiter',
@@ -74,12 +74,13 @@ test('renderHeroCard: escapes HTML in name', () => {
 
 test('renderHeroCard: contains guide links', () => {
   const html = renderHeroCard(HERO);
-  assert.ok(html.includes('hellhades.com/raid-shadow-legends/arbiter-build-guide/'));
-  assert.ok(html.includes('ayumilove.net/raid-shadow-legends-arbiter-skills-and-masteries/'));
+  assert.ok(html.includes('hellhades.com/champions/arbiter/'));
+  assert.ok(html.includes('ayumilove.net/raid-shadow-legends-arbiter-skill-mastery-equip-guide/'));
 });
 
-test('heroGuideUrls: generates correct slugs', () => {
-  const urls = heroGuideUrls({ id: 'siphi_the_lost_bride' });
-  assert.ok(urls.hellhades.includes('siphi-the-lost-bride'));
-  assert.ok(urls.ayumilove.includes('siphi-the-lost-bride'));
+test('heroGuideSlug: generates correct slugs', () => {
+  assert.equal(heroGuideSlug('Arbiter'), 'arbiter');
+  assert.equal(heroGuideSlug("Siphi the Lost Bride"), 'siphi-the-lost-bride');
+  assert.equal(heroGuideSlug("Trunda Giltmallet"), 'trunda-giltmallet');
+  assert.equal(heroGuideSlug("Warlord"), 'warlord');
 });
