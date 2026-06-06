@@ -35,7 +35,7 @@ def crop_model(bgr: np.ndarray) -> np.ndarray:
 def main():
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
     heroes = json.loads(HEROES_JSON.read_text(encoding="utf-8"))
-    todo = [h for h in heroes if not (MODELS_DIR / f"{h['id']}.png").exists()]
+    todo = [h for h in heroes if not (MODELS_DIR / (Path(h["id"]).name + ".png")).exists()]
     print(f"{len(todo)} heroes need model screenshots ({len(heroes)} total)\n")
 
     for i, hero in enumerate(todo, 1):
@@ -52,7 +52,7 @@ def main():
         except Exception as e:
             print(f"  Capture failed: {e}. Try again.")
             continue
-        dest = MODELS_DIR / f"{hero['id']}.png"
+        dest = MODELS_DIR / (Path(hero["id"]).name + ".png")
         if not cv2.imwrite(str(dest), crop_model(frame)):
             print(f"  Write failed: {dest}")
         else:

@@ -20,7 +20,7 @@ def download_portraits():
     heroes = json.loads(HEROES_JSON.read_text(encoding="utf-8"))
     total = len(heroes)
     for i, hero in enumerate(heroes, 1):
-        dest = PORTRAITS_DIR / f"{hero['id']}.png"
+        dest = PORTRAITS_DIR / (Path(hero["id"]).name + ".png")
         if dest.exists():
             print(f"[{i}/{total}] skip  {hero['id']}")
             continue
