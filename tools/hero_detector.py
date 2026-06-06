@@ -185,3 +185,36 @@ def detect_roster_hero(
             best_score, best_id = score, hero_id
 
     return best_id if best_score >= threshold else None
+
+
+_GREEN_LO = np.array([55, 150, 150], dtype=np.uint8)
+_GREEN_HI = np.array([75, 255, 255], dtype=np.uint8)
+_RED_LO1  = np.array([0,  150, 150], dtype=np.uint8)
+_RED_HI1  = np.array([10, 255, 255], dtype=np.uint8)
+_RED_LO2  = np.array([170, 150, 150], dtype=np.uint8)
+_RED_HI2  = np.array([180, 255, 255], dtype=np.uint8)
+_CIRCLE_MIN_AREA = 500
+
+
+def find_active_circle(frame_bgr: np.ndarray) -> tuple[int, int, str] | None:
+    """Detect glowing active-turn circle. Returns (cx, cy, 'player'|'enemy') or None."""
+    hsv = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2HSV)
+    mask_green = cv2.inRange(hsv, _GREEN_LO, _GREEN_HI)
+    mask_red = cv2.bitwise_or(
+        cv2.inRange(hsv, _RED_LO1, _RED_HI1),
+        cv2.inRange(hsv, _RED_LO2, _RED_HI2),
+    )
+
+    def centroid(mask: np.ndarray, team: str) -> tuple[int, int, str] | None:
+        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        if not contours:
+            return None
+        largest = max(contours, key=cv2.contourArea)
+        if cv2.contourArea(largest) < _CIRCLE_MIN_AREA:
+            return None
+        M = cv2.moments(largest)
+        if M["m00"] == 0:
+            return None
+        return int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]), team
+
+    return centroid(mask_green, "player") or centroid(mask_red, "enemy")

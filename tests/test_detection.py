@@ -94,3 +94,40 @@ def test_detect_roster_hero_returns_none_for_empty_frame(portrait_db, model_db):
     db.load()
     frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
     assert detect_roster_hero(frame, db, threshold=0.90) is None
+
+
+def make_circle_frame(center: tuple, color_bgr: tuple, radius: int = 45) -> np.ndarray:
+    frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
+    cv2.circle(frame, center, radius, color_bgr, -1)
+    return frame
+
+
+def test_finds_green_circle_as_player():
+    from hero_detector import find_active_circle
+    frame = make_circle_frame((960, 800), (0, 230, 0))
+    result = find_active_circle(frame)
+    assert result is not None
+    cx, cy, team = result
+    assert team == "player"
+    assert abs(cx - 960) < 60
+    assert abs(cy - 800) < 60
+
+
+def test_finds_red_circle_as_enemy():
+    from hero_detector import find_active_circle
+    frame = make_circle_frame((500, 600), (0, 0, 230))
+    result = find_active_circle(frame)
+    assert result is not None
+    assert result[2] == "enemy"
+
+
+def test_no_circle_in_black_frame():
+    from hero_detector import find_active_circle
+    assert find_active_circle(np.zeros((1080, 1920, 3), dtype=np.uint8)) is None
+
+
+def test_tiny_green_speck_does_not_trigger():
+    from hero_detector import find_active_circle
+    frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
+    cv2.circle(frame, (100, 100), 5, (0, 230, 0), -1)   # area < min threshold
+    assert find_active_circle(frame) is None
