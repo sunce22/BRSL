@@ -18,9 +18,9 @@ def portrait_db(tmp_path):
     return str(portraits)
 
 
-def make_textured_portrait(color_bgr: tuple, size=(140, 182)) -> np.ndarray:
+def make_textured_portrait(color_bgr: tuple, size=(140, 182), seed: int = 42) -> np.ndarray:
     img = make_portrait(color_bgr, size)
-    np.random.seed(42)
+    np.random.seed(seed)
     noise = np.random.randint(-30, 30, img.shape, dtype=np.int16)
     return np.clip(img.astype(np.int16) + noise, 0, 255).astype(np.uint8)
 
@@ -131,3 +131,38 @@ def test_tiny_green_speck_does_not_trigger():
     frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
     cv2.circle(frame, (100, 100), 5, (0, 230, 0), -1)   # area < min threshold
     assert find_active_circle(frame) is None
+
+
+def test_match_model_orb_identical_images_high_score():
+    from hero_detector import match_model_orb
+    img = make_textured_portrait((100, 150, 200), size=(200, 350))
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    orb = cv2.ORB_create()
+    kp, des = orb.detectAndCompute(gray, None)
+    assert match_model_orb(gray, kp, des, kp, des) > 0.5
+
+
+def test_match_model_orb_different_images_low_score():
+    from hero_detector import match_model_orb
+    orb = cv2.ORB_create()
+    gray1 = cv2.cvtColor(make_textured_portrait((100, 150, 200), size=(200, 350), seed=42), cv2.COLOR_BGR2GRAY)
+    gray2 = cv2.cvtColor(make_textured_portrait((200, 50, 10), size=(200, 350), seed=99), cv2.COLOR_BGR2GRAY)
+    kp1, des1 = orb.detectAndCompute(gray1, None)
+    kp2, des2 = orb.detectAndCompute(gray2, None)
+    assert match_model_orb(gray1, kp1, des1, kp2, des2) < 0.3
+
+
+def test_battle_cache_stores_and_retrieves():
+    from hero_detector import BattleCache
+    cache = BattleCache(position_tolerance=50)
+    cache.store(500, 700, "abbess")
+    assert cache.lookup(510, 690) == "abbess"
+    assert cache.lookup(600, 800) is None
+
+
+def test_battle_cache_clears():
+    from hero_detector import BattleCache
+    cache = BattleCache(position_tolerance=50)
+    cache.store(500, 700, "abbess")
+    cache.clear()
+    assert cache.lookup(500, 700) is None

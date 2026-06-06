@@ -218,3 +218,84 @@ def find_active_circle(frame_bgr: np.ndarray) -> tuple[int, int, str] | None:
         return int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]), team
 
     return centroid(mask_green, "player") or centroid(mask_red, "enemy")
+
+
+def match_model_orb(
+    query_gray: np.ndarray,
+    query_kp,
+    query_des,
+    ref_kp,
+    ref_des,
+    distance_threshold: int = 50,
+) -> float:
+    """ORB feature match ratio. Returns good_matches / total_query_keypoints (0–1)."""
+    if query_des is None or ref_des is None or not query_kp:
+        return 0.0
+    bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+    matches = bf.match(query_des, ref_des)
+    good = [m for m in matches if m.distance < distance_threshold]
+    return len(good) / max(len(query_kp), 1)
+
+
+class BattleCache:
+    """Maps screen positions to hero IDs within one battle. Cleared between battles."""
+
+    def __init__(self, position_tolerance: int = 50):
+        self._tolerance = position_tolerance
+        self._entries: list[tuple[int, int, str]] = []
+
+    def lookup(self, cx: int, cy: int) -> str | None:
+        for ex, ey, hero_id in self._entries:
+            if abs(cx - ex) <= self._tolerance and abs(cy - ey) <= self._tolerance:
+                return hero_id
+        return None
+
+    def store(self, cx: int, cy: int, hero_id: str):
+        self._entries.append((cx, cy, hero_id))
+
+    def clear(self):
+        self._entries.clear()
+
+
+def detect_battle_hero(
+    frame_bgr: np.ndarray,
+    cx: int,
+    cy: int,
+    db: HeroDatabase,
+    cache: BattleCache,
+    threshold: float = 0.65,
+) -> str | None:
+    """Identify hero above circle centroid. Checks cache first, then runs ORB match."""
+    cached = cache.lookup(cx, cy)
+    if cached:
+        return cached
+
+    h, w = frame_bgr.shape[:2]
+    crop_w = int(w * 0.10)
+    crop_h = int(h * 0.32)
+    x1 = max(cx - crop_w // 2, 0)
+    y1 = max(cy - crop_h, 0)
+    x2 = min(cx + crop_w // 2, w)
+    y2 = cy
+    crop = frame_bgr[y1:y2, x1:x2]
+    if crop.size == 0:
+        return None
+
+    crop_gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
+    query_hash = imagehash.phash(Image.fromarray(cv2.cvtColor(crop, cv2.COLOR_BGR2RGB)))
+    candidates = db.top_model_candidates(query_hash, n=10)
+
+    orb = cv2.ORB_create()
+    query_kp, query_des = orb.detectAndCompute(crop_gray, None)
+
+    best_id, best_score = None, 0.0
+    for hero_id in candidates:
+        m = db.models[hero_id]
+        score = match_model_orb(crop_gray, query_kp, query_des, m["kp"], m["des"])
+        if score > best_score:
+            best_score, best_id = score, hero_id
+
+    if best_score >= threshold and best_id:
+        cache.store(cx, cy, best_id)
+        return best_id
+    return None
