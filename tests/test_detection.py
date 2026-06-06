@@ -61,3 +61,36 @@ def test_top_portrait_candidates_returns_closest(portrait_db, model_db):
     query_hash = imagehash.phash(Image.fromarray(cv2.cvtColor(img_a, cv2.COLOR_BGR2RGB)))
     candidates = db.top_portrait_candidates(query_hash, n=2)
     assert candidates[0] == "hero_a"
+
+
+def test_match_portrait_identical_returns_high_score():
+    from hero_detector import match_portrait
+    img = make_portrait((200, 80, 50))
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    assert match_portrait(img, gray) > 0.95
+
+
+def test_match_portrait_different_returns_low_score():
+    from hero_detector import match_portrait
+    img = make_portrait((200, 80, 50))
+    other = cv2.cvtColor(make_portrait((50, 200, 80)), cv2.COLOR_BGR2GRAY)
+    assert match_portrait(img, other) < 0.70
+
+
+def test_detect_roster_hero_finds_correct_hero(portrait_db, model_db):
+    from hero_detector import HeroDatabase, detect_roster_hero
+    db = HeroDatabase(portrait_db, model_db)
+    db.load()
+    frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
+    # Place hero_b portrait inside the roster ROI (60–85% width, 10–70% height)
+    x1, y1 = int(1920 * 0.60), int(1080 * 0.10)
+    frame[y1:y1+182, x1:x1+140] = make_portrait((50, 200, 80))  # hero_b color
+    assert detect_roster_hero(frame, db, threshold=0.90) == "hero_b"
+
+
+def test_detect_roster_hero_returns_none_for_empty_frame(portrait_db, model_db):
+    from hero_detector import HeroDatabase, detect_roster_hero
+    db = HeroDatabase(portrait_db, model_db)
+    db.load()
+    frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
+    assert detect_roster_hero(frame, db, threshold=0.90) is None
