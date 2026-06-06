@@ -299,3 +299,115 @@ def detect_battle_hero(
         cache.store(cx, cy, best_id)
         return best_id
     return None
+
+
+# ── OBS Python bindings ────────────────────────────────────────────────────
+# Executed only when loaded inside OBS. All imports and globals are scoped
+# to this try/except block so pytest can import this file without OBS.
+
+try:
+    import obspython as obs
+
+    _server: DetectorServer | None = None
+    _db: HeroDatabase | None = None
+    _cache: BattleCache = BattleCache()
+    _last_hero_id: str | None = None
+
+    _S_PORTRAITS  = "portraits_path"
+    _S_MODELS     = "models_path"
+    _S_PORT       = "ws_port"
+    _S_INTERVAL   = "interval_ms"
+    _S_P_THRESH   = "portrait_threshold"
+    _S_M_THRESH   = "model_threshold"
+
+    _portraits_path     = ""
+    _models_path        = ""
+    _ws_port            = 7182
+    _interval_ms        = 1500
+    _portrait_threshold = 0.82
+    _model_threshold    = 0.65
+
+    def script_description():
+        return (
+            "<b>RSL Hero Auto-Detector</b><br>"
+            "Detects active hero on screen and pushes to OBS overlay via WebSocket."
+        )
+
+    def script_properties():
+        props = obs.obs_properties_create()
+        obs.obs_properties_add_text(props, _S_PORTRAITS, "Portraits DB path", obs.OBS_TEXT_DEFAULT)
+        obs.obs_properties_add_text(props, _S_MODELS,    "Models DB path",    obs.OBS_TEXT_DEFAULT)
+        obs.obs_properties_add_int(  props, _S_PORT,     "WebSocket port",    1024, 65535, 1)
+        obs.obs_properties_add_int(  props, _S_INTERVAL, "Detection interval (ms)", 500, 10000, 100)
+        obs.obs_properties_add_float(props, _S_P_THRESH, "Portrait confidence threshold", 0.0, 1.0, 0.01)
+        obs.obs_properties_add_float(props, _S_M_THRESH, "Model confidence threshold",   0.0, 1.0, 0.01)
+        obs.obs_properties_add_button(props, "clear_cache", "Clear battle cache", _on_clear_cache)
+        return props
+
+    def script_defaults(settings):
+        obs.obs_data_set_default_string(settings, _S_PORTRAITS, r"C:\path\to\data\portraits")
+        obs.obs_data_set_default_string(settings, _S_MODELS,    r"C:\path\to\data\models")
+        obs.obs_data_set_default_int(   settings, _S_PORT,      7182)
+        obs.obs_data_set_default_int(   settings, _S_INTERVAL,  1500)
+        obs.obs_data_set_default_double(settings, _S_P_THRESH,  0.82)
+        obs.obs_data_set_default_double(settings, _S_M_THRESH,  0.65)
+
+    def script_update(settings):
+        global _portraits_path, _models_path, _ws_port, _interval_ms
+        global _portrait_threshold, _model_threshold
+        _portraits_path     = obs.obs_data_get_string(settings, _S_PORTRAITS)
+        _models_path        = obs.obs_data_get_string(settings, _S_MODELS)
+        _ws_port            = obs.obs_data_get_int(   settings, _S_PORT)
+        _interval_ms        = obs.obs_data_get_int(   settings, _S_INTERVAL)
+        _portrait_threshold = obs.obs_data_get_double(settings, _S_P_THRESH)
+        _model_threshold    = obs.obs_data_get_double(settings, _S_M_THRESH)
+
+    def script_load(settings):
+        global _server, _db
+        _server = DetectorServer(port=_ws_port)
+        _server.start()
+        _db = HeroDatabase(_portraits_path, _models_path)
+        try:
+            _db.load()
+            obs.script_log(obs.LOG_INFO,
+                f"[hero-detector] Loaded {len(_db.portraits)} portraits, {len(_db.models)} models")
+        except Exception as e:
+            obs.script_log(obs.LOG_WARNING, f"[hero-detector] DB load failed: {e}")
+        obs.timer_add(_detect_tick, _interval_ms)
+
+    def script_unload():
+        obs.timer_remove(_detect_tick)
+        if _server:
+            _server.stop()
+
+    def _on_clear_cache(props, prop):
+        _cache.clear()
+        obs.script_log(obs.LOG_INFO, "[hero-detector] Battle cache cleared")
+        return True
+
+    def _detect_tick():
+        global _last_hero_id
+        if _db is None or _server is None:
+            return
+        frame = capture_screen()
+        if frame is None:
+            return
+
+        hero_id = detect_roster_hero(frame, _db, threshold=_portrait_threshold)
+
+        if hero_id is None:
+            circle = find_active_circle(frame)
+            if circle:
+                cx, cy, _team = circle
+                hero_id = detect_battle_hero(frame, cx, cy, _db, _cache,
+                                             threshold=_model_threshold)
+
+        if hero_id and hero_id != _last_hero_id:
+            _server.push({"type": "hero", "id": hero_id})
+            _last_hero_id = hero_id
+        elif not hero_id and _last_hero_id:
+            _server.push({"type": "hero", "id": None})
+            _last_hero_id = None
+
+except ImportError:
+    pass  # Running outside OBS (pytest, etc.)
