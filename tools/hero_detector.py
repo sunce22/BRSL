@@ -373,6 +373,7 @@ try:
                 f"[hero-detector] Loaded {len(_db.portraits)} portraits, {len(_db.models)} models")
         except Exception as e:
             obs.script_log(obs.LOG_WARNING, f"[hero-detector] DB load failed: {e}")
+            return
         obs.timer_add(_detect_tick, _interval_ms)
 
     def script_unload():
@@ -386,7 +387,7 @@ try:
         return True
 
     def _detect_tick():
-        global _last_hero_id
+        global _last_hero_id, _db, _server, _cache, _portrait_threshold, _model_threshold
         if _db is None or _server is None:
             return
         frame = capture_screen()

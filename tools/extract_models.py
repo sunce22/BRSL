@@ -26,7 +26,10 @@ def crop_model(bgr: np.ndarray) -> np.ndarray:
     h, w = bgr.shape[:2]
     x1, y1 = int(w * MODEL_ROI[0]), int(h * MODEL_ROI[1])
     x2, y2 = int(w * MODEL_ROI[2]), int(h * MODEL_ROI[3])
-    return bgr[y1:y2, x1:x2]
+    crop = bgr[y1:y2, x1:x2]
+    if crop.size == 0:
+        raise ValueError(f"MODEL_ROI {MODEL_ROI} produced empty crop for frame {w}x{h}")
+    return crop
 
 
 def main():
@@ -44,10 +47,16 @@ def main():
         if cmd == "s":
             print("  Skipped.")
             continue
-        frame = cv2.cvtColor(np.array(ImageGrab.grab()), cv2.COLOR_RGB2BGR)
-        dest  = MODELS_DIR / f"{hero['id']}.png"
-        cv2.imwrite(str(dest), crop_model(frame))
-        print(f"  Saved {dest}")
+        try:
+            frame = cv2.cvtColor(np.array(ImageGrab.grab()), cv2.COLOR_RGB2BGR)
+        except Exception as e:
+            print(f"  Capture failed: {e}. Try again.")
+            continue
+        dest = MODELS_DIR / f"{hero['id']}.png"
+        if not cv2.imwrite(str(dest), crop_model(frame)):
+            print(f"  Write failed: {dest}")
+        else:
+            print(f"  Saved {dest}")
 
 
 if __name__ == "__main__":
