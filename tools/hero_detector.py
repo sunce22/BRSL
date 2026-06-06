@@ -54,3 +54,55 @@ class DetectorServer:
     def stop(self):
         if self._loop:
             self._loop.call_soon_threadsafe(self._loop.stop)
+
+
+import cv2
+import numpy as np
+import imagehash
+from pathlib import Path
+from PIL import Image
+
+
+STANDARD_PORTRAIT = (140, 182)   # (width, height) for NCC comparison
+
+
+class HeroDatabase:
+    """Loads portrait and model images; provides pHash-ranked candidate lists."""
+
+    def __init__(self, portraits_path: str, models_path: str):
+        self._portraits_path = Path(portraits_path)
+        self._models_path = Path(models_path)
+        self.portraits: dict = {}   # hero_id -> {phash, img_gray}
+        self.models: dict = {}      # hero_id -> {phash, kp, des}
+
+    def load(self):
+        self._load_portraits()
+        self._load_models()
+
+    def _load_portraits(self):
+        for png in self._portraits_path.glob("*.png"):
+            pil = Image.open(png).convert("RGB")
+            self.portraits[png.stem] = {
+                "phash": imagehash.phash(pil),
+                "img_gray": cv2.cvtColor(np.array(pil), cv2.COLOR_RGB2GRAY),
+            }
+
+    def _load_models(self):
+        orb = cv2.ORB_create()
+        for png in self._models_path.glob("*.png"):
+            pil = Image.open(png).convert("RGB")
+            gray = cv2.cvtColor(np.array(pil), cv2.COLOR_RGB2GRAY)
+            kp, des = orb.detectAndCompute(gray, None)
+            self.models[png.stem] = {
+                "phash": imagehash.phash(pil),
+                "kp": kp,
+                "des": des,
+            }
+
+    def top_portrait_candidates(self, query_hash, n: int = 10) -> list[str]:
+        ranked = sorted(self.portraits.items(), key=lambda x: query_hash - x[1]["phash"])
+        return [hid for hid, _ in ranked[:n]]
+
+    def top_model_candidates(self, query_hash, n: int = 10) -> list[str]:
+        ranked = sorted(self.models.items(), key=lambda x: query_hash - x[1]["phash"])
+        return [hid for hid, _ in ranked[:n]]
