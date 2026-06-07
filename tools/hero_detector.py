@@ -304,6 +304,7 @@ def detect_battle_hero(
     db: HeroDatabase,
     cache: BattleCache,
     threshold: float = 0.65,
+    _log=None,
 ) -> str | None:
     """Identify hero above circle centroid. Checks cache first, then runs ORB match."""
     cached = cache.lookup(cx, cy)
@@ -311,8 +312,9 @@ def detect_battle_hero(
         return cached
 
     h, w = frame_bgr.shape[:2]
-    crop_w = int(w * 0.10)
-    crop_h = int(h * 0.32)
+    # Use a wide crop matching MODEL_ROI fractions used in extract_models.py
+    crop_w = int(w * 0.40)
+    crop_h = int(h * 0.85)
     x1 = max(cx - crop_w // 2, 0)
     y1 = max(cy - crop_h, 0)
     x2 = min(cx + crop_w // 2, w)
@@ -334,6 +336,9 @@ def detect_battle_hero(
         score = match_model_orb(crop_gray, query_kp, query_des, m["kp"], m["des"])
         if score > best_score:
             best_score, best_id = score, hero_id
+
+    if _log:
+        _log(f"[hero-detector] ORB crop=({x1},{y1},{x2},{y2}) candidates={candidates} best={best_id} score={best_score:.3f} threshold={threshold:.3f}")
 
     if best_score >= threshold and best_id:
         cache.store(cx, cy, best_id)
@@ -477,7 +482,8 @@ try:
             if circle:
                 cx, cy, _team = circle
                 hero_id = detect_battle_hero(frame, cx, cy, _db, _cache,
-                                             threshold=_model_threshold)
+                                             threshold=_model_threshold,
+                                             _log=lambda m: obs.script_log(obs.LOG_INFO, m))
         else:
             if _tick_count % 5 == 0:
                 obs.script_log(obs.LOG_INFO, f"[hero-detector] roster candidate: {hero_id}")
