@@ -345,8 +345,9 @@ try:
         return props
 
     def script_defaults(settings):
-        obs.obs_data_set_default_string(settings, _S_PORTRAITS, r"C:\path\to\data\portraits")
-        obs.obs_data_set_default_string(settings, _S_MODELS,    r"C:\path\to\data\models")
+        _base = Path(__file__).parent.parent / "data"
+        obs.obs_data_set_default_string(settings, _S_PORTRAITS, str(_base / "portraits"))
+        obs.obs_data_set_default_string(settings, _S_MODELS,    str(_base / "models"))
         obs.obs_data_set_default_int(   settings, _S_PORT,      7182)
         obs.obs_data_set_default_int(   settings, _S_INTERVAL,  1500)
         obs.obs_data_set_default_double(settings, _S_P_THRESH,  0.82)
