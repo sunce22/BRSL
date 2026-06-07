@@ -196,6 +196,7 @@ def detect_roster_hero(
     frame_bgr: np.ndarray,
     db: HeroDatabase,
     threshold: float = 0.82,
+    _log=None,
 ) -> str | None:
     """Detect hero portrait in the roster detail panel. Returns hero_id or None."""
     if not db.portraits:
@@ -214,6 +215,9 @@ def detect_roster_hero(
         score = match_portrait(crop, db.portraits[hero_id]["img_gray"])
         if score > best_score:
             best_score, best_id = score, hero_id
+
+    if _log:
+        _log(f"[hero-detector] roster best={best_id} score={best_score:.3f} threshold={threshold:.3f}")
 
     return best_id if best_score >= threshold else None
 
@@ -479,7 +483,8 @@ try:
             return
 
         _tick_count += 1
-        hero_id = detect_roster_hero(frame, _db, threshold=_portrait_threshold)
+        _dbg = lambda m: obs.script_log(obs.LOG_INFO, m) if _tick_count % 5 == 0 else None
+        hero_id = detect_roster_hero(frame, _db, threshold=_portrait_threshold, _log=_dbg)
 
         if hero_id is None:
             circle = find_active_circle(frame)
