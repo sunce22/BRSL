@@ -225,10 +225,16 @@ _RED_HI1  = np.array([10, 255, 255], dtype=np.uint8)
 _RED_LO2  = np.array([170, 150, 150], dtype=np.uint8)
 _RED_HI2  = np.array([180, 255, 255], dtype=np.uint8)
 _CIRCLE_MIN_AREA = 500
+# Ignore circles in UI zones: top 6% (turn queue bar) and bottom 8% (skill bar)
+_CIRCLE_Y_MIN_FRAC = 0.06
+_CIRCLE_Y_MAX_FRAC = 0.92
 
 
 def find_active_circle(frame_bgr: np.ndarray) -> tuple[int, int, str] | None:
     """Detect glowing active-turn circle. Returns (cx, cy, 'player'|'enemy') or None."""
+    h = frame_bgr.shape[0]
+    y_min = int(h * _CIRCLE_Y_MIN_FRAC)
+    y_max = int(h * _CIRCLE_Y_MAX_FRAC)
     hsv = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2HSV)
     mask_green = cv2.inRange(hsv, _GREEN_LO, _GREEN_HI)
     mask_red = cv2.bitwise_or(
@@ -246,7 +252,10 @@ def find_active_circle(frame_bgr: np.ndarray) -> tuple[int, int, str] | None:
         M = cv2.moments(largest)
         if M["m00"] == 0:
             return None
-        return int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]), team
+        cx, cy = int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])
+        if not (y_min <= cy <= y_max):
+            return None
+        return cx, cy, team
 
     return centroid(mask_green, "player") or centroid(mask_red, "enemy")
 
