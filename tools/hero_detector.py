@@ -437,22 +437,36 @@ try:
         obs.script_log(obs.LOG_INFO, "[hero-detector] Battle cache cleared")
         return True
 
+    _tick_count = 0
+
     def _detect_tick():
-        global _last_hero_id, _db, _server, _cache, _portrait_threshold, _model_threshold
+        global _last_hero_id, _db, _server, _cache, _portrait_threshold, _model_threshold, _tick_count
         if _db is None or _server is None:
             return
         frame = capture_screen()
         if frame is None:
+            obs.script_log(obs.LOG_WARNING, "[hero-detector] capture_screen returned None")
             return
 
+        _tick_count += 1
         hero_id = detect_roster_hero(frame, _db, threshold=_portrait_threshold)
 
         if hero_id is None:
             circle = find_active_circle(frame)
+            if _tick_count % 5 == 0:  # log every ~7.5s to avoid spam
+                if circle:
+                    obs.script_log(obs.LOG_INFO,
+                        f"[hero-detector] circle={circle}, models={len(_db.models)}")
+                else:
+                    obs.script_log(obs.LOG_INFO,
+                        f"[hero-detector] tick={_tick_count} no roster, no circle, frame={frame.shape}")
             if circle:
                 cx, cy, _team = circle
                 hero_id = detect_battle_hero(frame, cx, cy, _db, _cache,
                                              threshold=_model_threshold)
+        else:
+            if _tick_count % 5 == 0:
+                obs.script_log(obs.LOG_INFO, f"[hero-detector] roster candidate: {hero_id}")
 
         if hero_id and hero_id != _last_hero_id:
             _server.push({"type": "hero", "id": hero_id})
