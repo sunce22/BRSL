@@ -166,3 +166,37 @@ def test_battle_cache_clears():
     cache.store(500, 700, "abbess")
     cache.clear()
     assert cache.lookup(500, 700) is None
+
+
+def test_detect_battle_hero_matches_portrait_at_circle(portrait_db, model_db):
+    from hero_detector import HeroDatabase, BattleCache, detect_battle_hero, _TURN_PORTRAIT_HALF_FRAC
+    db = HeroDatabase(portrait_db, model_db)
+    db.load()
+    frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
+    cx, cy = 857, 148
+    half = max(40, int(1080 * _TURN_PORTRAIT_HALF_FRAC))
+    x1 = max(cx - half, 0)
+    y1 = max(cy - half, 0)
+    x2 = min(cx + half, 1920)
+    y2 = min(cy + half, 1080)
+    frame[y1:y2, x1:x2] = np.full((y2 - y1, x2 - x1, 3), (50, 200, 80), dtype=np.uint8)
+    cache = BattleCache()
+    assert detect_battle_hero(frame, cx, cy, db, cache, threshold=0.80) == "hero_b"
+
+
+def test_detect_battle_hero_returns_cached(portrait_db, model_db):
+    from hero_detector import HeroDatabase, BattleCache, detect_battle_hero
+    db = HeroDatabase(portrait_db, model_db)
+    db.load()
+    cache = BattleCache()
+    cache.store(857, 148, "hero_a")
+    frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
+    assert detect_battle_hero(frame, 857, 148, db, cache) == "hero_a"
+
+
+def test_detect_battle_hero_no_portraits_returns_none(model_db):
+    from hero_detector import HeroDatabase, BattleCache, detect_battle_hero
+    db = HeroDatabase("", model_db)
+    frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
+    cache = BattleCache()
+    assert detect_battle_hero(frame, 857, 148, db, cache) is None

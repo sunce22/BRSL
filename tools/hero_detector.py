@@ -225,9 +225,11 @@ _RED_HI1  = np.array([10, 255, 255], dtype=np.uint8)
 _RED_LO2  = np.array([170, 150, 150], dtype=np.uint8)
 _RED_HI2  = np.array([180, 255, 255], dtype=np.uint8)
 _CIRCLE_MIN_AREA = 500
-# Ignore circles in UI zones: top 6% (turn queue bar) and bottom 8% (skill bar)
+# Exclude only extreme edges (< 6% or > 92%): keeps turn queue bar portraits (~13%)
+# and battle health circles while filtering the very top/bottom chrome.
 _CIRCLE_Y_MIN_FRAC = 0.06
 _CIRCLE_Y_MAX_FRAC = 0.92
+_TURN_PORTRAIT_HALF_FRAC = 0.055  # half-size of crop around circle center (fraction of h)
 
 
 def find_active_circle(frame_bgr: np.ndarray) -> tuple[int, int, str] | None:
@@ -306,46 +308,47 @@ def detect_battle_hero(
     threshold: float = 0.65,
     _log=None,
 ) -> str | None:
-    """Identify hero above circle centroid. Checks cache first, then runs ORB match."""
+    """Identify active hero by portrait-matching the turn queue circle at (cx, cy).
+
+    The circle detector finds the green/red ring around the active hero's portrait
+    in the turn order bar. Cropping that region and running NCC against the portrait
+    DB identifies the hero without requiring a separate 3D-model database.
+    """
     cached = cache.lookup(cx, cy)
     if cached:
         return cached
 
+    if not db.portraits:
+        return None
+
     h, w = frame_bgr.shape[:2]
-    # Use a wide crop matching MODEL_ROI fractions used in extract_models.py
-    crop_w = int(w * 0.40)
-    crop_h = int(h * 0.85)
-    x1 = max(cx - crop_w // 2, 0)
-    y1 = max(cy - crop_h, 0)
-    x2 = min(cx + crop_w // 2, w)
-    y2 = cy
+    half = max(40, int(h * _TURN_PORTRAIT_HALF_FRAC))
+    x1 = max(cx - half, 0)
+    y1 = max(cy - half, 0)
+    x2 = min(cx + half, w)
+    y2 = min(cy + half, h)
     crop = frame_bgr[y1:y2, x1:x2]
     if crop.size == 0:
         return None
 
     if _log:
-        _log(f"[hero-detector] ORB enter crop=({x1},{y1},{x2},{y2}) size={crop.shape}")
+        _log(f"[hero-detector] portrait enter crop=({x1},{y1},{x2},{y2}) size={crop.shape}")
 
     try:
-        crop_gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
         query_hash = imagehash.phash(Image.fromarray(cv2.cvtColor(crop, cv2.COLOR_BGR2RGB)))
-        candidates = db.top_model_candidates(query_hash, n=10)
-
-        orb = cv2.ORB_create()
-        query_kp, query_des = orb.detectAndCompute(crop_gray, None)
+        candidates = db.top_portrait_candidates(query_hash, n=10)
 
         best_id, best_score = None, 0.0
         for hero_id in candidates:
-            m = db.models[hero_id]
-            score = match_model_orb(crop_gray, query_kp, query_des, m["kp"], m["des"])
+            score = match_portrait(crop, db.portraits[hero_id]["img_gray"])
             if score > best_score:
                 best_score, best_id = score, hero_id
 
         if _log:
-            _log(f"[hero-detector] ORB candidates={candidates} best={best_id} score={best_score:.3f} threshold={threshold:.3f}")
+            _log(f"[hero-detector] portrait best={best_id} score={best_score:.3f} threshold={threshold:.3f}")
     except Exception as exc:
         if _log:
-            _log(f"[hero-detector] ORB error: {exc}")
+            _log(f"[hero-detector] portrait error: {exc}")
         return None
 
     if best_score >= threshold and best_id:
