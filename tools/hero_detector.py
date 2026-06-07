@@ -323,22 +323,30 @@ def detect_battle_hero(
     if crop.size == 0:
         return None
 
-    crop_gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
-    query_hash = imagehash.phash(Image.fromarray(cv2.cvtColor(crop, cv2.COLOR_BGR2RGB)))
-    candidates = db.top_model_candidates(query_hash, n=10)
-
-    orb = cv2.ORB_create()
-    query_kp, query_des = orb.detectAndCompute(crop_gray, None)
-
-    best_id, best_score = None, 0.0
-    for hero_id in candidates:
-        m = db.models[hero_id]
-        score = match_model_orb(crop_gray, query_kp, query_des, m["kp"], m["des"])
-        if score > best_score:
-            best_score, best_id = score, hero_id
-
     if _log:
-        _log(f"[hero-detector] ORB crop=({x1},{y1},{x2},{y2}) candidates={candidates} best={best_id} score={best_score:.3f} threshold={threshold:.3f}")
+        _log(f"[hero-detector] ORB enter crop=({x1},{y1},{x2},{y2}) size={crop.shape}")
+
+    try:
+        crop_gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
+        query_hash = imagehash.phash(Image.fromarray(cv2.cvtColor(crop, cv2.COLOR_BGR2RGB)))
+        candidates = db.top_model_candidates(query_hash, n=10)
+
+        orb = cv2.ORB_create()
+        query_kp, query_des = orb.detectAndCompute(crop_gray, None)
+
+        best_id, best_score = None, 0.0
+        for hero_id in candidates:
+            m = db.models[hero_id]
+            score = match_model_orb(crop_gray, query_kp, query_des, m["kp"], m["des"])
+            if score > best_score:
+                best_score, best_id = score, hero_id
+
+        if _log:
+            _log(f"[hero-detector] ORB candidates={candidates} best={best_id} score={best_score:.3f} threshold={threshold:.3f}")
+    except Exception as exc:
+        if _log:
+            _log(f"[hero-detector] ORB error: {exc}")
+        return None
 
     if best_score >= threshold and best_id:
         cache.store(cx, cy, best_id)
