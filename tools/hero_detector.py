@@ -335,6 +335,7 @@ def detect_battle_hero(
 
 try:
     import obspython as obs
+    obs.script_log(obs.LOG_INFO, "[hero-detector] script file parsed OK")
 
     _server: DetectorServer | None = None
     _overlay: OverlayServer | None = None
