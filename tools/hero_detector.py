@@ -407,6 +407,7 @@ try:
 
     def script_load(settings):
         global _server, _overlay, _db
+        script_update(settings)  # ensure paths/ports are read before use
         _overlay = OverlayServer(directory=_overlay_dir, port=_http_port)
         try:
             _overlay.start()
