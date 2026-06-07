@@ -31,7 +31,8 @@ class DetectorServer:
         self._loop.run_until_complete(self._serve())
 
     async def _serve(self):
-        async with websockets.serve(self._handler, "localhost", self.port):
+        async with websockets.serve(self._handler, "localhost", self.port,
+                                    reuse_address=True):
             await asyncio.Future()
 
     async def _handler(self, websocket, path=None):
@@ -56,6 +57,8 @@ class DetectorServer:
     def stop(self):
         if self._loop:
             self._loop.call_soon_threadsafe(self._loop.stop)
+        if self._thread:
+            self._thread.join(timeout=2.0)
 
 
 class OverlayServer:
