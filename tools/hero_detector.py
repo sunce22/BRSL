@@ -5,7 +5,9 @@ OBS bindings are at the bottom, guarded by try/except ImportError.
 Requires Python 3.10+, opencv-python, Pillow, imagehash, websockets.
 """
 import asyncio
+import http.server
 import json
+import socketserver
 import threading
 import websockets
 
@@ -54,6 +56,32 @@ class DetectorServer:
     def stop(self):
         if self._loop:
             self._loop.call_soon_threadsafe(self._loop.stop)
+
+
+class OverlayServer:
+    """Minimal HTTP server that serves the OBS overlay directory in a daemon thread."""
+
+    def __init__(self, directory: str, port: int = 8765):
+        self.directory = directory
+        self.port = port
+        self._httpd: socketserver.TCPServer | None = None
+        self._thread: threading.Thread | None = None
+
+    def start(self):
+        directory = self.directory
+        class _Handler(http.server.SimpleHTTPRequestHandler):
+            def __init__(self, *args, **kwargs):
+                super().__init__(*args, directory=directory, **kwargs)
+            def log_message(self, *args):
+                pass  # suppress access logs in OBS Script Log
+        self._httpd = socketserver.TCPServer(("localhost", self.port), _Handler)
+        self._httpd.allow_reuse_address = True
+        self._thread = threading.Thread(target=self._httpd.serve_forever, daemon=True)
+        self._thread.start()
+
+    def stop(self):
+        if self._httpd:
+            self._httpd.shutdown()
 
 
 import cv2
@@ -309,16 +337,19 @@ try:
     import obspython as obs
 
     _server: DetectorServer | None = None
+    _overlay: OverlayServer | None = None
     _db: HeroDatabase | None = None
     _cache: BattleCache = BattleCache()
     _last_hero_id: str | None = None
 
-    _S_PORTRAITS  = "portraits_path"
-    _S_MODELS     = "models_path"
-    _S_PORT       = "ws_port"
-    _S_INTERVAL   = "interval_ms"
-    _S_P_THRESH   = "portrait_threshold"
-    _S_M_THRESH   = "model_threshold"
+    _S_PORTRAITS   = "portraits_path"
+    _S_MODELS      = "models_path"
+    _S_PORT        = "ws_port"
+    _S_INTERVAL    = "interval_ms"
+    _S_P_THRESH    = "portrait_threshold"
+    _S_M_THRESH    = "model_threshold"
+    _S_OVERLAY_DIR = "overlay_dir"
+    _S_HTTP_PORT   = "http_port"
 
     _portraits_path     = ""
     _models_path        = ""
@@ -326,36 +357,46 @@ try:
     _interval_ms        = 1500
     _portrait_threshold = 0.82
     _model_threshold    = 0.65
+    _overlay_dir        = ""
+    _http_port          = 8765
 
     def script_description():
         return (
             "<b>RSL Hero Auto-Detector</b><br>"
-            "Detects active hero on screen and pushes to OBS overlay via WebSocket."
+            "Detects active hero on screen and pushes to OBS overlay via WebSocket.<br>"
+            "Add a Browser Source with URL: <b>http://localhost:8765/obs/obs.html</b>"
         )
 
     def script_properties():
         props = obs.obs_properties_create()
-        obs.obs_properties_add_text(props, _S_PORTRAITS, "Portraits DB path", obs.OBS_TEXT_DEFAULT)
-        obs.obs_properties_add_text(props, _S_MODELS,    "Models DB path",    obs.OBS_TEXT_DEFAULT)
-        obs.obs_properties_add_int(  props, _S_PORT,     "WebSocket port",    1024, 65535, 1)
-        obs.obs_properties_add_int(  props, _S_INTERVAL, "Detection interval (ms)", 500, 10000, 100)
-        obs.obs_properties_add_float(props, _S_P_THRESH, "Portrait confidence threshold", 0.0, 1.0, 0.01)
-        obs.obs_properties_add_float(props, _S_M_THRESH, "Model confidence threshold",   0.0, 1.0, 0.01)
+        obs.obs_properties_add_text(props, _S_OVERLAY_DIR, "Overlay directory (twitch-extension repo)", obs.OBS_TEXT_DEFAULT)
+        obs.obs_properties_add_int(  props, _S_HTTP_PORT,  "HTTP port (Browser Source)",  1024, 65535, 1)
+        obs.obs_properties_add_text(props, _S_PORTRAITS,   "Portraits DB path",           obs.OBS_TEXT_DEFAULT)
+        obs.obs_properties_add_text(props, _S_MODELS,      "Models DB path",              obs.OBS_TEXT_DEFAULT)
+        obs.obs_properties_add_int(  props, _S_PORT,       "WebSocket port",              1024, 65535, 1)
+        obs.obs_properties_add_int(  props, _S_INTERVAL,   "Detection interval (ms)",     500, 10000, 100)
+        obs.obs_properties_add_float(props, _S_P_THRESH,   "Portrait confidence threshold", 0.0, 1.0, 0.01)
+        obs.obs_properties_add_float(props, _S_M_THRESH,   "Model confidence threshold",    0.0, 1.0, 0.01)
         obs.obs_properties_add_button(props, "clear_cache", "Clear battle cache", _on_clear_cache)
         return props
 
     def script_defaults(settings):
         _base = Path(__file__).parent.parent / "data"
-        obs.obs_data_set_default_string(settings, _S_PORTRAITS, str(_base / "portraits"))
-        obs.obs_data_set_default_string(settings, _S_MODELS,    str(_base / "models"))
-        obs.obs_data_set_default_int(   settings, _S_PORT,      7182)
-        obs.obs_data_set_default_int(   settings, _S_INTERVAL,  1500)
-        obs.obs_data_set_default_double(settings, _S_P_THRESH,  0.82)
-        obs.obs_data_set_default_double(settings, _S_M_THRESH,  0.65)
+        _overlay_default = str(Path(__file__).parent.parent.parent / "twitch-extension")
+        obs.obs_data_set_default_string(settings, _S_OVERLAY_DIR, _overlay_default)
+        obs.obs_data_set_default_int(   settings, _S_HTTP_PORT,   8765)
+        obs.obs_data_set_default_string(settings, _S_PORTRAITS,   str(_base / "portraits"))
+        obs.obs_data_set_default_string(settings, _S_MODELS,      str(_base / "models"))
+        obs.obs_data_set_default_int(   settings, _S_PORT,        7182)
+        obs.obs_data_set_default_int(   settings, _S_INTERVAL,    1500)
+        obs.obs_data_set_default_double(settings, _S_P_THRESH,    0.82)
+        obs.obs_data_set_default_double(settings, _S_M_THRESH,    0.65)
 
     def script_update(settings):
         global _portraits_path, _models_path, _ws_port, _interval_ms
-        global _portrait_threshold, _model_threshold
+        global _portrait_threshold, _model_threshold, _overlay_dir, _http_port
+        _overlay_dir        = obs.obs_data_get_string(settings, _S_OVERLAY_DIR)
+        _http_port          = obs.obs_data_get_int(   settings, _S_HTTP_PORT)
         _portraits_path     = obs.obs_data_get_string(settings, _S_PORTRAITS)
         _models_path        = obs.obs_data_get_string(settings, _S_MODELS)
         _ws_port            = obs.obs_data_get_int(   settings, _S_PORT)
@@ -364,7 +405,14 @@ try:
         _model_threshold    = obs.obs_data_get_double(settings, _S_M_THRESH)
 
     def script_load(settings):
-        global _server, _db
+        global _server, _overlay, _db
+        _overlay = OverlayServer(directory=_overlay_dir, port=_http_port)
+        try:
+            _overlay.start()
+            obs.script_log(obs.LOG_INFO,
+                f"[hero-detector] Overlay served at http://localhost:{_http_port}/obs/obs.html")
+        except Exception as e:
+            obs.script_log(obs.LOG_WARNING, f"[hero-detector] HTTP server failed: {e}")
         _server = DetectorServer(port=_ws_port)
         _server.start()
         _db = HeroDatabase(_portraits_path, _models_path)
@@ -381,6 +429,8 @@ try:
         obs.timer_remove(_detect_tick)
         if _server:
             _server.stop()
+        if _overlay:
+            _overlay.stop()
 
     def _on_clear_cache(props, prop):
         _cache.clear()
