@@ -154,15 +154,36 @@ def test_match_model_orb_different_images_low_score():
 
 def test_battle_cache_stores_and_retrieves():
     from hero_detector import BattleCache
-    cache = BattleCache(position_tolerance=50)
+    cache = BattleCache(position_tolerance=50, min_hits=1)
     cache.store(500, 700, "abbess")
     assert cache.lookup(510, 690) == "abbess"
     assert cache.lookup(600, 800) is None
 
 
+def test_battle_cache_requires_min_hits():
+    from hero_detector import BattleCache
+    cache = BattleCache(position_tolerance=50, min_hits=3)
+    cache.store(500, 700, "abbess")
+    assert cache.lookup(500, 700) is None  # 1/3
+    cache.store(500, 700, "abbess")
+    assert cache.lookup(500, 700) is None  # 2/3
+    cache.store(500, 700, "abbess")
+    assert cache.lookup(510, 690) == "abbess"  # confirmed
+
+
+def test_battle_cache_resets_on_different_hero():
+    from hero_detector import BattleCache
+    cache = BattleCache(position_tolerance=50, min_hits=3)
+    cache.store(500, 700, "abbess")
+    cache.store(500, 700, "abbess")
+    cache.store(500, 700, "arbiter")  # different hero — resets count
+    cache.store(500, 700, "arbiter")
+    assert cache.lookup(500, 700) is None  # only 2 hits of arbiter
+
+
 def test_battle_cache_clears():
     from hero_detector import BattleCache
-    cache = BattleCache(position_tolerance=50)
+    cache = BattleCache(position_tolerance=50, min_hits=1)
     cache.store(500, 700, "abbess")
     cache.clear()
     assert cache.lookup(500, 700) is None
@@ -180,7 +201,7 @@ def test_detect_battle_hero_matches_portrait_at_circle(portrait_db, model_db):
     x2 = min(cx + half, 1920)
     y2 = min(cy + half, 1080)
     frame[y1:y2, x1:x2] = np.full((y2 - y1, x2 - x1, 3), (50, 200, 80), dtype=np.uint8)
-    cache = BattleCache()
+    cache = BattleCache(min_hits=1)
     assert detect_battle_hero(frame, cx, cy, db, cache, threshold=0.80) == "hero_b"
 
 
@@ -188,7 +209,7 @@ def test_detect_battle_hero_returns_cached(portrait_db, model_db):
     from hero_detector import HeroDatabase, BattleCache, detect_battle_hero
     db = HeroDatabase(portrait_db, model_db)
     db.load()
-    cache = BattleCache()
+    cache = BattleCache(min_hits=1)
     cache.store(857, 148, "hero_a")
     frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
     assert detect_battle_hero(frame, 857, 148, db, cache) == "hero_a"

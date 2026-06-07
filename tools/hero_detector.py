@@ -284,11 +284,23 @@ def match_model_orb(
 
 
 class BattleCache:
-    """Maps screen positions to hero IDs within one battle. Cleared between battles."""
+    """Maps screen positions to hero IDs within one battle. Cleared between battles.
 
-    def __init__(self, position_tolerance: int = 50):
+    A position must produce the same hero_id for min_hits consecutive ticks before
+    it is confirmed, preventing noisy UI elements from polluting the cache.
+    """
+
+    def __init__(self, position_tolerance: int = 50, min_hits: int = 3):
         self._tolerance = position_tolerance
+        self._min_hits = min_hits
         self._entries: list[tuple[int, int, str]] = []
+        self._pending: dict[tuple[int, int], tuple[str, int]] = {}
+
+    def _pending_key(self, cx: int, cy: int) -> tuple[int, int] | None:
+        for (px, py) in self._pending:
+            if abs(cx - px) <= self._tolerance and abs(cy - py) <= self._tolerance:
+                return (px, py)
+        return None
 
     def lookup(self, cx: int, cy: int) -> str | None:
         for ex, ey, hero_id in self._entries:
@@ -297,10 +309,25 @@ class BattleCache:
         return None
 
     def store(self, cx: int, cy: int, hero_id: str):
-        self._entries.append((cx, cy, hero_id))
+        """Accumulate hit; confirms entry after min_hits consecutive same-hero detections."""
+        key = self._pending_key(cx, cy)
+        if key is None:
+            key = (cx, cy)
+            self._pending[key] = (hero_id, 0)
+        prev_id, count = self._pending[key]
+        if prev_id != hero_id:
+            self._pending[key] = (hero_id, 1)
+            count = 1
+        else:
+            count += 1
+            self._pending[key] = (hero_id, count)
+        if count >= self._min_hits:
+            self._entries.append((cx, cy, hero_id))
+            del self._pending[key]
 
     def clear(self):
         self._entries.clear()
+        self._pending.clear()
 
 
 def detect_battle_hero(
@@ -357,7 +384,7 @@ def detect_battle_hero(
 
     if best_score >= threshold and best_id:
         cache.store(cx, cy, best_id)
-        return best_id
+        return cache.lookup(cx, cy)  # None until min_hits reached
     return None
 
 
@@ -367,7 +394,7 @@ def detect_battle_hero(
 
 try:
     import obspython as obs
-    obs.script_log(obs.LOG_INFO, "[hero-detector] script file parsed OK")
+    obs.script_log(obs.LOG_INFO, "[hero-detector] script file parsed OK v=PORTRAIT-NCC-1")
 
     _server: DetectorServer | None = None
     _overlay: OverlayServer | None = None
@@ -389,7 +416,7 @@ try:
     _ws_port            = 7182
     _interval_ms        = 1500
     _portrait_threshold = 0.82
-    _model_threshold    = 0.65
+    _model_threshold    = 0.55
     _overlay_dir        = ""
     _http_port          = 8765
 
