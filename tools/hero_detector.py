@@ -409,6 +409,66 @@ def detect_battle_hero(
     return None
 
 
+# Turn queue bar: scan top bar directly for portrait matches without color filtering.
+# RSL's turn queue uses white/gold borders — not green/red — so circle detection misses it.
+# First slot (leftmost) = current active hero.
+_TQ_Y1_FRAC   = 0.03   # top bar start  (~32px on 1080p)
+_TQ_Y2_FRAC   = 0.13   # top bar end    (~140px on 1080p)
+_TQ_X2_FRAC   = 0.25   # scan leftmost 25% only (first 2-3 slots)
+_TQ_SLOT_FRAC = 0.08   # portrait slot width (~154px on 1920p)
+_TQ_CACHE_POS = (-200, -200)  # virtual cache key, never matches real screen coords
+
+
+def detect_turn_queue_first(
+    frame_bgr: np.ndarray,
+    db: HeroDatabase,
+    cache: BattleCache,
+    threshold: float = 0.55,
+    _log=None,
+) -> str | None:
+    """Detect current active hero from leftmost slot in the turn queue bar.
+
+    Scans y=3–13% of screen in horizontal strides without relying on color.
+    Leftmost slot with score >= threshold = active hero (turn queue is left=current).
+    """
+    cached = cache.lookup(*_TQ_CACHE_POS)
+    if cached:
+        return cached
+    if not db.portraits:
+        return None
+
+    h, w = frame_bgr.shape[:2]
+    y1 = int(h * _TQ_Y1_FRAC)
+    y2 = int(h * _TQ_Y2_FRAC)
+    x_end = int(w * _TQ_X2_FRAC)
+    slot_w = max(int(w * _TQ_SLOT_FRAC), 60)
+
+    best_id, best_score, best_x = None, 0.0, x_end
+    stride = max(slot_w // 3, 20)
+
+    for x in range(0, x_end - slot_w + 1, stride):
+        crop = frame_bgr[y1:y2, x:x + slot_w]
+        if crop.size == 0:
+            continue
+        try:
+            query_hash = imagehash.phash(Image.fromarray(cv2.cvtColor(crop, cv2.COLOR_BGR2RGB)))
+            candidates = db.top_portrait_candidates(query_hash, n=5)
+            for hero_id in candidates:
+                score = match_portrait(crop, db.portraits[hero_id]["img_gray"])
+                if score > best_score:
+                    best_score, best_id, best_x = score, hero_id, x
+        except Exception:
+            continue
+
+    if _log:
+        _log(f"[hero-detector] tq_scan best={best_id} score={best_score:.3f} x={best_x}")
+
+    if best_score >= threshold and best_id:
+        cache.store(*_TQ_CACHE_POS, best_id)
+        return cache.lookup(*_TQ_CACHE_POS)
+    return None
+
+
 # ── OBS Python bindings ────────────────────────────────────────────────────
 # Executed only when loaded inside OBS. All imports and globals are scoped
 # to this try/except block so pytest can import this file without OBS.
@@ -533,6 +593,12 @@ try:
         _tick_count += 1
         _dbg = lambda m: obs.script_log(obs.LOG_INFO, m) if _tick_count % 5 == 0 else None
         hero_id = detect_roster_hero(frame, _db, threshold=_portrait_threshold, _log=_dbg)
+
+        if hero_id is None:
+            # Turn queue bar scan (no color filter — RSL uses white/gold borders, not green/red)
+            hero_id = detect_turn_queue_first(frame, _db, _cache,
+                                              threshold=_model_threshold,
+                                              _log=lambda m: obs.script_log(obs.LOG_INFO, m))
 
         if hero_id is None:
             circle = find_active_circle(frame)
