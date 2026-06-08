@@ -233,14 +233,24 @@ _CIRCLE_MIN_AREA = 500
 # and battle health circles while filtering the very top/bottom chrome.
 _CIRCLE_Y_MIN_FRAC = 0.06
 _CIRCLE_Y_MAX_FRAC = 0.92
+# Turn queue bar occupies roughly the top 3–15% of the battle screen.
+# Circles here get priority over larger health-bar fills lower on screen.
+_TURN_QUEUE_Y_MAX_FRAC = 0.15
 _TURN_PORTRAIT_HALF_FRAC = 0.055  # half-size of crop around circle center (fraction of h)
 
 
 def find_active_circle(frame_bgr: np.ndarray) -> tuple[int, int, str] | None:
-    """Detect glowing active-turn circle. Returns (cx, cy, 'player'|'enemy') or None."""
+    """Detect glowing active-turn circle. Returns (cx, cy, 'player'|'enemy') or None.
+
+    Priority 1 — turn queue bar (top 3–15%): small green/red bordered portraits.
+    Priority 2 — full screen fallback (for VS/selection screens with large bordered cards).
+    Health-bar fills lower on screen are larger blobs and would otherwise always win,
+    so the top-bar priority pass is essential for in-battle turn detection.
+    """
     h = frame_bgr.shape[0]
     y_min = int(h * _CIRCLE_Y_MIN_FRAC)
     y_max = int(h * _CIRCLE_Y_MAX_FRAC)
+    tq_y_max = int(h * _TURN_QUEUE_Y_MAX_FRAC)
     hsv = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2HSV)
     mask_green = cv2.inRange(hsv, _GREEN_LO, _GREEN_HI)
     mask_red = cv2.bitwise_or(
@@ -248,8 +258,12 @@ def find_active_circle(frame_bgr: np.ndarray) -> tuple[int, int, str] | None:
         cv2.inRange(hsv, _RED_LO2, _RED_HI2),
     )
 
-    def centroid(mask: np.ndarray, team: str) -> tuple[int, int, str] | None:
-        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    def centroid_in(mask: np.ndarray, team: str,
+                    row_min: int, row_max: int) -> tuple[int, int, str] | None:
+        clipped = mask.copy()
+        clipped[:row_min] = 0
+        clipped[row_max:] = 0
+        contours, _ = cv2.findContours(clipped, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         if not contours:
             return None
         largest = max(contours, key=cv2.contourArea)
@@ -259,11 +273,18 @@ def find_active_circle(frame_bgr: np.ndarray) -> tuple[int, int, str] | None:
         if M["m00"] == 0:
             return None
         cx, cy = int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])
-        if not (y_min <= cy <= y_max):
+        if not (row_min <= cy < row_max):
             return None
         return cx, cy, team
 
-    return centroid(mask_green, "player") or centroid(mask_red, "enemy")
+    # Priority: turn queue bar at top
+    result = (centroid_in(mask_green, "player", y_min, tq_y_max) or
+              centroid_in(mask_red, "enemy", y_min, tq_y_max))
+    if result:
+        return result
+    # Fallback: full screen (VS/selection portraits, etc.)
+    return (centroid_in(mask_green, "player", y_min, y_max) or
+            centroid_in(mask_red, "enemy", y_min, y_max))
 
 
 def match_model_orb(
