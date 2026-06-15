@@ -17,7 +17,8 @@ _Last updated: 2026-05-29_
 
 ## Нові герої (потрібно дослідити)
 
-- [ ] **Рая Оплакана (Rhaia the Mourned)** `🔒` — героя нема в базі. Знайти: портрет, навички, мультиплікатори, перекласти UA. Перевірити чи є в ayumilove / hellhades.
+- [x] **Рая Оплакана (Rhaia the Mourned)** `🔒` — додано до heroes.json (id: `rhaia_the_mourned`). Faction: Sylvan Watchers, Void/Attack. Портрет: hellhades.com/2026/06. Навички: Anguish & Agony / Legacy of Despair / Discordant Fury / Corrupted Majesty (Passive) / Aura +35% ATK.
+- [ ] **Rhaia the Mourned — UA переклад** `🔒` — назви навичок і описи потрібно перекласти українською у `i18n/heroes-uk.json`. Запустити `build-heroes-uk.py` або додати вручну.
 
 ---
 
