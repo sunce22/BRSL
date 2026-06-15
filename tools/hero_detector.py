@@ -20,20 +20,30 @@ class DetectorServer:
         self._clients: set = set()
         self._loop: asyncio.AbstractEventLoop | None = None
         self._thread: threading.Thread | None = None
+        self._stop_event: asyncio.Event | None = None
 
     def start(self):
-        self._loop = asyncio.new_event_loop()
+        # Loop created inside thread — Windows IOCP (ProactorEventLoop) requires
+        # the loop to be created and run in the same thread.
         self._thread = threading.Thread(target=self._run, daemon=True)
         self._thread.start()
 
     def _run(self):
+        self._loop = asyncio.new_event_loop()
         asyncio.set_event_loop(self._loop)
-        self._loop.run_until_complete(self._serve())
+        try:
+            self._loop.run_until_complete(self._serve())
+        except Exception:
+            pass
+        finally:
+            if self._loop and not self._loop.is_closed():
+                self._loop.close()
 
     async def _serve(self):
+        self._stop_event = asyncio.Event()
         async with websockets.serve(self._handler, "localhost", self.port,
                                     reuse_address=True):
-            await asyncio.Future()
+            await self._stop_event.wait()
 
     async def _handler(self, websocket, path=None):
         self._clients.add(websocket)
@@ -43,7 +53,7 @@ class DetectorServer:
             self._clients.discard(websocket)
 
     def push(self, msg: dict):
-        if not self._loop or not self._clients:
+        if not self._loop or self._loop.is_closed() or not self._clients:
             return
         asyncio.run_coroutine_threadsafe(self._broadcast(json.dumps(msg)), self._loop)
 
@@ -55,14 +65,17 @@ class DetectorServer:
                 self._clients.discard(ws)
 
     def stop(self):
-        if self._loop and not self._loop.is_closed():
-            self._loop.call_soon_threadsafe(self._loop.stop)
+        loop, stop_event = self._loop, self._stop_event
+        if loop and not loop.is_closed():
+            if stop_event:
+                loop.call_soon_threadsafe(stop_event.set)
+            else:
+                loop.call_soon_threadsafe(loop.stop)
         if self._thread and self._thread.is_alive():
             self._thread.join(timeout=3.0)
-        if self._loop and not self._loop.is_closed():
-            self._loop.close()
         self._loop = None
         self._thread = None
+        self._stop_event = None
         self._clients.clear()
 
 
