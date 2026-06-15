@@ -11,6 +11,12 @@ import { join, dirname } from 'node:path';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LIST_URL = 'https://ayumilove.net/raid-shadow-legends-list-of-champions-by-ranking/';
 
+// Heroes that exist on AyumiLove but are NOT real in-game champions.
+// Confirmed fake/placeholder entries — skip permanently.
+const BLOCKLIST = new Set([
+  'tikthaa_blackscale', // empty placeholder, does not exist in-game
+]);
+
 function toId(name) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/, '');
 }
@@ -55,8 +61,8 @@ async function main() {
 
   console.log(`AyumiLove: ${ayumi.length} Legendary/Mythical heroes\n`);
 
-  // Heroes in AyumiLove but not in DB
-  const missing = ayumi.filter(h => !dbIds.has(h.id));
+  // Heroes in AyumiLove but not in DB (skip blocklisted fake entries)
+  const missing = ayumi.filter(h => !dbIds.has(h.id) && !BLOCKLIST.has(h.id));
   // Heroes in DB but not in AyumiLove (manual or brand-new before AyumiLove adds them)
   const ayumiIds = new Set(ayumi.map(h => h.id));
   const onlyInDb = db.filter(h => !ayumiIds.has(h.id));
