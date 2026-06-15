@@ -209,6 +209,13 @@ function parseHeroPage(html, fallbackRarity) {
 async function main() {
   const cache = existsSync(CACHE_FILE) ? JSON.parse(readFileSync(CACHE_FILE, 'utf8')) : {};
 
+  // Load existing DB to preserve portrait URLs and manual entries (e.g. heroes
+  // added before AyumiLove publishes them).
+  const existingDb = existsSync(OUTPUT_FILE)
+    ? JSON.parse(readFileSync(OUTPUT_FILE, 'utf8'))
+    : [];
+  const existingById = Object.fromEntries(existingDb.map(h => [h.id, h]));
+
   console.log('Fetching champion list from ayumilove.net...');
   const listHtml = await fetchHtml(LIST_URL);
   const champions = parseChampionList(listHtml);
@@ -221,7 +228,7 @@ async function main() {
   console.log(`Found ${champions.length} Legendary/Mythical champions. Starting scrape...`);
   console.log(`Delay: ${DELAY_MS}ms per request. Estimated time: ~${Math.ceil(champions.length * DELAY_MS / 60000)} min\n`);
 
-  const heroes = [];
+  const scraped = [];
 
   for (let i = 0; i < champions.length; i++) {
     const champ = champions[i];
@@ -229,7 +236,7 @@ async function main() {
 
     if (cache[champ.url]) {
       process.stdout.write(`${label} (cached)\n`);
-      heroes.push(cache[champ.url]);
+      scraped.push(cache[champ.url]);
       continue;
     }
 
@@ -251,16 +258,32 @@ async function main() {
 
       cache[champ.url] = hero;
       writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2));
-      heroes.push(hero);
+      scraped.push(hero);
       process.stdout.write(` ${pageData.skills.length} skills\n`);
     } catch (err) {
       process.stdout.write(` ERROR: ${err.message} — skipped\n`);
     }
   }
 
-  heroes.sort((a, b) => a.name.localeCompare(b.name));
-  writeFileSync(OUTPUT_FILE, JSON.stringify(heroes, null, 2));
-  console.log(`\nDone! Written ${heroes.length} heroes to ${OUTPUT_FILE}`);
+  // Merge: scraped data + preserve portrait from existing + keep manual-only entries
+  const scrapedIds = new Set(scraped.map(h => h.id));
+  const merged = scraped.map(h => {
+    const existing = existingById[h.id];
+    if (existing?.portrait) return { ...h, portrait: existing.portrait };
+    return h;
+  });
+
+  // Append manual entries not covered by AyumiLove (e.g. brand-new heroes)
+  for (const h of existingDb) {
+    if (!scrapedIds.has(h.id)) {
+      merged.push(h);
+      console.log(`  Kept manual entry: ${h.name} (not on AyumiLove)`);
+    }
+  }
+
+  merged.sort((a, b) => a.name.localeCompare(b.name));
+  writeFileSync(OUTPUT_FILE, JSON.stringify(merged, null, 2));
+  console.log(`\nDone! Written ${merged.length} heroes to ${OUTPUT_FILE}`);
   console.log('Review data/heroes.json — effects[] are auto-detected from keywords, verify spot-checks.');
 }
 

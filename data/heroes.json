@@ -18901,6 +18901,48 @@
     "portrait": "https://hellhades.com/wp-content/uploads/2024/09/Thor-Faehammer.png"
   },
   {
+    "id": "tikthaa_blackscale",
+    "name": "Tikthaa Blackscale",
+    "rarity": "Legendary",
+    "faction": "Lizardmen",
+    "affinity": "Spirit",
+    "role": "HP",
+    "skills": [
+      {
+        "name": "Ravenous Assault",
+        "description": "Attacks all enemies. Heals this Champion by 10% of the damage inflicted.",
+        "cooldown": 0,
+        "effects": [
+          "heal"
+        ]
+      },
+      {
+        "name": "Diamond Scale",
+        "description": "Places a [Shield] buff on all allies equal to 20% of this Champion MAX HP for 2 turns. Places a 5% [Poison] debuff on attackers for 1 turn.",
+        "cooldown": 4,
+        "effects": [
+          "shield",
+          "poison"
+        ]
+      },
+      {
+        "name": "Bio Eruption",
+        "description": "This Champion takes damage equal to 50% of their MAX HP, then attacks all enemies. Has a 50% chance of placing a [Sleep] debuff on all enemies for 1 turn.",
+        "cooldown": 5,
+        "effects": [
+          "sleep"
+        ]
+      },
+      {
+        "name": "Aura",
+        "description": "Increases Ally HP in All Battles by 30%.",
+        "cooldown": 0,
+        "effects": []
+      }
+    ],
+    "portrait": ""
+  },
+  {
     "id": "timit_the_fool",
     "name": "Timit the Fool",
     "rarity": "Legendary",
