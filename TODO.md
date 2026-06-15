@@ -8,6 +8,12 @@ _Last updated: 2026-05-29_
 
 ---
 
+## Bugs
+
+- [ ] **Неправильний портрет у героя "Алаз"** `🔒` — `data/portraits/alaz_the_sunbearer.png` показує неправильний портрет. Потребує ручної заміни файлу.
+
+---
+
 ## Security Issues
 
 ### Done ✓
