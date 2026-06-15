@@ -13,37 +13,44 @@ import websockets
 
 
 class DetectorServer:
-    """Asyncio WebSocket server running in a background daemon thread."""
+    """Asyncio WebSocket server running in a background daemon thread.
+
+    Uses SelectorEventLoop (not ProactorEventLoop/IOCP) to avoid interference
+    with OBS's own event loop on Windows.  Shutdown is coordinated via a plain
+    threading.Event so stop() never races with loop startup.
+    """
 
     def __init__(self, port: int = 7182):
         self.port = port
         self._clients: set = set()
         self._loop: asyncio.AbstractEventLoop | None = None
         self._thread: threading.Thread | None = None
-        self._stop_event: asyncio.Event | None = None
+        self._should_stop = threading.Event()
 
     def start(self):
-        # Loop created inside thread — Windows IOCP (ProactorEventLoop) requires
-        # the loop to be created and run in the same thread.
+        self._should_stop.clear()
         self._thread = threading.Thread(target=self._run, daemon=True)
         self._thread.start()
 
     def _run(self):
-        self._loop = asyncio.new_event_loop()
+        # SelectorEventLoop avoids Windows IOCP conflicts with OBS's own loop.
+        self._loop = asyncio.SelectorEventLoop()
         asyncio.set_event_loop(self._loop)
         try:
             self._loop.run_until_complete(self._serve())
         except Exception:
             pass
         finally:
-            if self._loop and not self._loop.is_closed():
+            try:
                 self._loop.close()
+            except Exception:
+                pass
 
     async def _serve(self):
-        self._stop_event = asyncio.Event()
         async with websockets.serve(self._handler, "localhost", self.port,
                                     reuse_address=True):
-            await self._stop_event.wait()
+            while not self._should_stop.is_set():
+                await asyncio.sleep(0.2)
 
     async def _handler(self, websocket, path=None):
         self._clients.add(websocket)
@@ -53,9 +60,10 @@ class DetectorServer:
             self._clients.discard(websocket)
 
     def push(self, msg: dict):
-        if not self._loop or self._loop.is_closed() or not self._clients:
+        loop = self._loop
+        if not loop or loop.is_closed() or not self._clients:
             return
-        asyncio.run_coroutine_threadsafe(self._broadcast(json.dumps(msg)), self._loop)
+        asyncio.run_coroutine_threadsafe(self._broadcast(json.dumps(msg)), loop)
 
     async def _broadcast(self, message: str):
         for ws in list(self._clients):
@@ -65,17 +73,16 @@ class DetectorServer:
                 self._clients.discard(ws)
 
     def stop(self):
-        loop, stop_event = self._loop, self._stop_event
-        if loop and not loop.is_closed():
-            if stop_event:
-                loop.call_soon_threadsafe(stop_event.set)
-            else:
-                loop.call_soon_threadsafe(loop.stop)
+        self._should_stop.set()
         if self._thread and self._thread.is_alive():
             self._thread.join(timeout=3.0)
+        if self._loop and not self._loop.is_closed():
+            try:
+                self._loop.close()
+            except Exception:
+                pass
         self._loop = None
         self._thread = None
-        self._stop_event = None
         self._clients.clear()
 
 
