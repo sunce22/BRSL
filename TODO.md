@@ -17,8 +17,13 @@ _Last updated: 2026-05-29_
 
 ## Нові герої (потрібно дослідити)
 
-- [x] **Рая Оплакана (Rhaia the Mourned)** `🔒` — додано до heroes.json (id: `rhaia_the_mourned`). Faction: Sylvan Watchers, Void/Attack. Портрет: hellhades.com/2026/06. Навички: Anguish & Agony / Legacy of Despair / Discordant Fury / Corrupted Majesty (Passive) / Aura +35% ATK.
-- [ ] **Rhaia the Mourned — UA переклад** `🔒` — назви навичок і описи потрібно перекласти українською у `i18n/heroes-uk.json`. Запустити `build-heroes-uk.py` або додати вручну.
+- [x] **Рая Оплакана (Rhaia the Mourned)** `🔒` — додано. Sylvan Watchers, Void/Attack. Ще не на AyumiLove.
+- [x] **Folan Silverhart** `🔒` — додано. Sylvan Watchers, Spirit/Attack. Fusion hero, ще не на AyumiLove.
+- [x] **Talenna Soulseer** `🔒` — додано. High Elves, Spirit/Support. Poison + cooldown control. Ще не на AyumiLove.
+- [x] **Varkos Headsplitter** `🔒` — додано. Dark Elves, Force/Attack (DEF-scaled). Ще не на AyumiLove.
+- [ ] **Vallaryn the Equalizer** `🔒` — безкоштовний герой (7 логінів з 2 липня). Немає даних по навичкам ще. Додати після релізу.
+- [ ] **Haggibah the Nestmaid** `🔒` — Dark Elf, Fusion Event у липні. Немає даних ще. Додати після релізу.
+- [ ] **UA переклад нових героїв** `🔒` — Rhaia, Folan, Talenna, Varkos потрібен переклад у `i18n/heroes-uk.json`.
 
 ---
 
