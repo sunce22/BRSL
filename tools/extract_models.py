@@ -12,14 +12,32 @@ import json
 import cv2
 import numpy as np
 from pathlib import Path
-from PIL import ImageGrab
 
 HEROES_JSON = Path(__file__).parent.parent / "data" / "heroes.json"
 MODELS_DIR  = Path(__file__).parent.parent / "data" / "models"
 
 # Fraction of screen to crop for the hero model (left, top, right, bottom).
 # Calibrate once for your resolution by examining a full-screen screenshot.
+# TODO: expose as CLI arg or config file entry so users on different screen
+# diagonals/resolutions can adjust without editing source code.
 MODEL_ROI = (0.30, 0.05, 0.70, 0.90)
+
+
+def _capture_screen() -> np.ndarray | None:
+    """mss (DXGI) first for fullscreen DX games; PIL fallback."""
+    try:
+        import mss
+        with mss.mss() as sct:
+            monitor = sct.monitors[1]
+            img = sct.grab(monitor)
+            return cv2.cvtColor(np.array(img), cv2.COLOR_BGRA2BGR)
+    except Exception:
+        pass
+    try:
+        from PIL import ImageGrab
+        return cv2.cvtColor(np.array(ImageGrab.grab()), cv2.COLOR_RGB2BGR)
+    except Exception:
+        return None
 
 
 def crop_model(bgr: np.ndarray) -> np.ndarray:
@@ -47,10 +65,9 @@ def main():
         if cmd == "s":
             print("  Skipped.")
             continue
-        try:
-            frame = cv2.cvtColor(np.array(ImageGrab.grab()), cv2.COLOR_RGB2BGR)
-        except Exception as e:
-            print(f"  Capture failed: {e}. Try again.")
+        frame = _capture_screen()
+        if frame is None:
+            print("  Capture failed. Try again.")
             continue
         dest = MODELS_DIR / (Path(hero["id"]).name + ".png")
         if not cv2.imwrite(str(dest), crop_model(frame)):

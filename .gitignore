@@ -17,3 +17,7 @@ tools/cf-feedback-worker/.wrangler/
 
 # Public repo gitignore reference (not a real gitignore)
 .gitignore.public
+
+# Local data assets (models, portraits, etc.)
+data/
+!data/heroes.json

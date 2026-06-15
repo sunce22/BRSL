@@ -18,25 +18,9 @@ def portrait_db(tmp_path):
     return str(portraits)
 
 
-def make_textured_portrait(color_bgr: tuple, size=(140, 182), seed: int = 42) -> np.ndarray:
-    img = make_portrait(color_bgr, size)
-    np.random.seed(seed)
-    noise = np.random.randint(-30, 30, img.shape, dtype=np.int16)
-    return np.clip(img.astype(np.int16) + noise, 0, 255).astype(np.uint8)
-
-
-@pytest.fixture
-def model_db(tmp_path):
-    models = tmp_path / "models"
-    models.mkdir()
-    for hero_id, color in [("hero_a", (200, 80, 50)), ("hero_b", (50, 200, 80))]:
-        cv2.imwrite(str(models / f"{hero_id}.png"), make_textured_portrait(color, size=(200, 350)))
-    return str(models)
-
-
-def test_database_loads_portraits(portrait_db, model_db):
+def test_database_loads_portraits(portrait_db):
     from hero_detector import HeroDatabase
-    db = HeroDatabase(portrait_db, model_db)
+    db = HeroDatabase(portrait_db)
     db.load()
     assert len(db.portraits) == 3
     assert "hero_a" in db.portraits
@@ -44,18 +28,10 @@ def test_database_loads_portraits(portrait_db, model_db):
     assert "img_gray" in db.portraits["hero_a"]
 
 
-def test_database_loads_models(portrait_db, model_db):
-    from hero_detector import HeroDatabase
-    db = HeroDatabase(portrait_db, model_db)
-    db.load()
-    assert len(db.models) == 2
-    assert db.models["hero_a"]["des"] is not None
-
-
-def test_top_portrait_candidates_returns_closest(portrait_db, model_db):
+def test_top_portrait_candidates_returns_closest(portrait_db):
     from hero_detector import HeroDatabase
     import imagehash
-    db = HeroDatabase(portrait_db, model_db)
+    db = HeroDatabase(portrait_db)
     db.load()
     img_a = make_portrait((200, 80, 50))
     query_hash = imagehash.phash(Image.fromarray(cv2.cvtColor(img_a, cv2.COLOR_BGR2RGB)))
@@ -77,9 +53,9 @@ def test_match_portrait_different_returns_low_score():
     assert match_portrait(img, other) < 0.70
 
 
-def test_detect_roster_hero_finds_correct_hero(portrait_db, model_db):
+def test_detect_roster_hero_finds_correct_hero(portrait_db):
     from hero_detector import HeroDatabase, detect_roster_hero
-    db = HeroDatabase(portrait_db, model_db)
+    db = HeroDatabase(portrait_db)
     db.load()
     frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
     # Place hero_b portrait inside the roster ROI (60–85% width, 10–70% height)
@@ -88,9 +64,9 @@ def test_detect_roster_hero_finds_correct_hero(portrait_db, model_db):
     assert detect_roster_hero(frame, db, threshold=0.90) == "hero_b"
 
 
-def test_detect_roster_hero_returns_none_for_empty_frame(portrait_db, model_db):
+def test_detect_roster_hero_returns_none_for_empty_frame(portrait_db):
     from hero_detector import HeroDatabase, detect_roster_hero
-    db = HeroDatabase(portrait_db, model_db)
+    db = HeroDatabase(portrait_db)
     db.load()
     frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
     assert detect_roster_hero(frame, db, threshold=0.90) is None
@@ -133,36 +109,69 @@ def test_tiny_green_speck_does_not_trigger():
     assert find_active_circle(frame) is None
 
 
-def test_match_model_orb_identical_images_high_score():
-    from hero_detector import match_model_orb
-    img = make_textured_portrait((100, 150, 200), size=(200, 350))
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    orb = cv2.ORB_create()
-    kp, des = orb.detectAndCompute(gray, None)
-    assert match_model_orb(gray, kp, des, kp, des) > 0.5
-
-
-def test_match_model_orb_different_images_low_score():
-    from hero_detector import match_model_orb
-    orb = cv2.ORB_create()
-    gray1 = cv2.cvtColor(make_textured_portrait((100, 150, 200), size=(200, 350), seed=42), cv2.COLOR_BGR2GRAY)
-    gray2 = cv2.cvtColor(make_textured_portrait((200, 50, 10), size=(200, 350), seed=99), cv2.COLOR_BGR2GRAY)
-    kp1, des1 = orb.detectAndCompute(gray1, None)
-    kp2, des2 = orb.detectAndCompute(gray2, None)
-    assert match_model_orb(gray1, kp1, des1, kp2, des2) < 0.3
-
-
 def test_battle_cache_stores_and_retrieves():
     from hero_detector import BattleCache
-    cache = BattleCache(position_tolerance=50)
+    cache = BattleCache(position_tolerance=50, min_hits=1)
     cache.store(500, 700, "abbess")
     assert cache.lookup(510, 690) == "abbess"
     assert cache.lookup(600, 800) is None
 
 
+def test_battle_cache_requires_min_hits():
+    from hero_detector import BattleCache
+    cache = BattleCache(position_tolerance=50, min_hits=3)
+    cache.store(500, 700, "abbess")
+    assert cache.lookup(500, 700) is None  # 1/3
+    cache.store(500, 700, "abbess")
+    assert cache.lookup(500, 700) is None  # 2/3
+    cache.store(500, 700, "abbess")
+    assert cache.lookup(510, 690) == "abbess"  # confirmed
+
+
+def test_battle_cache_resets_on_different_hero():
+    from hero_detector import BattleCache
+    cache = BattleCache(position_tolerance=50, min_hits=3)
+    cache.store(500, 700, "abbess")
+    cache.store(500, 700, "abbess")
+    cache.store(500, 700, "arbiter")  # different hero — resets count
+    cache.store(500, 700, "arbiter")
+    assert cache.lookup(500, 700) is None  # only 2 hits of arbiter
+
+
 def test_battle_cache_clears():
     from hero_detector import BattleCache
-    cache = BattleCache(position_tolerance=50)
+    cache = BattleCache(position_tolerance=50, min_hits=1)
     cache.store(500, 700, "abbess")
     cache.clear()
     assert cache.lookup(500, 700) is None
+
+
+def test_detect_battle_hero_matches_portrait_at_circle(portrait_db):
+    from hero_detector import HeroDatabase, BattleCache, detect_battle_hero
+    db = HeroDatabase(portrait_db)
+    db.load()
+    frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
+    cx, cy = 960, 800
+    # Fill a large patch above the ring with hero_b color so that _best_portrait_crop
+    # finds a fully-filled scan window (solid-color crop matches solid-color template).
+    frame[300:600, 800:1100] = np.full((300, 300, 3), (50, 200, 80), dtype=np.uint8)
+    cache = BattleCache(min_hits=1)
+    assert detect_battle_hero(frame, cx, cy, db, cache, threshold=0.80) == "hero_b"
+
+
+def test_detect_battle_hero_returns_cached(portrait_db):
+    from hero_detector import HeroDatabase, BattleCache, detect_battle_hero
+    db = HeroDatabase(portrait_db)
+    db.load()
+    cache = BattleCache(min_hits=1)
+    cache.store(857, 148, "hero_a")
+    frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
+    assert detect_battle_hero(frame, 857, 148, db, cache) == "hero_a"
+
+
+def test_detect_battle_hero_no_portraits_returns_none():
+    from hero_detector import HeroDatabase, BattleCache, detect_battle_hero
+    db = HeroDatabase("")
+    frame = np.zeros((1080, 1920, 3), dtype=np.uint8)
+    cache = BattleCache()
+    assert detect_battle_hero(frame, 857, 148, db, cache) is None
