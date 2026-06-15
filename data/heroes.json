@@ -5788,6 +5788,49 @@
     "portrait": "https://hellhades.com/wp-content/uploads/2025/02/Fjorad-Wolfheart.png"
   },
   {
+    "id": "folan_silverhart",
+    "name": "Folan Silverhart",
+    "rarity": "Legendary",
+    "faction": "Sylvan Watchers",
+    "affinity": "Spirit",
+    "role": "Attack",
+    "skills": [
+      {
+        "name": "Puncture Wounds",
+        "description": "Attacks 1 enemy 3 times. Each hit has a 30% chance of increasing the duration of a random debuff on the target by 1 turn.",
+        "cooldown": 0,
+        "effects": []
+      },
+      {
+        "name": "Bind & Break",
+        "description": "Attacks all enemies 2 times. Deals 10% more damage to each enemy for each debuff on them. Will ignore [Unkillable] and [Block Damage] buffs.",
+        "cooldown": 5,
+        "effects": []
+      },
+      {
+        "name": "A Son's Wrath",
+        "description": "Attacks 1 enemy 2 times. The first hit has a 75% chance of placing a 60% [Decrease DEF] debuff for 2 turns. The second hit has a 75% chance of placing a [Block Passive Skills] debuff for 2 turns. Then, applies a [Debuff Spread] effect. Finally, attacks all enemies 1 time ignoring 20% DEF.",
+        "cooldown": 6,
+        "effects": [
+          "decrease_def"
+        ]
+      },
+      {
+        "name": "Malignant Might (Passive)",
+        "description": "Decreases damage taken from AoE attacks by 10%. Reduces Ignore DEF effect by 10% per allied Sylvan Watcher. Has a 30% chance (increased by 10% per debuff on target) to convert weak hits to normal hits.",
+        "cooldown": 0,
+        "effects": []
+      },
+      {
+        "name": "Aura",
+        "description": "Increases Ally ATK in All Battles by 30%.",
+        "cooldown": 0,
+        "effects": []
+      }
+    ],
+    "portrait": "https://hellhades.com/wp-content/uploads/2026/06/Folan-Silverhart.png"
+  },
+  {
     "id": "foli",
     "name": "Foli",
     "rarity": "Legendary",
@@ -18103,6 +18146,56 @@
     "portrait": "https://hellhades.com/wp-content/uploads/2026/05/Sydax_King-killer.jpg"
   },
   {
+    "id": "talenna_soulseer",
+    "name": "Talenna Soulseer",
+    "rarity": "Legendary",
+    "faction": "High Elves",
+    "affinity": "Spirit",
+    "role": "Support",
+    "skills": [
+      {
+        "name": "Withering Invocation",
+        "description": "Attacks 1 enemy. Has a 30% chance of instantly activating two [Poison] debuffs on the target. Instantly activates all [Poison] debuffs on the target if the target has any of their skills on cooldown.",
+        "cooldown": 0,
+        "effects": [
+          "poison"
+        ]
+      },
+      {
+        "name": "I See Your Evil",
+        "description": "Attacks all enemies. Has a 75% chance of placing two 5% [Poison] debuffs on all enemies for 3 turns. Then increases all allies Turn Meters by 20%.",
+        "cooldown": 4,
+        "effects": [
+          "poison",
+          "turn_meter_boost"
+        ]
+      },
+      {
+        "name": "Quell The Darkness",
+        "description": "Attacks all enemies. Before attacking, places a 50% [Increase ACC] buff on all allies for 2 turns. Has a 75% chance of decreasing the duration of all enemy buffs by 2 turns. Has a 75% chance of increasing the cooldowns of all enemy skills by 2 turns.",
+        "cooldown": 4,
+        "effects": [
+          "increase_acc"
+        ]
+      },
+      {
+        "name": "Evil Wanes Before Her (Passive)",
+        "description": "Increases all allies Turn Meters by 2% each time a [Poison] debuff is activated. Decreases the C. Rate and C. DMG of all enemies by 3% for each [Poison] debuff on them (does not work against Bosses).",
+        "cooldown": 0,
+        "effects": [
+          "turn_meter_boost"
+        ]
+      },
+      {
+        "name": "Aura",
+        "description": "Increases Ally ACC in All Battles by 100.",
+        "cooldown": 0,
+        "effects": []
+      }
+    ],
+    "portrait": "https://hellhades.com/wp-content/uploads/2026/06/Talenna-Soulseer.png"
+  },
+  {
     "id": "taras_the_fierce",
     "name": "Taras the Fierce",
     "rarity": "Legendary",
@@ -18899,48 +18992,6 @@
       }
     ],
     "portrait": "https://hellhades.com/wp-content/uploads/2024/09/Thor-Faehammer.png"
-  },
-  {
-    "id": "tikthaa_blackscale",
-    "name": "Tikthaa Blackscale",
-    "rarity": "Legendary",
-    "faction": "Lizardmen",
-    "affinity": "Spirit",
-    "role": "HP",
-    "skills": [
-      {
-        "name": "Ravenous Assault",
-        "description": "Attacks all enemies. Heals this Champion by 10% of the damage inflicted.",
-        "cooldown": 0,
-        "effects": [
-          "heal"
-        ]
-      },
-      {
-        "name": "Diamond Scale",
-        "description": "Places a [Shield] buff on all allies equal to 20% of this Champion MAX HP for 2 turns. Places a 5% [Poison] debuff on attackers for 1 turn.",
-        "cooldown": 4,
-        "effects": [
-          "shield",
-          "poison"
-        ]
-      },
-      {
-        "name": "Bio Eruption",
-        "description": "This Champion takes damage equal to 50% of their MAX HP, then attacks all enemies. Has a 50% chance of placing a [Sleep] debuff on all enemies for 1 turn.",
-        "cooldown": 5,
-        "effects": [
-          "sleep"
-        ]
-      },
-      {
-        "name": "Aura",
-        "description": "Increases Ally HP in All Battles by 30%.",
-        "cooldown": 0,
-        "effects": []
-      }
-    ],
-    "portrait": ""
   },
   {
     "id": "timit_the_fool",
@@ -20120,6 +20171,46 @@
       }
     ],
     "portrait": "https://hellhades.com/wp-content/uploads/2021/06/Valkyrie-Portrait.jpg"
+  },
+  {
+    "id": "varkos_headsplitter",
+    "name": "Varkos Headsplitter",
+    "rarity": "Legendary",
+    "faction": "Dark Elves",
+    "affinity": "Force",
+    "role": "Attack",
+    "skills": [
+      {
+        "name": "Hulking Killer",
+        "description": "Attacks 1 enemy 2 times. Will ignore [Unkillable] buffs. When counterattacking, will attack 3 times instead.",
+        "cooldown": 0,
+        "effects": []
+      },
+      {
+        "name": "Murderous Fighter",
+        "description": "Attacks 1 enemy 2 times. Will ignore [Block Damage] and [Shield] buffs. Whenever this Champion teams up with an ally to attack an enemy, they will use this skill and attack 3 times instead.",
+        "cooldown": 4,
+        "effects": []
+      },
+      {
+        "name": "Brutish Dominance",
+        "description": "Places a 60% [Increase DEF] buff, a [Counterattack] buff, and a 15% [Shatter] buff on this Champion for 3 turns. Then grants an Extra Turn.",
+        "cooldown": 6,
+        "effects": [
+          "increase_def",
+          "counterattack"
+        ]
+      },
+      {
+        "name": "Instrument of Power (Passive)",
+        "description": "Has a 15% chance to join an attack whenever an ally attacks an enemy. The chance increases to 25% when an ally from the Dark Elves faction attacks. Enemies killed by this Champion whenever they counterattack or join in an ally attack cannot be revived.",
+        "cooldown": 0,
+        "effects": [
+          "block_revive"
+        ]
+      }
+    ],
+    "portrait": "https://hellhades.com/wp-content/uploads/2026/06/Varkos-Headsplitter.png"
   },
   {
     "id": "varl_the_destroyer",
