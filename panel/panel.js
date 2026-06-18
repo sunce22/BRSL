@@ -65,6 +65,7 @@ function toggleSupport() {
 function switchTab(tab, opts = {}) {
   activeTab = tab;
   localStorage.setItem('rsl-tab', tab);
+  document.getElementById('support-modal').classList.add('support-modal--hidden');
   document.getElementById('tab-heroes').classList.toggle('tab--active', tab === 'heroes');
   document.getElementById('tab-effects').classList.toggle('tab--active', tab === 'effects');
   if (tab === 'heroes') {
