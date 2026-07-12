@@ -3,6 +3,9 @@ node_modules/
 __pycache__/
 *.pyc
 
+# Git worktrees for isolated feature work
+.worktrees/
+
 # Large IL2Cpp generated files (local only, 100MB+)
 tools/il2cpp-dump/
 tools/Il2CppDumper/
