@@ -997,7 +997,7 @@ Expected: all install successfully. Separately install the Tesseract-OCR binary 
 - [ ] **Step 3: Run the full unit test suite**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (31 passed) — the CLI code added in this task has no new unit tests (it's I/O wiring), but this confirms nothing broke.
+Expected: PASS (32 passed) — the CLI code added in this task has no new unit tests (it's I/O wiring), but this confirms nothing broke.
 
 - [ ] **Step 4: Manual calibration check**
 
