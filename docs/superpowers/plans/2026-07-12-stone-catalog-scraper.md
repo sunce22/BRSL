@@ -85,7 +85,8 @@ def slugify_uk(name: str) -> str:
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (2 passed)
+Expected: PASS (3 passed) — a 3rd test (curly-apostrophe regression) was added during a
+spec-compliance fix round; see git history (`bcf7fc0`) for why.
 
 - [ ] **Step 5: Commit**
 
@@ -158,7 +159,7 @@ def parse_panel_text(raw_text: str) -> dict:
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (5 passed)
+Expected: PASS (6 passed) — 3 from Task 1 (see note above) + 3 new.
 
 - [ ] **Step 5: Commit**
 
@@ -258,7 +259,7 @@ def panel_rect(rect: tuple) -> tuple:
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (10 passed)
+Expected: PASS (11 passed) — 6 existing + 5 new.
 
 - [ ] **Step 5: Commit**
 
@@ -369,7 +370,7 @@ Note: move the `import re` from Task 1 and this task's imports to a single impor
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (17 passed)
+Expected: PASS (18 passed) — 11 existing + 7 new.
 
 - [ ] **Step 5: Commit**
 
@@ -403,10 +404,10 @@ def test_stone_writer_writes_png_and_md(tmp_path):
     assert png_path.exists()
     assert md_path.exists()
     text = md_path.read_text(encoding="utf-8")
-    assert "name: Жахіття босів" in text
-    assert "rarity: Міфічний" in text
-    assert "group: Круглі" in text
-    assert "tab: regular" in text
+    assert 'name: "Жахіття босів"' in text
+    assert 'rarity: "Міфічний"' in text
+    assert 'group: "Круглі"' in text
+    assert 'tab: "regular"' in text
     assert "Власник завдає на 10% більше шкоди босам." in text
 
 
@@ -427,6 +428,18 @@ def test_stone_writer_keeps_tabs_separate(tmp_path):
     saved = writer.write("live_arena", "Гнівний протест", "Епічний", "Круглі", "опис", image)
     assert saved is True
     assert (tmp_path / "live_arena" / f"{writer.slug_for('Гнівний протест')}.png").exists()
+
+
+def test_stone_writer_dedupes_by_slug_not_raw_name(tmp_path):
+    # Two raw names that transliterate to the same slug must dedupe on the
+    # second write instead of silently overwriting each other's files.
+    from scrape_stones import StoneWriter
+    writer = StoneWriter(tmp_path)
+    image = np.zeros((10, 10, 3), dtype=np.uint8)
+    first = writer.write("regular", "Жахіття босів", "Міфічний", "Круглі", "опис", image)
+    second = writer.write("regular", "Жахіття босів!", "Міфічний", "Круглі", "інший опис", image)
+    assert first is True
+    assert second is False
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
@@ -441,8 +454,15 @@ Expected: FAIL with `ImportError: cannot import name 'StoneWriter'`
 from pathlib import Path
 
 
+def _yaml_quote(value: str) -> str:
+    """Wraps value as a double-quoted YAML scalar — safe regardless of colons,
+    leading '#'/'-', etc. inside it, as long as backslashes/quotes are escaped."""
+    escaped = value.replace("\\", "\\\\").replace('"', '\\"')
+    return f'"{escaped}"'
+
+
 class StoneWriter:
-    """Writes one PNG + one Markdown file per unique stone name, deduping repeats."""
+    """Writes one PNG + one Markdown file per unique (tab, stone) pair, deduping repeats."""
 
     def __init__(self, out_dir):
         self.out_dir = Path(out_dir)
@@ -452,19 +472,21 @@ class StoneWriter:
         return slugify_uk(name)
 
     def write(self, tab: str, name: str, rarity: str, group: str, description: str, image) -> bool:
-        if name in self._seen:
+        slug = self.slug_for(name)
+        key = (tab, slug)
+        if key in self._seen:
             return False
-        self._seen.add(name)
+        self._seen.add(key)
         tab_dir = self.out_dir / tab
         tab_dir.mkdir(parents=True, exist_ok=True)
-        slug = self.slug_for(name)
-        cv2.imwrite(str(tab_dir / f"{slug}.png"), image)
+        if not cv2.imwrite(str(tab_dir / f"{slug}.png"), image):
+            raise IOError(f"Failed to write stone image: {tab_dir / f'{slug}.png'}")
         md = (
             "---\n"
-            f"name: {name}\n"
-            f"rarity: {rarity}\n"
-            f"group: {group}\n"
-            f"tab: {tab}\n"
+            f"name: {_yaml_quote(name)}\n"
+            f"rarity: {_yaml_quote(rarity)}\n"
+            f"group: {_yaml_quote(group)}\n"
+            f"tab: {_yaml_quote(tab)}\n"
             "---\n\n"
             f"{description}\n"
         )
@@ -472,10 +494,19 @@ class StoneWriter:
         return True
 ```
 
+Note: dedup keys on `(tab, slug)` rather than the raw name — this both scopes dedup per
+tab and prevents two differently-punctuated raw names that transliterate to the same
+slug from silently overwriting each other's files. `cv2.imwrite`'s return value is
+checked and raises `IOError` on failure instead of silently reporting success. Frontmatter
+values are wrapped in `_yaml_quote` so a field containing a colon or other YAML-special
+character doesn't produce broken frontmatter — update the `test_stone_writer_writes_png_and_md`
+assertions accordingly (values are now quoted, e.g. `'name: "Жахіття босів"' in text`).
+
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (20 passed)
+Expected: PASS (22 passed) — 18 existing tests from Tasks 1-4 plus 4 new ones (3 original
+StoneWriter tests + the slug-collision regression test) = 22.
 
 - [ ] **Step 5: Commit**
 
@@ -580,7 +611,7 @@ def walk_grid(rows_per_page: int, cols: int, click_cell, capture_grid, scroll_pa
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (24 passed)
+Expected: PASS (26 passed) — 22 existing + 4 new.
 
 - [ ] **Step 5: Commit**
 
@@ -690,7 +721,7 @@ def process_cell(tab: str, capture_panel, run_ocr, writer: "StoneWriter", prev_h
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (27 passed)
+Expected: PASS (29 passed) — 26 existing + 3 new.
 
 - [ ] **Step 5: Commit**
 
@@ -755,7 +786,7 @@ def render_calibration_overlay(frame, rect: tuple, rows_per_page: int = GRID_ROW
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (29 passed)
+Expected: PASS (31 passed) — 29 existing + 2 new.
 
 - [ ] **Step 5: Commit**
 
@@ -926,7 +957,7 @@ Expected: all install successfully. Separately install the Tesseract-OCR binary 
 - [ ] **Step 3: Run the full unit test suite**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (29 passed) — the CLI code added in this task has no new unit tests (it's I/O wiring), but this confirms nothing broke.
+Expected: PASS (31 passed) — the CLI code added in this task has no new unit tests (it's I/O wiring), but this confirms nothing broke.
 
 - [ ] **Step 4: Manual calibration check**
 
