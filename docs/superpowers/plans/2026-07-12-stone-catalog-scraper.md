@@ -702,6 +702,28 @@ def test_process_cell_saves_fallback_when_ocr_fails(tmp_path):
     md_path = tmp_path / "regular" / f"{writer.slug_for('unknown_200')}.md"
     assert md_path.exists()
     assert "OCR failed" in md_path.read_text(encoding="utf-8")
+
+
+def test_process_cell_returns_curr_hash_even_when_write_fails(tmp_path):
+    # A StoneWriter.write failure must not leave the caller's prev_hash stale —
+    # otherwise the next cell's panel_changed() check compares against a stale
+    # reference point instead of the real last-seen panel.
+    from scrape_stones import process_cell
+
+    class FailingWriter:
+        def write(self, *args, **kwargs):
+            raise IOError("disk full")
+
+    image = np.zeros((5, 5, 3), dtype=np.uint8)
+    curr_hash, saved = process_cell(
+        tab="regular",
+        capture_panel=lambda: (image, 300),
+        run_ocr=lambda img: "Жахіття босів\nМіфічний\nКруглі\nОпис.",
+        writer=FailingWriter(),
+        prev_hash=50,
+    )
+    assert curr_hash == 300
+    assert saved is False
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
@@ -722,6 +744,11 @@ def process_cell(tab: str, capture_panel, run_ocr, writer: "StoneWriter", prev_h
     (empty grid click) is the only case that's skipped entirely, since that's
     the only case we can tell apart from "OCR just failed on a real stone".
 
+    A StoneWriter.write failure (e.g. a bad disk write) is caught here rather
+    than left to the caller, so prev_hash always reflects the real last-seen
+    panel state even when a save fails — the caller must never work off a
+    stale hash just because one frame couldn't be persisted.
+
     capture_panel() -> (image, curr_hash) for the current left-panel state.
     run_ocr(image) -> raw OCR text string.
     Returns (curr_hash, saved: bool) — curr_hash feeds the next call's prev_hash.
@@ -730,19 +757,23 @@ def process_cell(tab: str, capture_panel, run_ocr, writer: "StoneWriter", prev_h
     if not panel_changed(prev_hash, curr_hash):
         return curr_hash, False
     parsed = parse_panel_text(run_ocr(image))
-    if not parsed["name"]:
-        saved = writer.write(tab, f"unknown_{curr_hash}", parsed["rarity"], parsed["group"],
-                              "<!-- OCR failed, fill manually -->", image)
-        return curr_hash, saved
-    saved = writer.write(tab, parsed["name"], parsed["rarity"], parsed["group"],
-                          parsed["description"], image)
+    if parsed["name"]:
+        name, description = parsed["name"], parsed["description"]
+    else:
+        name, description = f"unknown_{curr_hash}", "<!-- OCR failed, fill manually -->"
+    try:
+        saved = writer.write(tab, name, parsed["rarity"], parsed["group"], description, image)
+    except IOError as exc:
+        print(f"WARNING: failed to save stone (hash={curr_hash}): {exc}")
+        saved = False
     return curr_hash, saved
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (29 passed) — 26 existing + 3 new.
+Expected: PASS (31 passed) — 27 existing + 4 new (3 original process_cell tests + the
+write-failure-preserves-curr_hash regression test, added during a later integration fix).
 
 - [ ] **Step 5: Commit**
 
@@ -815,7 +846,7 @@ def render_calibration_overlay(frame, rect: tuple, rows_per_page: int = GRID_ROW
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (31 passed) — 29 existing + 2 new.
+Expected: PASS (33 passed) — 31 existing + 2 new.
 
 - [ ] **Step 5: Commit**
 
@@ -883,12 +914,15 @@ git commit -m "feat: add WindowController for RSL client window focus"
 
 - [ ] **Step 1: Add the CLI**
 
+Note: `import argparse` and `import time` are plain stdlib with no import-time side
+effects, so merge them into the existing top-of-file import block (alongside `re`,
+`pathlib.Path`, `cv2`, `imagehash`, `numpy`, `PIL`) — don't leave them mid-file the way
+this snippet shows them. Only `mss`/`pyautogui`/`pytesseract` need to stay lazy
+(function-local), since those are the ones that must not be required at module import
+time for the unit tests to keep passing.
+
 ```python
 # tools/scrape_stones.py (append)
-import argparse
-import time
-
-
 def capture_region(sct, left, top, width, height):
     shot = sct.grab({"left": left, "top": top, "width": width, "height": height})
     return cv2.cvtColor(np.array(shot), cv2.COLOR_BGRA2BGR)
@@ -947,14 +981,12 @@ def run(tab_key: str, out_dir: Path, calibrate: bool):
 
         def click_and_process(row: int, col: int):
             click_cell_raw(row, col)
-            try:
-                state["prev_hash"], saved = process_cell(
-                    tab_key, capture_panel, run_ocr, writer, state["prev_hash"])
-            except IOError as exc:
-                # A single failed disk write (rare) shouldn't abort a long,
-                # semi-unattended run — log it and keep walking the grid.
-                print(f"WARNING: skipped a cell at row={row} col={col}: {exc}")
-                return
+            # process_cell catches its own StoneWriter write failures internally
+            # (logs a warning, returns saved=False) so prev_hash here is always
+            # the real last-seen panel state — never stale from a swallowed
+            # exception, even when one frame's disk write fails.
+            state["prev_hash"], saved = process_cell(
+                tab_key, capture_panel, run_ocr, writer, state["prev_hash"])
             if saved:
                 state["saved_count"] += 1
 
@@ -997,7 +1029,7 @@ Expected: all install successfully. Separately install the Tesseract-OCR binary 
 - [ ] **Step 3: Run the full unit test suite**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (32 passed) — the CLI code added in this task has no new unit tests (it's I/O wiring), but this confirms nothing broke.
+Expected: PASS (33 passed) — the CLI code added in this task has no new unit tests (it's I/O wiring), but this confirms nothing broke.
 
 - [ ] **Step 4: Manual calibration check**
 
