@@ -764,14 +764,22 @@ git commit -m "feat: add process_cell glue for stone scraper"
 ```python
 # tests/test_scrape_stones.py (append)
 def test_render_calibration_overlay_marks_panel_and_grid():
-    from scrape_stones import render_calibration_overlay
+    # Asserts markers land at the EXACT geometry coordinates, not just "some
+    # pixel is colored somewhere" — this is the last unit-testable checkpoint
+    # before Tasks 9-10 move into OS/GUI code that's only manually verified,
+    # so a position-blind test here would miss a transposed rect/grid bug.
+    from scrape_stones import render_calibration_overlay, panel_rect, grid_cell_center
     frame = np.zeros((1077, 1906, 3), dtype=np.uint8)
-    annotated = render_calibration_overlay(frame, (0, 0, 1906, 1077))
+    rect = (0, 0, 1906, 1077)
+    annotated = render_calibration_overlay(frame, rect)
     assert annotated.shape == frame.shape
     assert not np.array_equal(frame, annotated)
-    # green panel box and red grid-cell markers were both drawn somewhere
-    assert (annotated[:, :, 1] == 255).any()
-    assert (annotated[:, :, 2] == 255).any()
+
+    px, py, pw, ph = panel_rect(rect)
+    assert tuple(annotated[py, px]) == (0, 255, 0)  # panel box top-left corner is green
+
+    cx, cy = grid_cell_center(0, 0, rect)
+    assert tuple(annotated[cy, cx + 10]) == (0, 0, 255)  # circle boundary is red
 
 
 def test_render_calibration_overlay_does_not_mutate_input():
