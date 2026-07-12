@@ -282,8 +282,15 @@ git commit -m "feat: add grid/panel coordinate math for stone scraper"
 import numpy as np
 
 
-def make_solid_frame(color_bgr: tuple, size=(60, 60)) -> "np.ndarray":
-    return np.full((*size, 3), color_bgr, dtype=np.uint8)
+def make_pattern_frame(square_origin: tuple, size=(64, 64)) -> "np.ndarray":
+    """A frame with a white square at square_origin — phash is a structural/DCT
+    hash, so two SOLID-color frames (no internal structure) hash identically
+    regardless of color. Use a positioned square, not a flat color, whenever a
+    test needs two frames that actually differ perceptually."""
+    frame = np.zeros((*size, 3), dtype=np.uint8)
+    ox, oy = square_origin
+    frame[oy:oy + 16, ox:ox + 16] = (255, 255, 255)
+    return frame
 
 
 def test_panel_changed_true_when_prev_hash_is_none():
@@ -313,15 +320,15 @@ def test_is_scroll_end_false_for_far_apart_hashes():
 
 def test_frame_hash_identical_frames_match():
     from scrape_stones import frame_hash, is_scroll_end
-    frame_a = make_solid_frame((200, 80, 50))
-    frame_b = make_solid_frame((200, 80, 50))
+    frame_a = make_pattern_frame((4, 4))
+    frame_b = make_pattern_frame((4, 4))
     assert is_scroll_end(frame_hash(frame_a), frame_hash(frame_b))
 
 
 def test_frame_hash_different_frames_differ():
     from scrape_stones import frame_hash, is_scroll_end
-    frame_a = make_solid_frame((200, 80, 50))
-    frame_b = make_solid_frame((10, 220, 240))
+    frame_a = make_pattern_frame((4, 4))
+    frame_b = make_pattern_frame((40, 40))
     assert not is_scroll_end(frame_hash(frame_a), frame_hash(frame_b))
 ```
 
