@@ -35,7 +35,7 @@ def test_slugify_uk_transliterates_and_snake_cases():
 
 def test_slugify_uk_strips_punctuation():
     from scrape_stones import slugify_uk
-    assert slugify_uk("Наведений приціл!") == "navedenyi_pryisil"
+    assert slugify_uk("Наведений приціл!") == "navedenyi_prytsil"
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
