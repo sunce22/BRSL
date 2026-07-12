@@ -542,25 +542,27 @@ def test_walk_grid_visits_every_cell_in_row_major_order():
 def test_walk_grid_stops_when_scroll_has_no_effect():
     from scrape_stones import walk_grid
     grid_states = iter([1, 1, 2, 2, 2, 2])
-    pages = walk_grid(
+    pages, hit_cap = walk_grid(
         rows_per_page=1, cols=1,
         click_cell=lambda row, col: None,
         capture_grid=lambda: next(grid_states),
         scroll_page=lambda: None,
     )
     assert pages == 1
+    assert hit_cap is False
 
 
 def test_walk_grid_continues_while_scroll_changes_view():
     from scrape_stones import walk_grid
     grid_states = iter([1, 50, 50, 50])
-    pages = walk_grid(
+    pages, hit_cap = walk_grid(
         rows_per_page=1, cols=1,
         click_cell=lambda row, col: None,
         capture_grid=lambda: next(grid_states),
         scroll_page=lambda: None,
     )
     assert pages == 2
+    assert hit_cap is False
 
 
 def test_walk_grid_calls_scroll_page_once_per_page():
@@ -574,6 +576,20 @@ def test_walk_grid_calls_scroll_page_once_per_page():
         scroll_page=lambda: scroll_calls.append(1),
     )
     assert len(scroll_calls) == 2
+
+
+def test_walk_grid_reports_hit_cap_when_view_never_stabilizes():
+    from scrape_stones import walk_grid
+    counter = iter(range(0, 10_000, 100))  # always huge diffs -> is_scroll_end never true
+    pages, hit_cap = walk_grid(
+        rows_per_page=1, cols=1,
+        click_cell=lambda row, col: None,
+        capture_grid=lambda: next(counter),
+        scroll_page=lambda: None,
+        max_pages=3,
+    )
+    assert pages == 3
+    assert hit_cap is True
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
@@ -586,13 +602,17 @@ Expected: FAIL with `ImportError: cannot import name 'walk_grid'`
 ```python
 # tools/scrape_stones.py (append)
 def walk_grid(rows_per_page: int, cols: int, click_cell, capture_grid, scroll_page,
-               max_pages: int = 50) -> int:
+               max_pages: int = 50) -> tuple:
     """Clicks every cell of every page, scrolling between pages until the view stops
-    changing (or max_pages is hit as a hard safety cap). Returns pages walked.
+    changing (or max_pages is hit as a hard safety cap).
 
     click_cell(row, col) -- called for each grid position on the current page.
     capture_grid() -- returns a hashable snapshot (e.g. frame_hash(...)) of the grid area.
     scroll_page() -- scrolls the grid down by one page.
+
+    Returns (pages_walked, hit_cap) — hit_cap is True only if max_pages was exhausted
+    without the view ever stabilizing, which likely means scroll/grid calibration is off
+    and some stones were probably missed.
     """
     pages_walked = 0
     for _ in range(max_pages):
@@ -604,14 +624,15 @@ def walk_grid(rows_per_page: int, cols: int, click_cell, capture_grid, scroll_pa
         after = capture_grid()
         pages_walked += 1
         if is_scroll_end(before, after):
-            break
-    return pages_walked
+            return pages_walked, False
+    return pages_walked, True
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `pytest tests/test_scrape_stones.py -v`
-Expected: PASS (26 passed) — 22 existing + 4 new.
+Expected: PASS (27 passed) — 22 existing + 5 new (the 4 original walk_grid tests, updated
+to unpack the `(pages, hit_cap)` tuple, plus the new hit-cap regression test).
 
 - [ ] **Step 5: Commit**
 
@@ -918,18 +939,29 @@ def run(tab_key: str, out_dir: Path, calibrate: bool):
 
         def click_and_process(row: int, col: int):
             click_cell_raw(row, col)
-            state["prev_hash"], saved = process_cell(
-                tab_key, capture_panel, run_ocr, writer, state["prev_hash"])
+            try:
+                state["prev_hash"], saved = process_cell(
+                    tab_key, capture_panel, run_ocr, writer, state["prev_hash"])
+            except IOError as exc:
+                # A single failed disk write (rare) shouldn't abort a long,
+                # semi-unattended run — log it and keep walking the grid.
+                print(f"WARNING: skipped a cell at row={row} col={col}: {exc}")
+                return
             if saved:
                 state["saved_count"] += 1
 
-        pages = walk_grid(
+        pages, hit_cap = walk_grid(
             rows_per_page=GRID_ROWS_PER_PAGE,
             cols=GRID_COLS,
             click_cell=click_and_process,
             capture_grid=capture_grid_hash,
             scroll_page=scroll_page,
         )
+        if hit_cap:
+            print("WARNING: hit the walk_grid page safety cap without the grid ever "
+                  "stabilizing — scroll/grid calibration is likely off and some stones "
+                  "were probably missed. Try --calibrate and re-check GRID_AREA_FRAC / "
+                  "the scroll amount in scroll_page().")
         print(f"Done. {pages} page(s) walked, {state['saved_count']} stone(s) "
               f"saved to {out_dir / tab_key}.")
 
