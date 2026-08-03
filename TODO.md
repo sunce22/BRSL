@@ -47,7 +47,7 @@ _Last updated: 2026-05-29_
 
 ### Panel / Twitch Extension `🌐`
 
-- [ ] **Прибрати donate-посилання з Twitch Panel** `🌐` — залишити тільки Discord/Twitch/YouTube.
+- [x] **Прибрати donate-посилання з Twitch Panel** `🌐` — залишити тільки Discord/Twitch/YouTube.
 
 - [ ] **Test feedback form in production Twitch extension context** `🔒+🌐`
   Twitch extension iframe has a strict CSP. Confirm that `fetch()` to the CF Worker
