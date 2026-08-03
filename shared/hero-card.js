@@ -1,7 +1,7 @@
 // shared/hero-card.js
 import { escapeHtml, slugToLabel } from './utils.js';
 import { highlightDescription } from './effect-descriptions.js';
-import { effectLabel, t } from './i18n.js';
+import { effectLabel, t, getLang } from './i18n.js';
 
 export function heroGuideSlug(name) {
   return name
@@ -86,7 +86,7 @@ function renderSkill(skill) {
   <div class="skill__header">
     <span class="skill__name">${escapeHtml(skill.name)}</span>${cdHtml}
   </div>
-  <p class="skill__description">${highlightDescription(skill.description)}</p>
+  <p class="skill__description">${highlightDescription(skill.description, getLang())}</p>
   ${effectTagsHtml}
 </div>`.trim();
 }

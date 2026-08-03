@@ -123,9 +123,105 @@ export const EFFECT_DESCRIPTIONS = {
   transfer_debuff:      'Moves one or more debuffs from the caster or allies onto the enemy target. Transferred debuffs retain their remaining duration. Requires Accuracy to land.',
 };
 
+// Ukrainian game effect name → slug pairs (nominative, accusative, genitive forms).
+// Sorted longest-first so longer patterns take priority over shorter prefix matches.
+const _UA_PAIRS_RAW = [
+  ["Вразливість до отрути",  'poison_sensitivity'],
+  ["Відродження при смерті", 'revive_on_death'],
+  ["Блок активних навичок",  'block_active_skills'],
+  ["Блок пасивних навичок",  'block_passive_skills'],
+  ["Випалювання здоров'я",   'hp_burn'],
+  ["Бездоганної завіси",     'perfect_veil'],
+  ["Поширення штрафів",      'spread_debuff'],
+  ["Захист союзників",       'ally_protect'],
+  ["Бездоганну завісу",      'perfect_veil'],
+  ["Бездоганна завіса",      'perfect_veil'],
+  ["Справдешній страх",      'true_fear'],
+  ["Збільшення К.ШКД",       'increase_cd'],
+  ["Зменшення К.ШКД",        'decrease_cd'],
+  ["Збільшення К.ШНС",       'increase_cr'],
+  ["Зменшення К.ШНС",        'decrease_cr'],
+  ["Відбиття шкоди",         'reflect_damage'],
+  ["Захист союзника",        'ally_protect'],
+  ["Штраф лікування",        'heal_reduction'],
+  ["Збільшення ОПР",         'increase_res'],
+  ["Збільшення ЗАХ",         'increase_def'],
+  ["Збільшення АТК",         'increase_atk'],
+  ["Збільшення ШВД",         'speed_buff'],
+  ["Збільшення ТЧН",         'increase_acc'],
+  ["Блок оживлення",         'block_revive'],
+  ["Щит союзників",          'ally_protect'],
+  ["Зменшення ОПР",          'decrease_res'],
+  ["Зменшення ЗАХ",          'decrease_def'],
+  ["Зменшення АТК",          'decrease_atk'],
+  ["Зменшення ШВД",          'decrease_spd'],
+  ["Зменшення ТЧН",          'decrease_acc'],
+  ["Блок бонусів",           'block_buffs'],
+  ["Блок штрафів",           'block_debuffs'],
+  ["Регенерацію",            'heal'],
+  ["Регенерації",            'heal'],
+  ["Замороження",            'freeze'],
+  ["Невмирання",             'unkillable'],
+  ["Глузування",             'taunt'],
+  ["Замовляння",             'hex'],
+  ["Блок шкоди",             'block_damage'],
+  ["Регенерація",            'heal'],
+  ["Контратаку",             'counterattack'],
+  ["Контратаки",             'counterattack'],
+  ["Контратака",             'counterattack'],
+  ["Оглушення",              'stun'],
+  ["Провокацію",             'provoke'],
+  ["Провокація",             'provoke'],
+  ["Провокації",             'provoke'],
+  ["Посилення",              'strengthen'],
+  ["Слабкості",              'weaken'],
+  ["Слабкість",              'weaken'],
+  ["Некрозу",                'necrosis'],
+  ["Завісу",                 'veil'],
+  ["Завіса",                 'veil'],
+  ["Завіси",                 'veil'],
+  ["Некроз",                 'necrosis'],
+  ["Отруту",                 'poison'],
+  ["Отрута",                 'poison'],
+  ["Отрути",                 'poison'],
+  ["Страху",                 'fear'],
+  ["Страх",                  'fear'],
+  ["Бомбу",                  'bomb'],
+  ["Бомба",                  'bomb'],
+  ["Бомби",                  'bomb'],
+  ["Щиту",                   'shield'],
+  ["Щита",                   'shield'],
+  ["Сну",                    'sleep'],
+  ["Сні",                    'sleep'],
+  ["Щит",                    'shield'],
+  ["Сон",                    'sleep'],
+];
+const _uaPairs = _UA_PAIRS_RAW.slice().sort((a, b) => b[0].length - a[0].length);
+const _uaRe = new RegExp(
+  _uaPairs.map(([t]) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'),
+  'gu'
+);
+const _uaSlug = new Map(_uaPairs);
+
+function _highlightUA(description) {
+  let result = '';
+  let last = 0;
+  _uaRe.lastIndex = 0;
+  let m;
+  while ((m = _uaRe.exec(description)) !== null) {
+    result += escapeHtml(description.slice(last, m.index));
+    const slug = _uaSlug.get(m[0]);
+    result += `<button class="effect-tag effect-tag--inline" data-effect="${slug}">${escapeHtml(m[0])}</button>`;
+    last = m.index + m[0].length;
+  }
+  result += escapeHtml(description.slice(last));
+  return result;
+}
+
 // Replaces [Term] patterns in description with clickable buttons (if slug known)
-// or highlighted spans (unknown bracket terms).
-export function highlightDescription(description) {
+// or highlighted spans (unknown bracket terms). Pass lang='uk' for Ukrainian descriptions.
+export function highlightDescription(description, lang = 'en') {
+  if (lang === 'uk') return _highlightUA(description);
   return description.split(/(\[[^\]]+\])/).map(part => {
     if (part.startsWith('[') && part.endsWith(']')) {
       const term = part.slice(1, -1);
