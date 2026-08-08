@@ -125,8 +125,6 @@ _Last updated: 2026-05-29_
   2. `node tools/scrape-ayumilove.mjs` — завантажує нових (кеш пропускає вже відомих, ~1хв на нового героя)
   Скрейпер тепер **merge**-ить: зберігає наявні portrait URL і ручні записи (як Rhaia).
 
-- [ ] **Tikthaa Blackscale — портрет** `🔒` — hero в DB, але portrait порожній. HellHades/gestal.gg ще не мають сторінки. Перевірити пізніше та додати URL.
-
 - [ ] **Add Epic heroes** `🔒` — scraper currently filters to Legendary + Mythical only.
 
 ### Content & Data
