@@ -24,3 +24,16 @@ tools/cf-feedback-worker/.wrangler/
 # Local data assets (models, portraits, etc.)
 data/
 !data/heroes.json
+
+# Artifact stat research tools (local analysis only)
+tools/il2cpp-dump-new/
+tools/probe-static-data.py
+tools/read-artifact-bonuses.py
+tools/read-artifact-bonuses-file.py
+tools/artifact-sec-bonuses.json
+
+# Local research / technical work docs (not for repo)
+docs/
+
+# Runtime artifacts
+*.pid

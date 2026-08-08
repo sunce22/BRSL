@@ -44,8 +44,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          $env:PATH += ";C:\Program Files\GitHub CLI"
+          $env:PATH += ";C:\Program Files\GitHub CLI;$env:APPDATA\npm"
           $prompt = Get-Content ".github/dev-agent-prompt.txt" -Raw
+          Write-Host "claude path: $((Get-Command claude -ErrorAction SilentlyContinue).Source)"
           Write-Host "=== Starting Claude ==="
           claude -p $prompt --dangerously-skip-permissions
           Write-Host "=== Claude done. Exit: $LASTEXITCODE ==="
@@ -78,22 +79,28 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $env:PATH += ";C:\Program Files\GitHub CLI"
-          # Find any agent/ branch that is not main
-          $branch = git branch -r | Where-Object { $_ -match 'origin/agent/' } | Select-Object -First 1
-          if ($branch) {
-            $branch = $branch.Trim().Replace('origin/', '')
-            Write-Host "Found agent branch: $branch"
-            # Check if PR already exists
-            $existing = gh pr list --repo sunce22/BRSL --head $branch --json number --jq '.[0].number' 2>&1
-            if (-not $existing -or $existing -eq 'null') {
-              Write-Host "Creating PR for $branch"
-              gh pr create --repo sunce22/BRSL --base main --head $branch `
-                --title "Agent: $($branch -replace 'agent/\d{4}-\d{2}-\d{2}-','')" `
-                --body "Automated implementation by dev agent. Branch: $branch"
-            } else {
-              Write-Host "PR already exists: #$existing"
-            }
-          } else {
-            Write-Host "No agent branch found - Claude may have created an issue instead"
+          git fetch --prune 2>&1 | Out-Null
+          $branches = git branch -r | Where-Object { $_ -match 'origin/agent/' } | ForEach-Object { $_.Trim().Replace('origin/', '') }
+          if (-not $branches) {
+            Write-Host "No agent branches found - Claude may have created an issue instead"
             gh issue list --repo sunce22/BRSL --limit 3 2>&1
+          } else {
+            foreach ($branch in $branches) {
+              Write-Host "Checking branch: $branch"
+              $commitCount = git rev-list --count "main..$branch" 2>&1
+              if ($commitCount -eq 0) {
+                Write-Host "  No commits ahead of main - skipping"
+                continue
+              }
+              Write-Host "  $commitCount commit(s) ahead of main"
+              $existing = gh pr list --repo sunce22/BRSL --head $branch --json number --jq '.[0].number' 2>&1
+              if (-not $existing -or $existing -eq 'null') {
+                Write-Host "  Creating PR for $branch"
+                gh pr create --repo sunce22/BRSL --base main --head $branch `
+                  --title "Agent: $($branch -replace 'agent/\d{4}-\d{2}-\d{2}-','')" `
+                  --body "Automated implementation by dev agent. Branch: $branch"
+              } else {
+                Write-Host "  PR already exists: #$existing"
+              }
+            }
           }
