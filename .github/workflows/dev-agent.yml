@@ -48,7 +48,7 @@ jobs:
           $prompt = Get-Content ".github/dev-agent-prompt.txt" -Raw
           Write-Host "claude path: $((Get-Command claude -ErrorAction SilentlyContinue).Source)"
           Write-Host "=== Starting Claude ==="
-          claude -p $prompt --dangerously-skip-permissions
+          $prompt | claude -p --dangerously-skip-permissions --output-format text
           Write-Host "=== Claude done. Exit: $LASTEXITCODE ==="
           git status
           git branch
