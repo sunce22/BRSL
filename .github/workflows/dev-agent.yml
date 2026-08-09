@@ -64,10 +64,8 @@ jobs:
           if ($localBranch) {
             $localBranch = $localBranch.Trim().TrimStart('* ')
             Write-Host "Pushing local branch: $localBranch"
-            $pushOutput = git push origin "$localBranch" 2>&1
-            Write-Host "Push output: $pushOutput"
+            git push origin "$localBranch"
             Write-Host "Push exit: $LASTEXITCODE"
-            $LASTEXITCODE = 0
           } else {
             Write-Host "No local agent branch to push"
           }
@@ -79,7 +77,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $env:PATH += ";C:\Program Files\GitHub CLI"
-          git fetch --prune 2>&1 | Out-Null
+          git fetch --prune --quiet
           $branches = git branch -r | Where-Object { $_ -match 'origin/agent/' } | ForEach-Object { $_.Trim().Replace('origin/', '') }
           if (-not $branches) {
             Write-Host "No agent branches found - Claude may have created an issue instead"
