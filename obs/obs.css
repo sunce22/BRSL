@@ -202,24 +202,6 @@ html, body {
 .obs-support__link:hover { border-color: #444; }
 .obs-support__link.copied { border-color: #50a050; color: #70c870; }
 
-.obs-support__donate {
-  display: block;
-  width: 100%;
-  padding: 7px 0;
-  background: #7b4fcf;
-  border: none;
-  border-radius: var(--radius);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  font-family: var(--font);
-  text-align: center;
-  cursor: pointer;
-}
-
-.obs-support__donate:hover { background: #9060e8; }
-.obs-support__donate.copied { background: #3a7a3a; }
-
 /* Card overlay */
 .card-overlay {
   position: fixed;
